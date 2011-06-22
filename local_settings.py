@@ -6,10 +6,11 @@ import os
 settings.DEBUG = True
 settings.MEDIA_ROOT = os.path.join(settings.ROOT_DIR, "media")
 
-#~ settings.INSTALLED_APPS = settings.INSTALLED_APPS +\
-                          #~ ('smuggler',
+settings.INSTALLED_APPS = settings.INSTALLED_APPS +\
+                          ('smuggler',
                            #~ 'django_extensions',
-                           #~ 'debug_toolbar')
+                           #~ 'debug_toolbar'
+                           )
     
 settings.INTERNAL_IPS = ('127.0.0.1',)
 #settings.MIDDLEWARE_CLASSES = settings.MIDDLEWARE_CLASSES +\
