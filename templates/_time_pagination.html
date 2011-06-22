@@ -1,0 +1,24 @@
+{% load i18n %}
+<ul id="time-pagination">
+
+    {% if todays_date_is_before %}
+        <li><a href="{{ todays_date_url }}">&lt;&lt; {{ todays_date }}</a></li>
+    {% endif %}
+
+    {% if previous_date_url %}
+        <li><a href="{{ previous_date_url }}">&lt; {{ previous_date }}</a></li>
+    {% endif %}
+    
+        <li class="selected"><strong>{{ current_date}}</strong></li>
+
+    {% if next_date_url %}
+        <li><a href="{{ next_date_url }}">{{ next_date }} &gt;</a></li>
+    {% endif %}
+    
+    {% if todays_date_is_after %}
+        <li><a href="{{ todays_date_url }}">{{ todays_date }} &gt;&gt;</a></li>
+    {% endif %}
+    
+</ul>
+
+

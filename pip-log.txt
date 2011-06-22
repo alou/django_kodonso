@@ -1,0 +1,514 @@
+<<<<<<< HEAD:django-kodonso/pip-log.txt
+Downloading/unpacking pybabael
+  Getting page http://pypi.python.org/simple/pybabael
+  Could not fetch URL http://pypi.python.org/simple/pybabael: HTTP Error 404: Not Found
+  Will skip URL http://pypi.python.org/simple/pybabael when looking for download links for pybabael
+  Getting page http://pypi.python.org/simple/
+Exception:
+Traceback (most recent call last):
+  File "/home/fad/Bureau/labo/project/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/home/fad/Bureau/labo/project/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/home/fad/Bureau/labo/project/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 823, in install_files
+    url = finder.find_requirement(req_to_install, upgrade=self.upgrade)
+  File "/home/fad/Bureau/labo/project/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/index.py", line 57, in find_requirement
+    url_name = self._find_url_name(Link(self.index_urls[0]), url_name, req) or req.url_name
+  File "/home/fad/Bureau/labo/project/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/index.py", line 165, in _find_url_name
+    page = self._get_page(index_url, req)
+  File "/home/fad/Bureau/labo/project/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/index.py", line 282, in _get_page
+    return HTMLPage.get_page(link, req, cache=self.cache)
+  File "/home/fad/Bureau/labo/project/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/index.py", line 366, in get_page
+    inst = cls(resp.read(), real_url, headers)
+  File "/usr/lib/python2.6/socket.py", line 329, in read
+    data = self._sock.recv(rbufsize)
+  File "/usr/lib/python2.6/httplib.py", line 518, in read
+    return self._read_chunked(amt)
+  File "/usr/lib/python2.6/httplib.py", line 571, in _read_chunked
+    value.append(self._safe_read(amt))
+  File "/usr/lib/python2.6/httplib.py", line 615, in _safe_read
+    chunk = self.fp.read(min(amt, MAXAMOUNT))
+  File "/usr/lib/python2.6/socket.py", line 353, in read
+    data = self._sock.recv(left)
+KeyboardInterrupt
+------------------------------------------------------------
+/home/fad/Bureau/labo/project/env/bin/pip run on Thu May  6 12:03:16 2010
+=======
+>>>>>>> e720616837a412859ba9086ba67ea070a296baed:django-kodonso/pip-log.txt
+Downloading/unpacking pybabel
+  Getting page http://pypi.python.org/simple/pybabel
+  Could not fetch URL http://pypi.python.org/simple/pybabel: HTTP Error 404: Not Found
+  Will skip URL http://pypi.python.org/simple/pybabel when looking for download links for pybabel
+  Getting page http://pypi.python.org/simple/
+  URLs to search for versions for pybabel:
+  * http://pypi.python.org/simple/pybabel/
+  Getting page http://pypi.python.org/simple/pybabel/
+  Could not fetch URL http://pypi.python.org/simple/pybabel/: HTTP Error 404: Not Found
+  Will skip URL http://pypi.python.org/simple/pybabel/ when looking for download links for pybabel
+  Could not find any downloads that satisfy the requirement pybabel
+No distributions at all found for pybabel
+Exception information:
+Traceback (most recent call last):
+<<<<<<< HEAD:django-kodonso/pip-log.txt
+  File "/home/fad/Bureau/labo/project/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/home/fad/Bureau/labo/project/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/home/fad/Bureau/labo/project/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 823, in install_files
+    url = finder.find_requirement(req_to_install, upgrade=self.upgrade)
+  File "/home/fad/Bureau/labo/project/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/index.py", line 117, in find_requirement
+=======
+  File "/home/lassana/Bureau/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/home/lassana/Bureau/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/home/lassana/Bureau/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 823, in install_files
+    url = finder.find_requirement(req_to_install, upgrade=self.upgrade)
+  File "/home/lassana/Bureau/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/index.py", line 117, in find_requirement
+>>>>>>> e720616837a412859ba9086ba67ea070a296baed:django-kodonso/pip-log.txt
+    raise DistributionNotFound('No distributions at all found for %s' % req)
+DistributionNotFound: No distributions at all found for pybabel
+------------------------------------------------------------
+/home/lassana/Bureau/env/bin/pip run on Thu May  6 12:02:12 2010
+Downloading/unpacking pybabel
+  Getting page http://pypi.python.org/simple/pybabel
+  Could not fetch URL http://pypi.python.org/simple/pybabel: HTTP Error 404: Not Found
+  Will skip URL http://pypi.python.org/simple/pybabel when looking for download links for pybabel
+  Getting page http://pypi.python.org/simple/
+  URLs to search for versions for pybabel:
+  * http://pypi.python.org/simple/pybabel/
+  Getting page http://pypi.python.org/simple/pybabel/
+  Could not fetch URL http://pypi.python.org/simple/pybabel/: HTTP Error 404: Not Found
+  Will skip URL http://pypi.python.org/simple/pybabel/ when looking for download links for pybabel
+  Could not find any downloads that satisfy the requirement pybabel
+No distributions at all found for pybabel
+Exception information:
+Traceback (most recent call last):
+  File "/home/lassana/Bureau/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/home/lassana/Bureau/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/home/lassana/Bureau/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 823, in install_files
+    url = finder.find_requirement(req_to_install, upgrade=self.upgrade)
+  File "/home/lassana/Bureau/env/lib/python2.6/site-packages/pip-0.6.3-py2.6.egg/pip/index.py", line 117, in find_requirement
+    raise DistributionNotFound('No distributions at all found for %s' % req)
+DistributionNotFound: No distributions at all found for pybabel
+------------------------------------------------------------
+/usr/local/bin/pip run on Fri May 21 09:02:25 2010
+Downloading/unpacking babel
+  Getting page http://pypi.python.org/simple/babel
+  URLs to search for versions for babel:
+  * http://pypi.python.org/simple/babel/
+  Getting page http://pypi.python.org/simple/babel/
+  Getting page http://babel.edgewall.org/
+  Getting page http://babel.edgewall.org/wiki/Download
+  Analyzing links from page http://pypi.python.org/simple/Babel/
+    Skipping link http://babel.edgewall.org/ (from http://pypi.python.org/simple/Babel/); not a file
+    Skipping link http://babel.edgewall.org/wiki/Download (from http://pypi.python.org/simple/Babel/); not a file
+  Analyzing links from page http://babel.edgewall.org/
+    Skipping link http://babel.edgewall.org/search (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/TracGuide (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/WikiStart?format=txt (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki (from http://babel.edgewall.org/); not a file
+    Skipping link http://www.edgewall.org/chrome/common11/css/trac.css (from http://babel.edgewall.org/); unknown archive format: .css
+    Skipping link http://www.edgewall.org/chrome/common11/css/wiki.css (from http://babel.edgewall.org/); unknown archive format: .css
+    Skipping link http://babel.edgewall.org/chrome/common/trac.ico (from http://babel.edgewall.org/); unknown archive format: .ico
+    Skipping link http://babel.edgewall.org/search/opensearch (from http://babel.edgewall.org/); not a file
+    Skipping link http://www.edgewall.org/css/projects.css (from http://babel.edgewall.org/); unknown archive format: .css
+    Skipping link http://www.edgewall.org/ (from http://babel.edgewall.org/); not a file
+    Skipping link http://trac.edgewall.org/ (from http://babel.edgewall.org/); not a file
+    Skipping link http://genshi.edgewall.org/ (from http://babel.edgewall.org/); not a file
+    Skipping link http://bitten.edgewall.org/ (from http://babel.edgewall.org/); not a file
+    Skipping link http://posterity.edgewall.org/ (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/Documentation (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/MailingList (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/License (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/BabelFaq (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/login (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/prefs (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/about (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/timeline (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/roadmap (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/browser (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/query (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/newticket (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/WikiStart (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/TitleIndex (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/WikiStart?action=history (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/WikiStart?action=diff&amp;version=7 (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/BabelPlugins (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/Documentation/index.html (from http://babel.edgewall.org/); unknown archive format: .html
+    Skipping link http://babel.edgewall.org/wiki/Documentation/0.8/index.html (from http://babel.edgewall.org/); unknown archive format: .html
+    Skipping link http://babel.edgewall.org/wiki/Documentation/0.9/index.html (from http://babel.edgewall.org/); unknown archive format: .html
+    Skipping link http://babel.edgewall.org/wiki/ApiDocs (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/ApiDocs/0.8 (from http://babel.edgewall.org/); unknown archive format: .8
+    Skipping link http://babel.edgewall.org/wiki/ApiDocs/0.9 (from http://babel.edgewall.org/); unknown archive format: .9
+    Skipping link http://epydoc.sourceforge.net/ (from http://babel.edgewall.org/); not a file
+    Skipping link http://svn.edgewall.org/repos/babel/ (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/SubversionCheckout (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/IrcChannel (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/BabelTeam (from http://babel.edgewall.org/); not a file
+    Skipping link http://www.python.org/ (from http://babel.edgewall.org/); not a file
+    Skipping link mailto:info@edgewall.com (from http://babel.edgewall.org/); unknown archive format: .com
+  Analyzing links from page http://babel.edgewall.org/wiki/Download
+    Skipping link http://babel.edgewall.org/wiki/Download?format=txt (from http://babel.edgewall.org/wiki/Download); not a file
+    Skipping link http://babel.edgewall.org/wiki/Download?action=history (from http://babel.edgewall.org/wiki/Download); not a file
+    Skipping link http://babel.edgewall.org/wiki/Download?action=diff&amp;version=14 (from http://babel.edgewall.org/wiki/Download); not a file
+    Skipping link http://peak.telecommunity.com/DevCenter/setuptools (from http://babel.edgewall.org/wiki/Download); not a file
+    Skipping link http://babel.edgewall.org/browser/tags/0.9.5/ChangeLog (from http://babel.edgewall.org/wiki/Download); not a file
+    Skipping link ftp://ftp.edgewall.com/pub/babel (from http://babel.edgewall.org/wiki/Download); not a file
+    Skipping link http://babel.edgewall.org/browser/tags/0.9.5/INSTALL.txt (from http://babel.edgewall.org/wiki/Download); unknown archive format: .txt
+    Found link http://ftp.edgewall.com/pub/babel/Babel-0.9.5.tar.gz (from http://babel.edgewall.org/wiki/Download), version: 0.9.5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5.tar.gz.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Found link http://ftp.edgewall.com/pub/babel/Babel-0.9.5.zip (from http://babel.edgewall.org/wiki/Download), version: 0.9.5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5.zip.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://peak.telecommunity.com/DevCenter/PythonEggs (from http://babel.edgewall.org/wiki/Download); not a file
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5-py2.4.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5-py2.4.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5-py2.5.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5-py2.5.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5-py2.6.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5-py2.6.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5.win32.exe (from http://babel.edgewall.org/wiki/Download); unknown archive format: .exe
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5.win32.exe.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://subversion.tigris.org/ (from http://babel.edgewall.org/wiki/Download); not a file
+    Skipping link http://webdav.org/ (from http://babel.edgewall.org/wiki/Download); not a file
+    Found link http://ftp.edgewall.com/pub/babel/Babel-0.9.4.tar.gz (from http://babel.edgewall.org/wiki/Download), version: 0.9.4
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4.tar.gz.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Found link http://ftp.edgewall.com/pub/babel/Babel-0.9.4.zip (from http://babel.edgewall.org/wiki/Download), version: 0.9.4
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4.zip.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4-py2.3.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4-py2.3.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4-py2.4.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4-py2.4.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4-py2.5.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4-py2.5.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4-py2.6.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4-py2.6.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4.win32.exe (from http://babel.edgewall.org/wiki/Download); unknown archive format: .exe
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4.win32.exe.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Found link http://ftp.edgewall.com/pub/babel/Babel-0.9.3.tar.gz (from http://babel.edgewall.org/wiki/Download), version: 0.9.3
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3.tar.gz.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Found link http://ftp.edgewall.com/pub/babel/Babel-0.9.3.zip (from http://babel.edgewall.org/wiki/Download), version: 0.9.3
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3.zip.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3-py2.3.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3-py2.3.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3-py2.4.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3-py2.4.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3-py2.5.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3-py2.5.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3-py2.6.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3-py2.6.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3.win32.exe (from http://babel.edgewall.org/wiki/Download); unknown archive format: .exe
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3.win32.exe.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+  Using version 0.9.5 (newest of versions: 0.9.5, 0.9.5, 0.9.4, 0.9.4, 0.9.3, 0.9.3)
+  Downloading from URL http://ftp.edgewall.com/pub/babel/Babel-0.9.5.tar.gz (from http://babel.edgewall.org/wiki/Download)
+Exception:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 830, in install_files
+    self.unpack_url(url, location, self.is_download)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 1015, in unpack_url
+    self.unpack_file(temp_location, location, content_type, link)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 1057, in unpack_file
+    self.untar_file(filename, location)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 1116, in untar_file
+    leading = has_leading_dir([member.name for member in tar.getmembers()])
+  File "/usr/lib/python2.6/tarfile.py", line 1798, in getmembers
+    self._load()        # all members, we first have to
+  File "/usr/lib/python2.6/tarfile.py", line 2359, in _load
+    tarinfo = self.next()
+  File "/usr/lib/python2.6/tarfile.py", line 2314, in next
+    self.fileobj.seek(self.offset)
+  File "/usr/lib/python2.6/gzip.py", line 382, in seek
+    self.read(1024)
+  File "/usr/lib/python2.6/gzip.py", line 219, in read
+    self._read(readsize)
+  File "/usr/lib/python2.6/gzip.py", line 267, in _read
+    self._read_eof()
+  File "/usr/lib/python2.6/gzip.py", line 304, in _read_eof
+    hex(self.crc)))
+IOError: CRC check failed 0x2201dae8 != 0xddab9f4L
+------------------------------------------------------------
+/usr/local/bin/pip run on Fri May 21 09:08:38 2010
+Downloading/unpacking babel
+  Getting page http://pypi.python.org/simple/babel
+  URLs to search for versions for babel:
+  * http://pypi.python.org/simple/babel/
+  Getting page http://pypi.python.org/simple/babel/
+  Getting page http://babel.edgewall.org/
+  Getting page http://babel.edgewall.org/wiki/Download
+  Analyzing links from page http://pypi.python.org/simple/Babel/
+    Skipping link http://babel.edgewall.org/ (from http://pypi.python.org/simple/Babel/); not a file
+    Skipping link http://babel.edgewall.org/wiki/Download (from http://pypi.python.org/simple/Babel/); not a file
+  Analyzing links from page http://babel.edgewall.org/
+    Skipping link http://babel.edgewall.org/search (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/TracGuide (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/WikiStart?format=txt (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki (from http://babel.edgewall.org/); not a file
+    Skipping link http://www.edgewall.org/chrome/common11/css/trac.css (from http://babel.edgewall.org/); unknown archive format: .css
+    Skipping link http://www.edgewall.org/chrome/common11/css/wiki.css (from http://babel.edgewall.org/); unknown archive format: .css
+    Skipping link http://babel.edgewall.org/chrome/common/trac.ico (from http://babel.edgewall.org/); unknown archive format: .ico
+    Skipping link http://babel.edgewall.org/search/opensearch (from http://babel.edgewall.org/); not a file
+    Skipping link http://www.edgewall.org/css/projects.css (from http://babel.edgewall.org/); unknown archive format: .css
+    Skipping link http://www.edgewall.org/ (from http://babel.edgewall.org/); not a file
+    Skipping link http://trac.edgewall.org/ (from http://babel.edgewall.org/); not a file
+    Skipping link http://genshi.edgewall.org/ (from http://babel.edgewall.org/); not a file
+    Skipping link http://bitten.edgewall.org/ (from http://babel.edgewall.org/); not a file
+    Skipping link http://posterity.edgewall.org/ (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/Documentation (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/MailingList (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/License (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/BabelFaq (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/login (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/prefs (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/about (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/timeline (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/roadmap (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/browser (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/query (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/newticket (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/WikiStart (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/TitleIndex (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/WikiStart?action=history (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/WikiStart?action=diff&amp;version=7 (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/BabelPlugins (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/Documentation/index.html (from http://babel.edgewall.org/); unknown archive format: .html
+    Skipping link http://babel.edgewall.org/wiki/Documentation/0.8/index.html (from http://babel.edgewall.org/); unknown archive format: .html
+    Skipping link http://babel.edgewall.org/wiki/Documentation/0.9/index.html (from http://babel.edgewall.org/); unknown archive format: .html
+    Skipping link http://babel.edgewall.org/wiki/ApiDocs (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/ApiDocs/0.8 (from http://babel.edgewall.org/); unknown archive format: .8
+    Skipping link http://babel.edgewall.org/wiki/ApiDocs/0.9 (from http://babel.edgewall.org/); unknown archive format: .9
+    Skipping link http://epydoc.sourceforge.net/ (from http://babel.edgewall.org/); not a file
+    Skipping link http://svn.edgewall.org/repos/babel/ (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/SubversionCheckout (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/IrcChannel (from http://babel.edgewall.org/); not a file
+    Skipping link http://babel.edgewall.org/wiki/BabelTeam (from http://babel.edgewall.org/); not a file
+    Skipping link http://www.python.org/ (from http://babel.edgewall.org/); not a file
+    Skipping link mailto:info@edgewall.com (from http://babel.edgewall.org/); unknown archive format: .com
+  Analyzing links from page http://babel.edgewall.org/wiki/Download
+    Skipping link http://babel.edgewall.org/wiki/Download?format=txt (from http://babel.edgewall.org/wiki/Download); not a file
+    Skipping link http://babel.edgewall.org/wiki/Download?action=history (from http://babel.edgewall.org/wiki/Download); not a file
+    Skipping link http://babel.edgewall.org/wiki/Download?action=diff&amp;version=14 (from http://babel.edgewall.org/wiki/Download); not a file
+    Skipping link http://peak.telecommunity.com/DevCenter/setuptools (from http://babel.edgewall.org/wiki/Download); not a file
+    Skipping link http://babel.edgewall.org/browser/tags/0.9.5/ChangeLog (from http://babel.edgewall.org/wiki/Download); not a file
+    Skipping link ftp://ftp.edgewall.com/pub/babel (from http://babel.edgewall.org/wiki/Download); not a file
+    Skipping link http://babel.edgewall.org/browser/tags/0.9.5/INSTALL.txt (from http://babel.edgewall.org/wiki/Download); unknown archive format: .txt
+    Found link http://ftp.edgewall.com/pub/babel/Babel-0.9.5.tar.gz (from http://babel.edgewall.org/wiki/Download), version: 0.9.5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5.tar.gz.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Found link http://ftp.edgewall.com/pub/babel/Babel-0.9.5.zip (from http://babel.edgewall.org/wiki/Download), version: 0.9.5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5.zip.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://peak.telecommunity.com/DevCenter/PythonEggs (from http://babel.edgewall.org/wiki/Download); not a file
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5-py2.4.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5-py2.4.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5-py2.5.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5-py2.5.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5-py2.6.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5-py2.6.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5.win32.exe (from http://babel.edgewall.org/wiki/Download); unknown archive format: .exe
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.5.win32.exe.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://subversion.tigris.org/ (from http://babel.edgewall.org/wiki/Download); not a file
+    Skipping link http://webdav.org/ (from http://babel.edgewall.org/wiki/Download); not a file
+    Found link http://ftp.edgewall.com/pub/babel/Babel-0.9.4.tar.gz (from http://babel.edgewall.org/wiki/Download), version: 0.9.4
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4.tar.gz.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Found link http://ftp.edgewall.com/pub/babel/Babel-0.9.4.zip (from http://babel.edgewall.org/wiki/Download), version: 0.9.4
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4.zip.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4-py2.3.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4-py2.3.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4-py2.4.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4-py2.4.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4-py2.5.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4-py2.5.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4-py2.6.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4-py2.6.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4.win32.exe (from http://babel.edgewall.org/wiki/Download); unknown archive format: .exe
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.4.win32.exe.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Found link http://ftp.edgewall.com/pub/babel/Babel-0.9.3.tar.gz (from http://babel.edgewall.org/wiki/Download), version: 0.9.3
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3.tar.gz.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Found link http://ftp.edgewall.com/pub/babel/Babel-0.9.3.zip (from http://babel.edgewall.org/wiki/Download), version: 0.9.3
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3.zip.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3-py2.3.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3-py2.3.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3-py2.4.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3-py2.4.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3-py2.5.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3-py2.5.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3-py2.6.egg (from http://babel.edgewall.org/wiki/Download); unknown archive format: .egg
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3-py2.6.egg.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3.win32.exe (from http://babel.edgewall.org/wiki/Download); unknown archive format: .exe
+    Skipping link http://ftp.edgewall.com/pub/babel/Babel-0.9.3.win32.exe.md5 (from http://babel.edgewall.org/wiki/Download); unknown archive format: .md5
+  Using version 0.9.5 (newest of versions: 0.9.5, 0.9.5, 0.9.4, 0.9.4, 0.9.3, 0.9.3)
+  Downloading from URL http://ftp.edgewall.com/pub/babel/Babel-0.9.5.tar.gz (from http://babel.edgewall.org/wiki/Download)
+  Running setup.py egg_info for package babel
+    Traceback (most recent call last):
+      File "<string>", line 3, in <module>
+    ImportError: No module named setuptools.command
+    Complete output from command python setup.py egg_info:
+    Traceback (most recent call last):
+
+  File "<string>", line 3, in <module>
+
+ImportError: No module named setuptools.command
+
+----------------------------------------
+Command python setup.py egg_info failed with error code 1
+Exception information:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 854, in install_files
+    req_to_install.run_egg_info()
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 205, in run_egg_info
+    command_desc='python setup.py egg_info')
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/__init__.py", line 207, in call_subprocess
+    % (command_desc, proc.returncode))
+InstallationError: Command python setup.py egg_info failed with error code 1
+------------------------------------------------------------
+/usr/local/bin/pip run on Fri May 21 09:13:06 2010
+Downloading/unpacking babel
+  Running setup.py egg_info for package babel
+    Traceback (most recent call last):
+      File "<string>", line 3, in <module>
+    ImportError: No module named setuptools.command
+    Complete output from command python setup.py egg_info:
+    Traceback (most recent call last):
+
+  File "<string>", line 3, in <module>
+
+ImportError: No module named setuptools.command
+
+----------------------------------------
+Command python setup.py egg_info failed with error code 1
+Exception information:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 854, in install_files
+    req_to_install.run_egg_info()
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 205, in run_egg_info
+    command_desc='python setup.py egg_info')
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/__init__.py", line 207, in call_subprocess
+    % (command_desc, proc.returncode))
+InstallationError: Command python setup.py egg_info failed with error code 1
+------------------------------------------------------------
+/usr/local/bin/pip run on Fri May 21 09:13:35 2010
+Downloading/unpacking babel
+  Running setup.py egg_info for package babel
+    Traceback (most recent call last):
+      File "<string>", line 3, in <module>
+    ImportError: No module named setuptools.command
+    Complete output from command python setup.py egg_info:
+    Traceback (most recent call last):
+
+  File "<string>", line 3, in <module>
+
+ImportError: No module named setuptools.command
+
+----------------------------------------
+Command python setup.py egg_info failed with error code 1
+Exception information:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 854, in install_files
+    req_to_install.run_egg_info()
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 205, in run_egg_info
+    command_desc='python setup.py egg_info')
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/__init__.py", line 207, in call_subprocess
+    % (command_desc, proc.returncode))
+InstallationError: Command python setup.py egg_info failed with error code 1
+------------------------------------------------------------
+/usr/local/bin/pip run on Fri May 21 09:14:50 2010
+Cannot uninstall requirement babel, not installed
+Exception information:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/commands/uninstall.py", line 37, in run
+    requirement_set.uninstall(auto_confirm=options.yes)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 763, in uninstall
+    req.uninstall(auto_confirm=auto_confirm)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 378, in uninstall
+    raise UninstallationError("Cannot uninstall requirement %s, not installed" % (self.name,))
+UninstallationError: Cannot uninstall requirement babel, not installed
+------------------------------------------------------------
+/usr/local/bin/pip run on Fri May 21 09:15:13 2010
+Cannot uninstall requirement babel, not installed
+Exception information:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/commands/uninstall.py", line 37, in run
+    requirement_set.uninstall(auto_confirm=options.yes)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 763, in uninstall
+    req.uninstall(auto_confirm=auto_confirm)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 378, in uninstall
+    raise UninstallationError("Cannot uninstall requirement %s, not installed" % (self.name,))
+UninstallationError: Cannot uninstall requirement babel, not installed
+------------------------------------------------------------
+/usr/local/bin/pip run on Fri May 21 09:15:24 2010
+Downloading/unpacking babel
+  Running setup.py egg_info for package babel
+    Traceback (most recent call last):
+      File "<string>", line 3, in <module>
+    ImportError: No module named setuptools.command
+    Complete output from command python setup.py egg_info:
+    Traceback (most recent call last):
+
+  File "<string>", line 3, in <module>
+
+ImportError: No module named setuptools.command
+
+----------------------------------------
+Command python setup.py egg_info failed with error code 1
+Exception information:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 854, in install_files
+    req_to_install.run_egg_info()
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 205, in run_egg_info
+    command_desc='python setup.py egg_info')
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/__init__.py", line 207, in call_subprocess
+    % (command_desc, proc.returncode))
+InstallationError: Command python setup.py egg_info failed with error code 1
+------------------------------------------------------------
+/usr/local/bin/pip run on Fri May 21 09:16:16 2010
+Downloading/unpacking babel
+  Running setup.py egg_info for package babel
+    Traceback (most recent call last):
+      File "<string>", line 3, in <module>
+    ImportError: No module named setuptools.command
+    Complete output from command python setup.py egg_info:
+    Traceback (most recent call last):
+
+  File "<string>", line 3, in <module>
+
+ImportError: No module named setuptools.command
+
+----------------------------------------
+Command python setup.py egg_info failed with error code 1
+Exception information:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/basecommand.py", line 115, in main
+    self.run(options, args)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/commands/install.py", line 155, in run
+    requirement_set.install_files(finder, force_root_egg_info=self.bundle, bundle=self.bundle)
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 854, in install_files
+    req_to_install.run_egg_info()
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/req.py", line 205, in run_egg_info
+    command_desc='python setup.py egg_info')
+  File "/usr/local/lib/python2.6/dist-packages/pip-0.6.3-py2.6.egg/pip/__init__.py", line 207, in call_subprocess
+    % (command_desc, proc.returncode))
+InstallationError: Command python setup.py egg_info failed with error code 1

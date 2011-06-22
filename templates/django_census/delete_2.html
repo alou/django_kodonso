@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}Suppresion de rapport{% endblock %}
+{% block page-id %}census-delete{% endblock %}
+
+{% block content %}
+
+<!--
+    <div id="header">
+        <div id="menu">
+            <ul>
+                <li class="first"><a href="{% url kodonso-home %}">{% trans "Home" %}</a></li>
+                <li <a href="{% url census-dashboard %}">{% trans "Abstract" %}</a></li>
+                <li ><a href="{% url census-all %}">{% trans "All absences" %}</a></li>
+                <li ><a href="{% url census-report-management %}">{% trans "Reports Management" %}</a></li>
+                <li ><a href="{% url census_raport_pdf %}">{% trans "Summary" %}</a></li>
+            </ul>
+        </div>        
+        <div id="login" class=" prepend-17">
+                {% trans "Welcome" %} {{ user.username }}
+                <a href="{% url logout_%}">{% trans "Disconnect" %}</a> 
+                <a href="{% url administration %}">{% trans "manage" %}</a>
+        </div>
+-->
+            
+            <div id="global-report" class="container">
+            <h1>{% trans "Do you want to delete this report" %}</h1>
+            <div id="id_tab">
+                <table>
+                    <tr>
+                        <th>{% trans "Places" %}</th>
+                        <th>{% trans "Schools" %}</th>
+                        <th>{% trans "Classes" %}</th>
+                        <th>{% trans "Boys" %}</th>
+                        <th>{% trans "Girls" %}</th>
+                        <th>{% trans "Teachers" %}</th>
+                        <th>{% trans "Date" %}</th>
+                        
+                    <tr>
+                        <td>
+                            {{ report.school_class.school.village }}
+                        </td>
+                        <td>
+                            {{ report.school_class.school }}
+                        </td>
+                        <td>
+                            {{ report.school_class.grade }} 
+                            ({{ report.school_class.begin_year }}
+                            -{{ report.school_class.end_year }}) 
+                        </td>
+                        <td>
+                            {{ report.boys_absentees }}
+                            /{{ report.school_class.boys_count }}
+                        </td>
+                        <td>
+                            {{ report.girls_absentees }} 
+                            / {{ report.school_class.girls_count }}
+                        </td>
+                        <td>{{ report.school_class.teachers_count }}</td>
+                        <td>{{ report.date|date:"d b Y" }}</td>
+                    </tr>
+                        
+                </table>
+                    <h6>
+                        <p class='prepend-0'></p>
+                        <a class='prepend-10' href="{% url census-report-training %}" >{% trans "NO" %}</a>
+                        <span>
+                            <a class='prepend-3' href="{{report.url_delete_2}}" >{% trans "YES" %}</a>
+                        </span>
+                    </h6>
+            </div>
+        </div>
+    </div>
+{% endblock %}

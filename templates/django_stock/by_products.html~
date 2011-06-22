@@ -1,0 +1,93 @@
+<div id="header">
+    <div id="menu">
+        <ul>
+            <li class="first"><a href="/home/">Acceuil</a></li>
+            <li><a href="/stock/dashboard">Resumé</a></li>
+            <li><a href="/stock/all/">Tous les Stocks</a></li>
+            <li><a href="/stock/report_management/">Gestion des Rapports</a></li>        
+        </ul>
+    </div>
+    {% extends "base.html" %}
+
+    {% block title %}Stocks de {{ village.name }} par denrées &lt; Stock &lt; Kodonso{% endblock %}
+
+    {% block page-id %}stock-by-products{% endblock %}
+
+    {% block content %}
+
+
+        <div id="login"class="prepend-17">
+            Bienvenue {{ user.username }}
+            <a href="{% url logout_%}">Deconnecter</a>
+             <a href="{% url administration %}">Administrer</a>
+        </div>
+
+        <h1>Stocks de {{ village.name }} par denrées</h1>
+    
+        <div id="main-content" class="span-24 last">
+    
+            {% include "_duration_pagination.html" %}
+
+            {% include "_navigation_form.html" %}
+
+        <table  class="span-18 last">
+             
+            <caption>
+                   {% include "_time_pagination.html" %}
+            </caption>
+            
+            <tr>
+                <th>Denrées</th>
+                <th>Entrées</th>
+                <th>Sorties</th>
+                <th>Stocks restants</th>
+            </tr>
+            
+            {% for report in reports_by_product %}
+                <tr>
+                       <td>
+                       {% if duration %}
+                           <a href="{% url stock-by-places report.id_, report.product|slugify, year, duration, duration_number %}">
+                               {{report.product}}
+                           <a/>
+                        {% else %}
+                        <a href="{% url stock-by-places report.id_, report.product|slugify, year %}">
+                              {{report.product}}
+                        {% endif %}
+                        
+                        </td>
+                        <td>{{ report.incomming }} t</td>
+                        <td>{{ report.consumption }} t</td>
+                        <td>{{ report.remaining }} t</td>
+                        {% empty %}
+                            <tr>
+                                <td colspan="4">{{ in_empty_case }}  <a href="{% url stock-report-management %}" class = "prepend-2"> Ajouter un relevé</a></td>
+                            </tr>            
+                </tr>
+            {%endfor%}
+        
+            {% if not in_empty_case  %} 
+                <tfoot> 
+                    <tr>
+                        <td >Total</td>
+                        <td> {{ total_incomming|floatformat:0 }} t</td>
+                        <td> {{ total_consumption|floatformat:0 }} t</td>
+                        <td> {{ total_remaining|floatformat:0 }} t</td>        
+                    </tr>
+                </tfoot>
+            {%endif%}
+            
+        </table>
+            
+           
+        {% if duration %} 
+            <a class="prepend-17" href="{% url by_products_csv place.id, place.name|slugify year, duration, duration_number %}">Télécharger ces données au format CSV</a>
+            {% else %}
+            <a class="prepend-17" href="{% url by_products_csv place.id, place.name|slugify year %}">Télécharger ces données au format CSV</a>
+            {% endif %}
+
+    {% endblock %}
+     
+ </div>
+
+

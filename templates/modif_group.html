@@ -1,0 +1,69 @@
+
+    {% extends "base.html" %}
+    {% load i18n %}
+    {% block title %}Modif-Suppr d'un compte d'utilisateur{% endblock %}
+    {% block page-id %}modif_group{% endblock %}
+    {% block content %}
+    
+    
+    <div id="menu">
+        <ul>
+            <li class="first"><a href="{% url kodonso-home %}">{% trans "Home" %}</a></li>
+        </ul>
+    </div>
+           
+    <div id="login" class=" prepend-17" >
+            {% trans "Welcome" %} {{ user.username }}
+            <a href="{% url logout_%}">{% trans "Disconnect" %}</a> 
+            <a href="{% url administration %}">{% trans "manage" %}</a>
+    </div>
+
+    <h1>{% trans "User account edit " %} : {{ util }}</h1>
+    <div id='save'>
+        <form  method="post" action="">
+            <fieldset class="module aligned ">
+
+                <table >
+                 
+                    <tr>
+                        <td>Census Reporter</td><td>Census Admin</td><td>Visiteur</td><td>Census_Data_Entry</td>
+                    </tr>            
+                    <tr>
+                       {% if cocher_census_report %}
+                       <td><input type="checkbox" checked class="action-select"  name="census_reporter" /></td>
+                       {% else %}
+                       <td><input type="checkbox" class="action-select"  name="census_reporter" /></td>
+                       {% endif %}
+                       {% if cocher_census_admin %}
+                       <td><input type="checkbox" checked class="action-select"  name="census_admin" /></td>
+                       {% else %}
+                       <td><input type="checkbox" class="action-select"  name="census_admin" /></td>
+                       {% endif %}
+                       {% if cocher_visiteur %}
+                       <td><input type="checkbox" checked class="action-select"  name="visiteur" /></td>
+                       {% else %}
+                       <td><input type="checkbox" class="action-select"  name="visiteur" /></td>
+                       {% endif %}
+                       {% if cocher_census_data_entry %}
+                       <td><input type="checkbox" checked class="action-select"  name="census_data_entry" /></td>
+                       {% else %}
+                       <td><input type="checkbox" class="action-select"  name="census_data_entry" /></td>
+                       {% endif %}
+                    </tr>
+                </table>
+            </fieldset>
+            <div id="modif">
+            <fieldset class="module aligned ">
+                {% for field in form %}<br/>
+                    {{ field.label_tag}}{{ field }}
+                    {% if field.errors %}
+                    <img id = 'image'  src="/static/css/images/Warning.png" width="15" height="15" title="{% for error in field.errors %}{{ error }}{% endfor %}" />
+                {% endif %}{% endfor %}<br/>
+            </fieldset>
+            </div>
+           <span> <input href='{% url administration %}' type="submit"  value="{% trans 'Save' %}" class="default" name="_save" /></span>
+
+        </form>
+    </div>
+    {% endblock %}
+

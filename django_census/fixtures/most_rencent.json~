@@ -1,0 +1,3470 @@
+[
+    {
+        "pk": 22, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_logentry", 
+            "name": "Can add log entry", 
+            "content_type": 8
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_logentry", 
+            "name": "Can change log entry", 
+            "content_type": 8
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_logentry", 
+            "name": "Can delete log entry", 
+            "content_type": 8
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_group", 
+            "name": "Can add group", 
+            "content_type": 2
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_message", 
+            "name": "Can add message", 
+            "content_type": 4
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_permission", 
+            "name": "Can add permission", 
+            "content_type": 1
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_user", 
+            "name": "Can add user", 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_group", 
+            "name": "Can change group", 
+            "content_type": 2
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_message", 
+            "name": "Can change message", 
+            "content_type": 4
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_permission", 
+            "name": "Can change permission", 
+            "content_type": 1
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_user", 
+            "name": "Can change user", 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_group", 
+            "name": "Can delete group", 
+            "content_type": 2
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_message", 
+            "name": "Can delete message", 
+            "content_type": 4
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_permission", 
+            "name": "Can delete permission", 
+            "content_type": 1
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_user", 
+            "name": "Can delete user", 
+            "content_type": 3
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_contenttype", 
+            "name": "Can add content type", 
+            "content_type": 5
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_contenttype", 
+            "name": "Can change content type", 
+            "content_type": 5
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_contenttype", 
+            "name": "Can delete content type", 
+            "content_type": 5
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_report", 
+            "name": "Can add report", 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_school", 
+            "name": "Can add school", 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_schoolclass", 
+            "name": "Can add school class", 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_village", 
+            "name": "Can add village", 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_report", 
+            "name": "Can change report", 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_school", 
+            "name": "Can change school", 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_schoolclass", 
+            "name": "Can change school class", 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_village", 
+            "name": "Can change village", 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 36, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_report", 
+            "name": "Can delete report", 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_school", 
+            "name": "Can delete school", 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_schoolclass", 
+            "name": "Can delete school class", 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_village", 
+            "name": "Can delete village", 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 40, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_place", 
+            "name": "Can add place", 
+            "content_type": 14
+        }
+    }, 
+    {
+        "pk": 37, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_product", 
+            "name": "Can add product", 
+            "content_type": 13
+        }
+    }, 
+    {
+        "pk": 43, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_report", 
+            "name": "Can add report", 
+            "content_type": 15
+        }
+    }, 
+    {
+        "pk": 41, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_place", 
+            "name": "Can change place", 
+            "content_type": 14
+        }
+    }, 
+    {
+        "pk": 38, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_product", 
+            "name": "Can change product", 
+            "content_type": 13
+        }
+    }, 
+    {
+        "pk": 44, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_report", 
+            "name": "Can change report", 
+            "content_type": 15
+        }
+    }, 
+    {
+        "pk": 42, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_place", 
+            "name": "Can delete place", 
+            "content_type": 14
+        }
+    }, 
+    {
+        "pk": 39, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_product", 
+            "name": "Can delete product", 
+            "content_type": 13
+        }
+    }, 
+    {
+        "pk": 45, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_report", 
+            "name": "Can delete report", 
+            "content_type": 15
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_session", 
+            "name": "Can add session", 
+            "content_type": 6
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_session", 
+            "name": "Can change session", 
+            "content_type": 6
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_session", 
+            "name": "Can delete session", 
+            "content_type": 6
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "add_site", 
+            "name": "Can add site", 
+            "content_type": 7
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "change_site", 
+            "name": "Can change site", 
+            "content_type": 7
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "auth.permission", 
+        "fields": {
+            "codename": "delete_site", 
+            "name": "Can delete site", 
+            "content_type": 7
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "auth.user", 
+        "fields": {
+            "username": "admin", 
+            "first_name": "", 
+            "last_name": "", 
+            "is_active": true, 
+            "is_superuser": true, 
+            "is_staff": true, 
+            "last_login": "2010-03-23 15:20:31", 
+            "groups": [], 
+            "user_permissions": [], 
+            "password": "sha1$e20ca$96bf42527d58ba3369ca58253c50499fd35ed401", 
+            "email": "admin@admin.com", 
+            "date_joined": "2010-03-23 15:19:49"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "contenttype", 
+            "name": "content type", 
+            "app_label": "contenttypes"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "group", 
+            "name": "group", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "logentry", 
+            "name": "log entry", 
+            "app_label": "admin"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "message", 
+            "name": "message", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "permission", 
+            "name": "permission", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "place", 
+            "name": "place", 
+            "app_label": "django_stock"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "product", 
+            "name": "product", 
+            "app_label": "django_stock"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "report", 
+            "name": "report", 
+            "app_label": "django_census"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "report", 
+            "name": "report", 
+            "app_label": "django_stock"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "school", 
+            "name": "school", 
+            "app_label": "django_census"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "schoolclass", 
+            "name": "school class", 
+            "app_label": "django_census"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "session", 
+            "name": "session", 
+            "app_label": "sessions"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "site", 
+            "name": "site", 
+            "app_label": "sites"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "user", 
+            "name": "user", 
+            "app_label": "auth"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "contenttypes.contenttype", 
+        "fields": {
+            "model": "village", 
+            "name": "village", 
+            "app_label": "django_census"
+        }
+    }, 
+    {
+        "pk": "f8633d88f98f28e7e7e62a826f54134b", 
+        "model": "sessions.session", 
+        "fields": {
+            "expire_date": "2010-04-06 15:20:31", 
+            "session_data": "gAJ9cQEoVRJfYXV0aF91c2VyX2JhY2tlbmRxAlUpZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5k\ncy5Nb2RlbEJhY2tlbmRxA1UNX2F1dGhfdXNlcl9pZHEESwF1LjBiZDA5YjBkMWQyNDg4YzdmZGEx\nN2M5MDMwYjI1ODli\n"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "sites.site", 
+        "fields": {
+            "domain": "example.com", 
+            "name": "example.com"
+        }
+    }, 
+    {
+        "pk": 55, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 16:06:37", 
+            "object_repr": "2/2/1 - 2010-03-13 (Babougou  > Babougou 2  > 1 A > 2010)", 
+            "object_id": "17", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 54, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 16:06:00", 
+            "object_repr": "2/1/2 - 2010-03-21 (Wena  > Wena 2  > 1 A > 2010)", 
+            "object_id": "16", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 53, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 16:05:31", 
+            "object_repr": "7/6/2 - 2010-03-22 (Wena  > Wena 2  > 1 A > 2010)", 
+            "object_id": "15", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 52, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2010-03-23 16:03:25", 
+            "object_repr": "Wena 1 ", 
+            "object_id": "13", 
+            "change_message": "Changed name.", 
+            "user": 1, 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 51, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2010-03-23 16:03:15", 
+            "object_repr": "Wena 2 ", 
+            "object_id": "14", 
+            "change_message": "Changed name.", 
+            "user": 1, 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 50, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 2, 
+            "action_time": "2010-03-23 16:01:21", 
+            "object_repr": "Wena ", 
+            "object_id": "7", 
+            "change_message": "Changed name.", 
+            "user": 1, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 49, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:59:55", 
+            "object_repr": "4/5/1 - 2010-03-20 (Konou  > Konou 1  > 1 A > 2010)", 
+            "object_id": "14", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 48, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:59:23", 
+            "object_repr": "1/2/1 - 2010-02-13 (Kolomi  > Kolomi 1  > 2 A > 2009)", 
+            "object_id": "13", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 47, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:48:57", 
+            "object_repr": "14/14/0 - 2010-03-22 (Babougou  > Babougou 2  > 1 A > 2010)", 
+            "object_id": "12", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 46, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:48:34", 
+            "object_repr": "5/8/0 - 2010-03-22 (Babougou  > Babougou 1  > 1 A > 2010)", 
+            "object_id": "11", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 45, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:47:52", 
+            "object_repr": "20/8/0 - 2010-03-23 ( Gouakolomba  > Guakolomba 2  > 1 A > 2010)", 
+            "object_id": "10", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 44, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:47:30", 
+            "object_repr": "10/14/1 - 2010-03-15 ( Gouakolomba  > Guakolomba 1  > 1 A > 2010)", 
+            "object_id": "9", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 43, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:46:52", 
+            "object_repr": "5/14/0 - 2010-03-01 (Tiby  > Tiby 2  > 1 A > 2010)", 
+            "object_id": "8", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 42, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:46:28", 
+            "object_repr": "12/17/0 - 2010-02-25 (Kolomi  > Kolomi 2  > 1 A > 2010)", 
+            "object_id": "7", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 41, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:45:19", 
+            "object_repr": "20/8/0 - 2010-02-20 (Tiby  > Tiby 1  > 1 A > 2010)", 
+            "object_id": "6", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 40, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:44:46", 
+            "object_repr": "12/17/0 - 2010-02-10 (Kolomi  > Kolomi 1  > 2 A > 2009)", 
+            "object_id": "5", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 39, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:44:02", 
+            "object_repr": "14/10/0 - 2009-02-03 (Farakou  > Farakou 2  > 1 A > 2009)", 
+            "object_id": "4", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 38, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:43:04", 
+            "object_repr": "20/10/1 - 2010-03-10 (Farakou  > Farakou 1  > 1 A > 2010)", 
+            "object_id": "3", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 37, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:42:34", 
+            "object_repr": "14/8/0 - 2010-01-01 (Konou  > Konou 2  > 1 A > 2010)", 
+            "object_id": "2", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 36, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:41:25", 
+            "object_repr": "10/15/0 - 2010-01-23 (Konou  > Konou 1  > 1 A > 2010)", 
+            "object_id": "1", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 12
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:40:23", 
+            "object_repr": "W\u00e9na  > W\u00e9na 2  > 1 A > 2010", 
+            "object_id": "14", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:40:06", 
+            "object_repr": "W\u00e9na  > W\u00e9na 1  > 1 A > 2010", 
+            "object_id": "13", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:39:39", 
+            "object_repr": "Babougou  > Babougou 2  > 1 A > 2010", 
+            "object_id": "12", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:39:20", 
+            "object_repr": "Babougou  > Babougou 1  > 1 A > 2010", 
+            "object_id": "11", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:39:04", 
+            "object_repr": " Gouakolomba  > Guakolomba 2  > 1 A > 2010", 
+            "object_id": "10", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:38:44", 
+            "object_repr": " Gouakolomba  > Guakolomba 1  > 1 A > 2010", 
+            "object_id": "9", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:38:24", 
+            "object_repr": "Tiby  > Tiby 2  > 1 A > 2010", 
+            "object_id": "8", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:38:05", 
+            "object_repr": "Tiby  > Tiby 1  > 1 A > 2010", 
+            "object_id": "7", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:37:44", 
+            "object_repr": "Kolomi  > Kolomi 2  > 1 A > 2010", 
+            "object_id": "6", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:37:04", 
+            "object_repr": "Kolomi  > Kolomi 1  > 2 A > 2009", 
+            "object_id": "5", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:36:35", 
+            "object_repr": "Farakou  > Farakou 2  > 1 A > 2009", 
+            "object_id": "4", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:35:10", 
+            "object_repr": "Farakou  > Farakou 1  > 1 A > 2010", 
+            "object_id": "3", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:34:47", 
+            "object_repr": "Konou  > Konou 2  > 1 A > 2010", 
+            "object_id": "2", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:34:01", 
+            "object_repr": "Konou  > Konou 1  > 1 A > 2010", 
+            "object_id": "1", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 11
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:28:59", 
+            "object_repr": "W\u00e9na 2 ", 
+            "object_id": "14", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:28:46", 
+            "object_repr": "W\u00e9na 1 ", 
+            "object_id": "13", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:28:25", 
+            "object_repr": "Babougou 2 ", 
+            "object_id": "12", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:28:14", 
+            "object_repr": "Babougou 1 ", 
+            "object_id": "11", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:27:50", 
+            "object_repr": "Guakolomba 2 ", 
+            "object_id": "10", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:27:38", 
+            "object_repr": "Guakolomba 1 ", 
+            "object_id": "9", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:27:12", 
+            "object_repr": "Tiby 2 ", 
+            "object_id": "8", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:26:59", 
+            "object_repr": "Tiby 1 ", 
+            "object_id": "7", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:26:44", 
+            "object_repr": "Kolomi 2 ", 
+            "object_id": "6", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:26:29", 
+            "object_repr": "Kolomi 1 ", 
+            "object_id": "5", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:26:06", 
+            "object_repr": "Farakou 2 ", 
+            "object_id": "4", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:25:51", 
+            "object_repr": "Farakou 1 ", 
+            "object_id": "3", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:25:13", 
+            "object_repr": "Konou 2 ", 
+            "object_id": "2", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:24:59", 
+            "object_repr": "Konou 1 ", 
+            "object_id": "1", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 10
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:24:28", 
+            "object_repr": "W\u00e9na ", 
+            "object_id": "7", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:23:59", 
+            "object_repr": "Babougou ", 
+            "object_id": "6", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:23:50", 
+            "object_repr": " Gouakolomba ", 
+            "object_id": "5", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:23:44", 
+            "object_repr": "Tiby ", 
+            "object_id": "4", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:23:28", 
+            "object_repr": "Kolomi ", 
+            "object_id": "3", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:23:17", 
+            "object_repr": "Farakou ", 
+            "object_id": "2", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "admin.logentry", 
+        "fields": {
+            "action_flag": 1, 
+            "action_time": "2010-03-23 15:22:44", 
+            "object_repr": "Konou ", 
+            "object_id": "1", 
+            "change_message": "", 
+            "user": 1, 
+            "content_type": 9
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Konou"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Farakou"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Kolomi"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Tiby"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": " Gouakolomba"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Babougou"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Wena"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Konou 1", 
+            "village": 1
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Konou 2", 
+            "village": 1
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Farakou 1", 
+            "village": 2
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Farakou 2", 
+            "village": 2
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Kolomi 1", 
+            "village": 3
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Kolomi 2", 
+            "village": 3
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Tiby 1", 
+            "village": 4
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Tiby 2", 
+            "village": 4
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Guakolomba 1", 
+            "village": 5
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Guakolomba 2", 
+            "village": 5
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Babougou 1", 
+            "village": 6
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Babougou 2", 
+            "village": 6
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Wena 1", 
+            "village": 7
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Wena 2", 
+            "village": 7
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 1, 
+            "grade": "1 A", 
+            "boys_count": 65, 
+            "teachers_count": 1, 
+            "girls_count": 50, 
+            "begin_year": 2009,
+            "end_year":2010
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 2, 
+            "grade": "1 A", 
+            "boys_count": 50, 
+            "teachers_count": 1, 
+            "girls_count": 45, 
+            "begin_year": 2009,
+            "end_year":2010
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 3, 
+            "grade": "1 A", 
+            "boys_count": 70, 
+            "teachers_count": 1, 
+            "girls_count": 35, 
+            "begin_year": 2009,
+            "end_year":2010
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 4, 
+            "grade": "1 A", 
+            "boys_count": 40, 
+            "teachers_count": 1, 
+            "girls_count": 45, 
+            "begin_year": 2009,
+            "end_year":2010
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 5, 
+            "grade": "2 A", 
+            "boys_count": 40, 
+            "teachers_count": 1, 
+            "girls_count": 50, 
+            "begin_year": 2009,
+            "end_year":2010
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 6, 
+            "grade": "1 A", 
+            "boys_count": 70, 
+            "teachers_count": 1, 
+            "girls_count": 50, 
+            "begin_year": 2009,
+            "end_year":2010
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 7, 
+            "grade": "1 A", 
+            "boys_count": 40, 
+            "teachers_count": 1, 
+            "girls_count": 35, 
+            "begin_year": 2009,
+            "end_year":2010
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 8, 
+            "grade": "1 A", 
+            "boys_count": 80, 
+            "teachers_count": 1, 
+            "girls_count": 30, 
+            "begin_year": 2009,
+            "end_year":2010
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 9, 
+            "grade": "1 A", 
+            "boys_count": 65, 
+            "teachers_count": 1, 
+            "girls_count": 30, 
+            "begin_year": 2009,
+            "end_year":2010
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 10, 
+            "grade": "1 A", 
+            "boys_count": 50, 
+            "teachers_count": 1, 
+            "girls_count": 50, 
+            "begin_year": 2009,
+            "end_year":2010
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 11, 
+            "grade": "1 A", 
+            "boys_count": 65, 
+            "teachers_count": 1, 
+            "girls_count": 35, 
+            "begin_year": 2009,
+            "end_year":2010
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 12, 
+            "grade": "1 A", 
+            "boys_count": 70, 
+            "teachers_count": 1, 
+            "girls_count": 45, 
+            "begin_year": 2009,
+            "end_year":2010
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 13, 
+            "grade": "1 A", 
+            "boys_count": 40, 
+            "teachers_count": 1, 
+            "girls_count": 50, 
+            "begin_year": 2009,
+            "end_year":2010
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 14, 
+            "grade": "1 A", 
+            "boys_count": 80, 
+            "teachers_count": 1, 
+            "girls_count": 50, 
+            "begin_year": 2009,
+            "end_year":2010
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-01-23", 
+            "boys_absentees": 10, 
+            "teacher_absentees": 0, 
+            "school_class": 1, 
+            "girls_absentees": 15
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-01-01", 
+            "boys_absentees": 14, 
+            "teacher_absentees": 0, 
+            "school_class": 2, 
+            "girls_absentees": 8
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-10", 
+            "boys_absentees": 20, 
+            "teacher_absentees": 1, 
+            "school_class": 3, 
+            "girls_absentees": 10
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2009-02-03", 
+            "boys_absentees": 14, 
+            "teacher_absentees": 0, 
+            "school_class": 4, 
+            "girls_absentees": 10
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-02-10", 
+            "boys_absentees": 12, 
+            "teacher_absentees": 0, 
+            "school_class": 5, 
+            "girls_absentees": 17
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-02-20", 
+            "boys_absentees": 20, 
+            "teacher_absentees": 0, 
+            "school_class": 7, 
+            "girls_absentees": 8
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-02-25", 
+            "boys_absentees": 12, 
+            "teacher_absentees": 0, 
+            "school_class": 6, 
+            "girls_absentees": 17
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-01", 
+            "boys_absentees": 5, 
+            "teacher_absentees": 0, 
+            "school_class": 8, 
+            "girls_absentees": 14
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-15", 
+            "boys_absentees": 10, 
+            "teacher_absentees": 1, 
+            "school_class": 9, 
+            "girls_absentees": 14
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-23", 
+            "boys_absentees": 20, 
+            "teacher_absentees": 0, 
+            "school_class": 10, 
+            "girls_absentees": 8
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-22", 
+            "boys_absentees": 5, 
+            "teacher_absentees": 0, 
+            "school_class": 11, 
+            "girls_absentees": 8
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-22", 
+            "boys_absentees": 14, 
+            "teacher_absentees": 0, 
+            "school_class": 12, 
+            "girls_absentees": 14
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-02-13", 
+            "boys_absentees": 1, 
+            "teacher_absentees": 1, 
+            "school_class": 5, 
+            "girls_absentees": 2
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-20", 
+            "boys_absentees": 4, 
+            "teacher_absentees": 1, 
+            "school_class": 1, 
+            "girls_absentees": 5
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-22", 
+            "boys_absentees": 7, 
+            "teacher_absentees": 2, 
+            "school_class": 14, 
+            "girls_absentees": 6
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-21", 
+            "boys_absentees": 2, 
+            "teacher_absentees": 2, 
+            "school_class": 14, 
+            "girls_absentees": 1
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-13", 
+            "boys_absentees": 2, 
+            "teacher_absentees": 1, 
+            "school_class": 12, 
+            "girls_absentees": 2
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "django_stock.product", 
+        "fields": {
+            "name": "Riz pady"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "django_stock.product", 
+        "fields": {
+            "name": "Riz grain"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "django_stock.product", 
+        "fields": {
+            "name": "Riz"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "django_stock.product", 
+        "fields": {
+            "name": "Mil"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "django_stock.place", 
+        "fields": {
+            "name": "Kolomi"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "django_stock.place", 
+        "fields": {
+            "name": "Tiby"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "django_stock.place", 
+        "fields": {
+            "name": "Wena"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "django_stock.place", 
+        "fields": {
+            "name": "Konou"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "django_stock.place", 
+        "fields": {
+            "name": "Farakou"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "django_stock.place", 
+        "fields": {
+            "name": "Babougou"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "django_stock.place", 
+        "fields": {
+            "name": " Gouakolomba"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 100.0, 
+            "place": 1, 
+            "incomming": 960.0, 
+            "date": "2009-01-14", 
+            "remaining": 860.0
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 0.0, 
+            "place": 4, 
+            "incomming": 400.0, 
+            "date": "2009-01-19", 
+            "remaining": 400.0
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 50.0, 
+            "place": 4, 
+            "incomming": 100.0, 
+            "date": "2009-01-19", 
+            "remaining": 50.0
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 70.0, 
+            "place": 4, 
+            "incomming": 100.0, 
+            "date": "2009-01-15", 
+            "remaining": 30.0
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 89.0, 
+            "place": 4, 
+            "incomming": 60.0, 
+            "date": "2009-02-19", 
+            "remaining": 371.0
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 54.0, 
+            "place": 4, 
+            "incomming": 230.0, 
+            "date": "2009-02-03", 
+            "remaining": 206.0
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 90.0, 
+            "place": 4, 
+            "incomming": 679.0, 
+            "date": "2009-02-20", 
+            "remaining": 639.0
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 300.0, 
+            "place": 4, 
+            "incomming": 490.0, 
+            "date": "2009-02-28", 
+            "remaining": 561.0
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 89.0, 
+            "place": 5, 
+            "incomming": 960.0, 
+            "date": "2009-01-02", 
+            "remaining": 871.0
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 0.0, 
+            "place": 5, 
+            "incomming": 140.0, 
+            "date": "2009-01-31", 
+            "remaining": 140.0
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 23.0, 
+            "place": 5, 
+            "incomming": 780.0, 
+            "date": "2009-01-19", 
+            "remaining": 757.0
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 320.0, 
+            "place": 5, 
+            "incomming": 340.0, 
+            "date": "2009-02-04", 
+            "remaining": 20.0
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 543.0, 
+            "place": 5, 
+            "incomming": 410.0, 
+            "date": "2009-02-25", 
+            "remaining": 7.0
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 120.0, 
+            "place": 5, 
+            "incomming": 650.0, 
+            "date": "2009-02-15", 
+            "remaining": 550.0
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 32.0, 
+            "place": 2, 
+            "incomming": 127.0, 
+            "date": "2009-03-19", 
+            "remaining": 95.0
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 150.0, 
+            "place": 2, 
+            "incomming": 327.0, 
+            "date": "2009-02-20", 
+            "remaining": 177.0
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 230.0, 
+            "place": 2, 
+            "incomming": 250.0, 
+            "date": "2009-03-05", 
+            "remaining": 20.0
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 120.0, 
+            "place": 2, 
+            "incomming": 500.0, 
+            "date": "2009-05-30", 
+            "remaining": 400.0
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 450.0, 
+            "place": 2, 
+            "incomming": 520.0, 
+            "date": "2009-03-12", 
+            "remaining": 70.0
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 45.0, 
+            "place": 2, 
+            "incomming": 320.0, 
+            "date": "2009-04-23", 
+            "remaining": 295.0
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 0.0, 
+            "place": 7, 
+            "incomming": 804.0, 
+            "date": "2009-05-19", 
+            "remaining": 804.0
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 125.0, 
+            "place": 7, 
+            "incomming": 540.0, 
+            "date": "2009-06-19", 
+            "remaining": 1985.0
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 67.0, 
+            "place": 7, 
+            "incomming": 543.0, 
+            "date": "2009-06-23", 
+            "remaining": 476.0
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 235.0, 
+            "place": 7, 
+            "incomming": 345.0, 
+            "date": "2009-06-26", 
+            "remaining": 914.0
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 23.0, 
+            "place": 7, 
+            "incomming": 0.0, 
+            "date": "2009-06-03", 
+            "remaining": 781.0
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 59.0, 
+            "place": 3, 
+            "incomming": 450.0, 
+            "date": "2009-07-19", 
+            "remaining": 758.0
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 0.0, 
+            "place": 3, 
+            "incomming": 500.0, 
+            "date": "2009-02-08", 
+            "remaining": 500.0
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 24.0, 
+            "place": 3, 
+            "incomming": 470.0, 
+            "date": "2009-07-19", 
+            "remaining": 446.0
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 126.0, 
+            "place": 3, 
+            "incomming": 568.0, 
+            "date": "2009-07-31", 
+            "remaining": 888.0
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 347.0, 
+            "place": 5, 
+            "incomming": 650.0, 
+            "date": "2009-01-04", 
+            "remaining": 1174.0
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 250.0, 
+            "place": 5, 
+            "incomming": 0.0, 
+            "date": "2009-07-09", 
+            "remaining": 507.0
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 98.0, 
+            "place": 6, 
+            "incomming": 400.0, 
+            "date": "2009-05-08", 
+            "remaining": 302.0
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 0.0, 
+            "place": 6, 
+            "incomming": 760.0, 
+            "date": "2009-06-08", 
+            "remaining": 760.0
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 340.0, 
+            "place": 6, 
+            "incomming": 534.0, 
+            "date": "2009-04-10", 
+            "remaining": 194.0
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 560.0, 
+            "place": 6, 
+            "incomming": 908.0, 
+            "date": "2009-11-19", 
+            "remaining": 1108.0
+        }
+    }, 
+    {
+        "pk": 36, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 987.0, 
+            "place": 6, 
+            "incomming": 468.0, 
+            "date": "2009-11-02", 
+            "remaining": 241.0
+        }
+    }, 
+    {
+        "pk": 37, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 987.0, 
+            "place": 6, 
+            "incomming": 7645.0, 
+            "date": "2009-12-19", 
+            "remaining": 6835.0
+        }
+    }, 
+    {
+        "pk": 38, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 0.0, 
+            "place": 1, 
+            "incomming": 459.0, 
+            "date": "2009-10-20", 
+            "remaining": 459.0
+        }
+    }, 
+    {
+        "pk": 39, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 34.0, 
+            "place": 1, 
+            "incomming": 67.0, 
+            "date": "2009-07-19", 
+            "remaining": 33.0
+        }
+    }, 
+    {
+        "pk": 40, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 20.0, 
+            "place": 1, 
+            "incomming": 120.0, 
+            "date": "2009-08-05", 
+            "remaining": 960.0
+        }
+    }, 
+    {
+        "pk": 41, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 5.0, 
+            "place": 3, 
+            "incomming": 89.0, 
+            "date": "2009-03-15", 
+            "remaining": 84.0
+        }
+    }, 
+    {
+        "pk": 42, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 670.0, 
+            "place": 4, 
+            "incomming": 837.0, 
+            "date": "2009-12-10", 
+            "remaining": 463.0
+        }
+    }, 
+    {
+        "pk": 43, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 34.0, 
+            "place": 2, 
+            "incomming": 234.0, 
+            "date": "2009-10-19", 
+            "remaining": 377.0
+        }
+    }, 
+    {
+        "pk": 44, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 0.0, 
+            "place": 4, 
+            "incomming": 90.0, 
+            "date": "2009-11-12", 
+            "remaining": 296.0
+        }
+    }, 
+    {
+        "pk": 45, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 8.0, 
+            "place": 5, 
+            "incomming": 23.0, 
+            "date": "2009-09-10", 
+            "remaining": 1189.0
+        }
+    }, 
+    {
+        "pk": 46, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 90.0, 
+            "place": 7, 
+            "incomming": 980.0, 
+            "date": "2009-05-22", 
+            "remaining": 1570.0
+        }
+    }, 
+    {
+        "pk": 47, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 68.0, 
+            "place": 5, 
+            "incomming": 123.0, 
+            "date": "2009-09-22", 
+            "remaining": 62.0
+        }
+    }, 
+    {
+        "pk": 48, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 0.0, 
+            "place": 6, 
+            "incomming": 252.0, 
+            "date": "2009-06-17", 
+            "remaining": 1018.0
+        }
+    }, 
+    {
+        "pk": 49, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 78.0, 
+            "place": 2, 
+            "incomming": 1695.0, 
+            "date": "2009-12-23", 
+            "remaining": 1921.0
+        }
+    }, 
+    {
+        "pk": 50, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 455.0, 
+            "place": 1, 
+            "incomming": 87.0, 
+            "date": "2009-04-17", 
+            "remaining": 492.0
+        }
+    }, 
+    {
+        "pk": 51, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 67.0, 
+            "place": 3, 
+            "incomming": 32344.0, 
+            "date": "2009-12-08", 
+            "remaining": 33035.0
+        }
+    }, 
+    {
+        "pk": 52, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 233.0, 
+            "place": 1, 
+            "incomming": 232.0, 
+            "date": "2009-12-11", 
+            "remaining": -1.0
+        }
+    }, 
+    {
+        "pk": 53, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 987.0, 
+            "place": 2, 
+            "incomming": 1235.0, 
+            "date": "2009-12-07", 
+            "remaining": 304.0
+        }
+    }, 
+    {
+        "pk": 54, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 665.0, 
+            "place": 3, 
+            "incomming": 3344.0, 
+            "date": "2009-05-11", 
+            "remaining": 2679.0
+        }
+    }, 
+    {
+        "pk": 55, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 56.0, 
+            "place": 3, 
+            "incomming": 987.0, 
+            "date": "2009-11-10", 
+            "remaining": 3610.0
+        }
+    }, 
+    {
+        "pk": 56, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 0.0, 
+            "place": 4, 
+            "incomming": 989.0, 
+            "date": "2009-08-12", 
+            "remaining": 1628.0
+        }
+    }, 
+    {
+        "pk": 57, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 655.0, 
+            "place": 4, 
+            "incomming": 55676.0, 
+            "date": "2009-09-07", 
+            "remaining": 55301.0
+        }
+    }, 
+    {
+        "pk": 58, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 0.0, 
+            "place": 5, 
+            "incomming": 455.0, 
+            "date": "2009-10-13", 
+            "remaining": 517.0
+        }
+    }, 
+    {
+        "pk": 59, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 876.0, 
+            "place": 5, 
+            "incomming": 2233.0, 
+            "date": "2009-08-11", 
+            "remaining": 1907.0
+        }
+    }, 
+    {
+        "pk": 60, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 54.0, 
+            "place": 7, 
+            "incomming": 107.0, 
+            "date": "2009-02-04", 
+            "remaining": 53.0
+        }
+    }, 
+    {
+        "pk": 61, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 67.0, 
+            "place": 6, 
+            "incomming": 786.0, 
+            "date": "2009-07-09", 
+            "remaining": 1479.0
+        }
+    }, 
+    {
+        "pk": 62, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 654.0, 
+            "place": 5, 
+            "incomming": 228.0, 
+            "date": "2009-06-06", 
+            "remaining": 748.0
+        }
+    }, 
+    {
+        "pk": 63, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 432.0, 
+            "place": 3, 
+            "incomming": 985.0, 
+            "date": "2009-04-07", 
+            "remaining": 637.0
+        }
+    }, 
+    {
+        "pk": 64, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 432.0, 
+            "place": 3, 
+            "incomming": 765.0, 
+            "date": "2009-06-18", 
+            "remaining": 970.0
+        }
+    }, 
+    {
+        "pk": 65, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 79.0, 
+            "place": 4, 
+            "incomming": 112.0, 
+            "date": "2009-09-01", 
+            "remaining": 1661.0
+        }
+    }, 
+    {
+        "pk": 66, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 987.0, 
+            "place": 5, 
+            "incomming": 7655.0, 
+            "date": "2009-09-15", 
+            "remaining": 7175.0
+        }
+    }, 
+    {
+        "pk": 67, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 865.0, 
+            "place": 6, 
+            "incomming": 925.0, 
+            "date": "2009-06-24", 
+            "remaining": 362.0
+        }
+    }, 
+    {
+        "pk": 68, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 754.0, 
+            "place": 7, 
+            "incomming": 654.0, 
+            "date": "2009-10-13", 
+            "remaining": 814.0
+        }
+    }, 
+    {
+        "pk": 69, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 78.0, 
+            "place": 7, 
+            "incomming": 705.0, 
+            "date": "2009-03-10", 
+            "remaining": 680.0
+        }
+    }, 
+    {
+        "pk": 70, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 98.0, 
+            "place": 5, 
+            "incomming": 556.0, 
+            "date": "2009-04-20", 
+            "remaining": 465.0
+        }
+    }, 
+    {
+        "pk": 71, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 654.0, 
+            "place": 5, 
+            "incomming": 987.0, 
+            "date": "2009-06-26", 
+            "remaining": 1090.0
+        }
+    }, 
+    {
+        "pk": 72, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 76.0, 
+            "place": 6, 
+            "incomming": 212.0, 
+            "date": "2009-07-31", 
+            "remaining": 177.0
+        }
+    }, 
+    {
+        "pk": 73, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 345.0, 
+            "place": 4, 
+            "incomming": 876.0, 
+            "date": "2009-09-12", 
+            "remaining": 2192.0
+        }
+    }, 
+    {
+        "pk": 74, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 342.0, 
+            "place": 5, 
+            "incomming": 788.0, 
+            "date": "2009-06-22", 
+            "remaining": 1194.0
+        }
+    }, 
+    {
+        "pk": 75, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 123.0, 
+            "place": 2, 
+            "incomming": 765.0, 
+            "date": "2009-08-04", 
+            "remaining": 1042.0
+        }
+    }, 
+    {
+        "pk": 76, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 78.0, 
+            "place": 3, 
+            "incomming": 542.0, 
+            "date": "2009-01-17", 
+            "remaining": 464.0
+        }
+    }, 
+    {
+        "pk": 77, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 80.0, 
+            "place": 3, 
+            "incomming": 633.0, 
+            "date": "2009-11-04", 
+            "remaining": 3232.0
+        }
+    }, 
+    {
+        "pk": 78, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 45.0, 
+            "place": 5, 
+            "incomming": 986.0, 
+            "date": "2009-10-21", 
+            "remaining": 2130.0
+        }
+    }, 
+    {
+        "pk": 79, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 98.0, 
+            "place": 6, 
+            "incomming": 654.0, 
+            "date": "2009-07-27", 
+            "remaining": 1574.0
+        }
+    }, 
+    {
+        "pk": 80, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 876.0, 
+            "place": 6, 
+            "incomming": 556.0, 
+            "date": "2009-07-24", 
+            "remaining": 1159.0
+        }
+    }, 
+    {
+        "pk": 81, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 22.0, 
+            "place": 3, 
+            "incomming": 876.0, 
+            "date": "2009-08-27", 
+            "remaining": 1742.0
+        }
+    }, 
+    {
+        "pk": 82, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 0.0, 
+            "place": 3, 
+            "incomming": 222.0, 
+            "date": "2009-10-01", 
+            "remaining": 2901.0
+        }
+    }, 
+    {
+        "pk": 83, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 60.0, 
+            "place": 2, 
+            "incomming": 0.0, 
+            "date": "2009-06-30", 
+            "remaining": 340.0
+        }
+    }, 
+    {
+        "pk": 84, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 87.0, 
+            "place": 1, 
+            "incomming": 33.0, 
+            "date": "2009-08-20", 
+            "remaining": 906.0
+        }
+    }, 
+    {
+        "pk": 85, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 347.0, 
+            "place": 1, 
+            "incomming": 987.0, 
+            "date": "2010-01-05", 
+            "remaining": 1546.0
+        }
+    }, 
+    {
+        "pk": 86, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 0.0, 
+            "place": 1, 
+            "incomming": 213.0, 
+            "date": "2009-04-15", 
+            "remaining": 213.0
+        }
+    }, 
+    {
+        "pk": 87, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 89.0, 
+            "place": 2, 
+            "incomming": 566.0, 
+            "date": "2009-09-08", 
+            "remaining": 654.0
+        }
+    }, 
+    {
+        "pk": 88, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 234.0, 
+            "place": 3, 
+            "incomming": 78.0, 
+            "date": "2009-07-22", 
+            "remaining": 290.0
+        }
+    }, 
+    {
+        "pk": 89, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 45.0, 
+            "place": 4, 
+            "incomming": 89.0, 
+            "date": "2009-07-13", 
+            "remaining": 664.0
+        }
+    }, 
+    {
+        "pk": 90, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 43.0, 
+            "place": 5, 
+            "incomming": 56.0, 
+            "date": "2009-09-24", 
+            "remaining": 7188.0
+        }
+    }, 
+    {
+        "pk": 91, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 98.0, 
+            "place": 7, 
+            "incomming": 34.0, 
+            "date": "2009-08-18", 
+            "remaining": 1921.0
+        }
+    }, 
+    {
+        "pk": 92, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 876.0, 
+            "place": 5, 
+            "incomming": 543.0, 
+            "date": "2009-07-15", 
+            "remaining": 174.0
+        }
+    }, 
+    {
+        "pk": 93, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 76.0, 
+            "place": 6, 
+            "incomming": 117.0, 
+            "date": "2009-03-19", 
+            "remaining": 41.0
+        }
+    }, 
+    {
+        "pk": 94, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 98.0, 
+            "place": 3, 
+            "incomming": 1.0, 
+            "date": "2009-05-06", 
+            "remaining": 367.0
+        }
+    }, 
+    {
+        "pk": 95, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 34.0, 
+            "place": 5, 
+            "incomming": 56.0, 
+            "date": "2009-11-17", 
+            "remaining": 539.0
+        }
+    }, 
+    {
+        "pk": 96, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 32.0, 
+            "place": 4, 
+            "incomming": -352.0, 
+            "date": "2009-07-21", 
+            "remaining": 280.0
+        }
+    }, 
+    {
+        "pk": 97, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 45.0, 
+            "place": 5, 
+            "incomming": 567.0, 
+            "date": "2009-10-21", 
+            "remaining": 7710.0
+        }
+    }, 
+    {
+        "pk": 98, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 98.0, 
+            "place": 3, 
+            "incomming": 344.0, 
+            "date": "2009-06-10", 
+            "remaining": 746.0
+        }
+    }, 
+    {
+        "pk": 99, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 87.0, 
+            "place": 6, 
+            "incomming": 655.0, 
+            "date": "2009-06-23", 
+            "remaining": 1328.0
+        }
+    }, 
+    {
+        "pk": 100, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 350.0, 
+            "place": 2, 
+            "incomming": 600.0, 
+            "date": "2009-07-27", 
+            "remaining": 56.0
+        }
+    }, 
+    {
+        "pk": 101, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 76.0, 
+            "place": 2, 
+            "incomming": 87.0, 
+            "date": "2009-05-03", 
+            "remaining": 188.0
+        }
+    }, 
+    {
+        "pk": 102, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 654.0, 
+            "place": 3, 
+            "incomming": 2351.0, 
+            "date": "2009-05-30", 
+            "remaining": 2334.0
+        }
+    }, 
+    {
+        "pk": 103, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 24.0, 
+            "place": 6, 
+            "incomming": 596.0, 
+            "date": "2009-05-07", 
+            "remaining": 766.0
+        }
+    }, 
+    {
+        "pk": 104, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 2436.0, 
+            "place": 5, 
+            "incomming": 7645.0, 
+            "date": "2009-05-11", 
+            "remaining": 5759.0
+        }
+    }, 
+    {
+        "pk": 105, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 543.0, 
+            "place": 7, 
+            "incomming": 340.0, 
+            "date": "2009-12-04", 
+            "remaining": 273.0
+        }
+    }, 
+    {
+        "pk": 106, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 3257.0, 
+            "place": 6, 
+            "incomming": 4357.0, 
+            "date": "2009-12-12", 
+            "remaining": 2208.0
+        }
+    }, 
+    {
+        "pk": 107, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 345.0, 
+            "place": 4, 
+            "incomming": 965.0, 
+            "date": "2009-05-05", 
+            "remaining": 620.0
+        }
+    }, 
+    {
+        "pk": 108, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 53.0, 
+            "place": 4, 
+            "incomming": 238.0, 
+            "date": "2010-01-12", 
+            "remaining": 746.0
+        }
+    }, 
+    {
+        "pk": 109, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 97.0, 
+            "place": 2, 
+            "incomming": 1225.0, 
+            "date": "2010-02-04", 
+            "remaining": 3049.0
+        }
+    }, 
+    {
+        "pk": 110, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 123.0, 
+            "place": 3, 
+            "incomming": 5344.0, 
+            "date": "2010-02-01", 
+            "remaining": 8831.0
+        }
+    }, 
+    {
+        "pk": 111, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 65.0, 
+            "place": 5, 
+            "incomming": 54.0, 
+            "date": "2010-01-05", 
+            "remaining": 2119.0
+        }
+    }, 
+    {
+        "pk": 112, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 80.0, 
+            "place": 1, 
+            "incomming": 98.0, 
+            "date": "2010-01-19", 
+            "remaining": 477.0
+        }
+    }, 
+    {
+        "pk": 113, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 21.0, 
+            "place": 2, 
+            "incomming": 34.0, 
+            "date": "2010-01-19", 
+            "remaining": 390.0
+        }
+    }, 
+    {
+        "pk": 114, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 100.0, 
+            "place": 5, 
+            "incomming": 564.0, 
+            "date": "2010-02-16", 
+            "remaining": 8174.0
+        }
+    }, 
+    {
+        "pk": 115, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 34.0, 
+            "place": 6, 
+            "incomming": 1266.0, 
+            "date": "2010-03-10", 
+            "remaining": 1594.0
+        }
+    }, 
+    {
+        "pk": 116, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 12.0, 
+            "place": 3, 
+            "incomming": 45.0, 
+            "date": "2010-02-04", 
+            "remaining": 33068.0
+        }
+    }, 
+    {
+        "pk": 117, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 34.0, 
+            "place": 1, 
+            "incomming": 56.0, 
+            "date": "2010-03-02", 
+            "remaining": 1568.0
+        }
+    }, 
+    {
+        "pk": 118, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 23.0, 
+            "place": 7, 
+            "incomming": 56.0, 
+            "date": "2010-01-29", 
+            "remaining": 33.0
+        }
+    }, 
+    {
+        "pk": 119, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 45.0, 
+            "place": 6, 
+            "incomming": 53.0, 
+            "date": "2010-03-19", 
+            "remaining": 2216.0
+        }
+    }, 
+    {
+        "pk": 120, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 56.0, 
+            "place": 2, 
+            "incomming": 78.0, 
+            "date": "2010-03-19", 
+            "remaining": 412.0
+        }
+    }, 
+    {
+        "pk": 121, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 370.0, 
+            "place": 5, 
+            "incomming": 567.0, 
+            "date": "2010-03-19", 
+            "remaining": 8371.0
+        }
+    }, 
+    {
+        "pk": 122, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 653.0, 
+            "place": 3, 
+            "incomming": 865.0, 
+            "date": "2010-03-19", 
+            "remaining": 958.0
+        }
+    }, 
+    {
+        "pk": 123, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 54.0, 
+            "place": 4, 
+            "incomming": 0.0, 
+            "date": "2010-03-19", 
+            "remaining": 2138.0
+        }
+    }, 
+    {
+        "pk": 124, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 1, 
+            "consumption": 590.0, 
+            "place": 4, 
+            "incomming": 547.0, 
+            "date": "2010-01-08", 
+            "remaining": 518.0
+        }
+    }, 
+    {
+        "pk": 125, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 4, 
+            "consumption": 12.0, 
+            "place": 2, 
+            "incomming": 98.0, 
+            "date": "2010-01-11", 
+            "remaining": 156.0
+        }
+    }, 
+    {
+        "pk": 126, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 23.0, 
+            "place": 3, 
+            "incomming": 789.0, 
+            "date": "2010-01-26", 
+            "remaining": 4376.0
+        }
+    }, 
+    {
+        "pk": 127, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 23.0, 
+            "place": 7, 
+            "incomming": 234.0, 
+            "date": "2010-03-12", 
+            "remaining": 2132.0
+        }
+    }, 
+    {
+        "pk": 128, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 23.0, 
+            "place": 5, 
+            "incomming": 23.0, 
+            "date": "2010-02-25", 
+            "remaining": 539.0
+        }
+    }, 
+    {
+        "pk": 129, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 0.0, 
+            "place": 2, 
+            "incomming": 678.0, 
+            "date": "2010-03-09", 
+            "remaining": 1720.0
+        }
+    }, 
+    {
+        "pk": 130, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 2, 
+            "consumption": 50.0, 
+            "place": 1, 
+            "incomming": 183.0, 
+            "date": "2010-03-01", 
+            "remaining": 132.0
+        }
+    }, 
+    {
+        "pk": 131, 
+        "model": "django_stock.report", 
+        "fields": {
+            "product": 3, 
+            "consumption": 89.0, 
+            "place": 2, 
+            "incomming": 346.0, 
+            "date": "2010-03-17", 
+            "remaining": 1977.0
+        }
+    }
+]

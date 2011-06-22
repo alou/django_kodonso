@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}Gestion des rapports{% endblock %}
+{% block page-id %}stock-report-management{% endblock %}
+{% block content %}
+    <div id="header">
+        <div id="menu">
+            <ul>
+                <li class="current_page_item"><a href="{% url stock-report-training %}">{% trans "Stock data entry" %}</a></li>
+                <li><a href="{% url census-report-training %}">{% trans "Census data entry" %}</a></li>
+            </ul>
+        </div>        
+        <div id="login" class=" prepend-17">
+                {% trans "Welcome" %} {{ user.username }}
+                <a href="{% url logout_%}">{% trans "Disconnect" %}</a>  
+        </div>
+        
+        <h1>{% trans "Add stock report" %}</h1>
+        <span id='error_doublon'>
+        <h2>
+            {{err}}
+        </h2>
+        </span>
+
+        <div id ="push_report_management">
+            <form id='formu' class ="{{valide}}" method="post" action="" autocomplete="off">
+                <span id='warning'>
+                    <table>
+                        <tr>
+                            {% for field in form %}
+                                {% ifnotequal field.name "warning" %}
+                                    {% ifnotequal field.name "reporter" %}
+                                        <td>{{ field.label_tag }}: {{ field }}</td>
+                                    {% endifnotequal %}
+                                {% endifnotequal %}
+                            {% endfor %}
+                            <td>
+                                 <p id = 'auth' class= "{{save}}">
+                                    <input type='submit' value ='{% trans "Save" %}'/>
+                                </p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="6" style="text-align:left;">
+                                {% for field in form %}
+                                    {% if field.errors %}
+                                    <span id =erreur_saisie>
+                                        {% for error in field.errors %}
+
+                                         <br>{{ field.label_tag}}: {{ error }}
+                                        {% endfor %}
+                                    </span>
+                                    {% endif %}
+                                {% endfor %}
+                            </td>
+                        </tr>
+                    </table>
+                </span>  
+                <table id="insured_list" class="tablesorter">
+                    <tr>
+                        <th>{% trans "School" %}</th>
+                        <th>{% trans "Product" %}</th>
+                        <th>{% trans "Incomming" %}</th>
+                        <th>{% trans "Consumption" %}</th>
+                        <th>{% trans "Remaining" %}</th>
+                        <th>{% trans "Date" %}</th>
+                        <th>{% trans "Delete" %}</th>
+                    </tr>
+                    {% for report in reports %}
+                        <tr>
+                            <td>{{ report.place }}</td>
+                            <td>{{report.product}}</td>
+                            <td> {{report.incomming}} kg</td>
+                            <td>{{ report.consumption }} kg</td>
+                            <td>{{ report.remaining }} kg</td>
+                            <td>{{ report.date|date:"d b Y"}}</td>
+                            <td>
+                                <a href="{{report.url_delete_2}}">
+                                <img id = 'image' class ="{{valide}}" src="/static/css/images/DeleteRed.png" width="20" height="20" title="{% for error in field.errors %}{{ error }}{% endfor %}" /></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </span>       
+            <script type="text/javascript">
+                jQuery('#id_date').datepicker({ dateFormat: 'dd-mm-yy' });
+            </script>
+            </form>
+        </div>
+    </div>
+{% endblock %}  

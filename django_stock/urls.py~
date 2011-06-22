@@ -1,0 +1,81 @@
+# -*- coding: utf-8 -*-
+
+from django.conf.urls.defaults import *
+
+urlpatterns = patterns('',
+
+
+    url(r"^dashboard/$", "django_stock.views.dashboard",
+         name="stock-dashboard"),
+
+    url(r'^all/(?:(?P<year>\d{4})/(?:(?P<duration>(?:month|week))/(?:(?P<duration_number>\d{1,2})/)*)*)*$',
+          'django_stock.views.global_report',
+          name="stock-all"),     
+
+    url(r'^by-products/(?P<id>\d+)/(?:(?P<village_name_slug>[a-z0-9\-]+)/(?:(?P<year>\d{4})/(?:(?P<duration>(?:month|week))/(?:(?P<duration_number>\d{1,2})/)*)*)*)*$',
+         "django_stock.views.by_products",
+         name="stock-by-products"),
+
+    url(r'^by-places/(?P<id>\d+)/(?:(?P<product_name_slug>[a-z0-9\-]+)/(?:(?P<year>\d{4})/(?:(?P<duration>(?:month|week))/(?:(?P<duration_number>\d{1,2})/)*)*)*)*$',
+           "django_stock.views.by_places",
+           name="stock-by-places"),    
+
+    url(r"^report_management/(?P<num>\d+)*$",'django_stock.views.report_management',
+        name="stock-report-management"), 
+               
+    url(r"^management/(?P<num>\d+)*$",'django_stock.views.deleting',
+        name="stock-management"),
+
+    #url(r"^modification/$", "django_stock.views.add_report",
+     #   name="stock-modification"),
+
+    url(r"^modification/(?P<num>\d+)$", "django_stock.views.modification_report",
+        name="stock-modification-report"),
+    
+    
+    url(r"^delete_confirm/(?P<num>\d+)$", "django_stock.views.delete_confirm",
+        name="stock-confirm"),
+
+
+    url(r"^login/$", 'django_stock.views.login', name='login'),
+
+    url(r"^logout/$", 'django_stock.views.logout', name='logout'),
+   
+   
+        
+    url(r"^menu_admin/$", "django_stock.views.menu_admin",
+        name="administration"),
+        
+        
+    url(r"^ajout-utilisateur/$", "django_stock.views.add_user",
+        name="adduser"),
+    
+    url(r"^Modif_Utilisateur/$", "django_stock.views.users",
+        name="modif_utilisateur"),
+
+
+    url(r"^modif_user/$", "django_stock.views.modif_suppr",
+        name="modification_user"),
+
+    #l'exports 
+
+    url(r"^all/export/(?:(?P<year>\d{4})/(?:(?P<duration>(?:month|week))/(?:(?P<duration_number>\d{1,2})/)*)*)*$", 
+        "django_stock.views.global_report_csv",
+        name="export_all_stock"),
+        
+    url(r"^report_management/export/(?P<num>\d+)*$", 
+        "django_stock.views.report_management_csv",
+        name="export_manage_stock"),
+
+    url(r'^by-products/export/(?P<id>\d+)/(?:(?P<village_name_slug>[a-z0-9\-]+)/(?:(?P<year>\d{4})/(?:(?P<duration>(?:month|week))/(?:(?P<duration_number>\d{1,2})/)*)*)*)*$',
+         "django_stock.views.by_products_csv",
+         name="by_products_csv"),
+
+    url(r'^by-places/export/(?P<id>\d+)/(?:(?P<product_name_slug>[a-z0-9\-]+)/(?:(?P<year>\d{4})/(?:(?P<duration>(?:month|week))/(?:(?P<duration_number>\d{1,2})/)*)*)*)*$',
+           "django_stock.views.by_places_csv",
+           name="by_places_csv"), 
+
+
+
+)
+handler404 ="django-kodonso/django_stock.views.my_custom_404_view"

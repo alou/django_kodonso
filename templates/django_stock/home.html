@@ -1,0 +1,53 @@
+<div id= "home_page"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
+
+    <head>
+        <title>Acceuil Kodonso</title>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        {% block prepend-stylesheet %}{% endblock %}
+        <!--[if IE]>
+            <link type="text/css" rel="stylesheet" href="/static/css/styles-ie.css" />
+            <link rel="stylesheet" href="/static/css/blueprint/screen.css" type="text/css" />
+        <![endif]-->
+            <link rel="stylesheet" href="/static/css/blueprint/screen.css" type="text/css" />
+            <link rel="stylesheet" href="/static/css/blueprint/plugins/buttons/screen.css" type="text/css" />
+            <link href="/static/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+{% load i18n %}
+       {% block append-stylesheet %}{% endblock %}
+    </head>
+    
+    <body>
+    
+        <div id="home" class="container "> 
+            <div id="wrapper">
+
+        <div id="logo">
+            <h1 class="prepend-6"><a href="{% url kodonso-home %}">{% trans "WELCOME KODONSO" %}</a></h1>
+            <span><img id = 'image' class ="{{valide}}" src="/static/css/images/AddressBook.png" width="120" height="120" title="{% for error in field.errors %}{{ error }}{% endfor %}" /></a> </span>
+        </div>
+        <div id="header">
+                <div class="span-12 append-6 prepend-6">
+                    <div id="central" class="span-12 box">
+                        
+                        <p id="tag-line">{% trans "School management groups" %}</p>
+                       
+
+                        <ul>
+                           
+                            <li>
+                                <a href="{% url census-dashboard %}" class="button">{% trans "Absences of pupils and teachers" %}</a>
+                            </li>
+                        </ul>                        
+                    </div>  
+                </div>
+        </div>
+    </div>
+        </div>
+        
+        <script type="text/javascript" src="/static/js/behavior.js"></script>
+    </div>
+    </body>
+    
+</html>

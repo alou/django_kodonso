@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}Nombre d'absents en moyenne à {{ village.name }},  &lt; Absentéisme &lt; Kodonso{% endblock %}
+
+{% block page-id %}census-by-schools{% endblock %}
+
+{% block content %}
+
+<div id="header">
+    <div id="menu">
+        <ul>
+            <li class="first"><a href="{% url kodonso-home %}">{% trans "Home" %}</a></li>
+            <li ><a href="{% url census-dashboard %}">{% trans "Abstract" %}</a></li>
+            <li ><a href="{% url census-all %}">{% trans "All absences" %}</a></li>
+            <li ><a href="{% url census-report-management %}">{% trans "Reports Management" %}</a></li>
+        
+        </ul>
+    </div>
+    <div id="login" class=" prepend-17">
+    {% trans "Welcome" %} {{ user.username }}
+        <a href="{% url logout_%}">{% trans "Disconnect" %}</a> 
+        <a href="{% url administration %}">{% trans "manage" %}</a>
+    </div>
+	
+	<h1>{% trans "Average number of abcences to" %} {{ village.name }}</h1>
+		<div id="main-content">
+		{% include "_duration_pagination.html" %}  
+		{% include "_navigation_form.html" %}
+		{% if interdir_pas_donne %}
+		{% ifequal duration "month" %}
+			<a class="prepend-12" href="{% url census-variation village.id year duration duration_number %}">Voir les écarts de 2 mois precedant</a>
+		{% endifequal %}
+		{% endif %}
+		
+
+
+{{nb_jr}}
+{{total_count_girls}}
+{{total_abs_boys}}
+   <table class="span-18 last">
+   <tr>
+       <th colspan="2">School</th>
+       <th colspan="2">Boys </th>
+       <th colspan="2">Girls</th>
+	   <th colspan="2">Teachers </th>
+   </tr>
+   <tr>
+       <td></td>
+       <td>Taux d'abscence</td>
+       <td>Nbre d'abscent</td>  
+       <td>Taux d'abscence</td>
+       <td>Nbre d'abscent</td>
+       <td>Taux d'abscence</td>
+       <td>Nbre d'abscent</td>
+   </tr>
+   <tr>
+       <td rowspan="2" >Lumiere</td>
+       <td rowspan="2">10%</td>
+       <td >50</td>
+       <td rowspan="3">20%</td>
+       <td >23</td>
+       <td rowspan="3">60%</td>
+       <td >12</td>
+   </tr>
+   
+    <tr>
+       <td>jour</td>
+       <td>jour</td>
+       <td>jour</td>             
+   </tr>
+   <tr>
+       <td></td>
+       <td></td>
+       <td>{{nb_jr}}</td>
+       <td>{{nb_jr}}</td>
+       <td></td>
+                   
+   </tr>
+</table>
+{% endblock %}

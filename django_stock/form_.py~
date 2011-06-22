@@ -1,0 +1,20 @@
+#!/usr/bin/env python
+# -*- coding= UTF-8 -*-
+
+from models import Report
+from django import forms
+
+class StockReportForm(forms.ModelForm):
+    class Meta:
+		model=Report
+		exclude = ['remaining']
+
+class ModificationForm(forms.Form):
+    
+    product = forms.CharField(max_length=60, label='Produit')
+    place = forms.CharField(max_length=60,label='Village')
+    incomming = forms.FloatField(label='Entrée')
+    consumption = forms.FloatField(label='Consommation')
+    remaining = forms.FloatField(label='Restant')
+    date = forms.DateField()
+

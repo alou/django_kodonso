@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}prevision &lt; Cantine &lt; Kodonso {% endblock %}
+
+{% block page-id %}prevision{% endblock %}
+
+{% block content %}
+
+<div id="header">
+
+      <div id="menu">
+        <ul>
+            <li class="first"><a href="{% url kodonso-home %}">{% trans "Home" %}</a></li>
+
+    </div>
+    
+    <div id="login" class=" prepend-17">
+            {% trans "Welcome" %} {{ user.username }}
+            <a href="{% url logout_%}">{% trans "Disconnect" %}</a> 
+            <a href="{% url administration %}">{% trans "manage" %}</a>
+        </div>
+
+<h1 class= "span-24">{% trans "Quantity forecast" %}</h1>
+        <div id="left-column" class="span-24">
+            <span>{{message}} </span>
+            
+            <form id='navi'method="post"autocomplete="off">
+
+                {{form.as_p }}
+                    <p>
+                        <input type="submit" value='{% trans "ok" %}'/>
+                    </p>
+            </form>
+            
+            
+            
+        <div id = "table_prevision">
+                <table>
+                    <caption>{% trans "Forecast" %}</caption>
+                    <tr>
+                        <th>{% trans "Place" %}</th>
+                        <th>{% trans "School" %}</th>
+                        <th>{% trans "Total student" %}</th>
+                        <th>{% trans "FAO quota" %}</th>
+                        <th>{% trans "Quantity forecast" %} / 9 {% trans "months" %} </th>
+                        
+                        
+                    </tr>
+                    {% for prevision in previsions  %}
+                        
+                        <tr>
+                            <td>{{ prevision.school__village__name}}</td> 
+                            <td>{{ prevision.school__name}}</td>
+                            <td>{{ prevision.total_count}}</td>
+                                                        
+                            <td>{{prev}} g / {% trans "days" %}</td>
+                            
+                            <td>{{ prevision.prevision}} kg</td>
+                          
+                           
+                        </tr>
+                    {%endfor %} 
+                </table > 
+            </div>
+        </div>     
+    </div> 
+{% endblock %}

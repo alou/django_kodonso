@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}{% trans "Consolidation" %} &lt; Stock &lt; Kodonso{% endblock %}
+{% load i18n %}
+{% block page-id %}add_user{% endblock %}
+{% block content %}
+    <div id="menu">
+            <ul>
+                <li class="first"><a href="{% url kodonso-home %}">{% trans "Home" %}</a></li>
+                <li class="current_page_item"><a href="{% url stock-codif %}">{% trans "Stock Consolidation" %}</a></li> 
+                      
+            </ul>
+        </div>
+        
+        <div id="login" class=" prepend-17" >
+            {% trans "Welcome" %} {{ user.username }}
+            <a href="{% url logout_%}">{% trans "Disconnect" %}</a> 
+            <a href="{% url administration %}">{% trans "manage" %}</a>
+        </div>
+
+    <h1 class= "span-24">{% trans "Schools and products code" %}</h1>
+    
+
+
+        <div id="left-column" class="span-24">
+
+            <table class="span-11">
+
+                <caption>{% trans "School" %}</caption>
+                
+               
+                   <tr>
+                           <th>{% trans "School name" %}</th>
+                           <th>{% trans "School code" %}</th>
+                   </tr>
+                   {% for a in code_place %}
+                   <tr>
+                           <td>{{a.name}}</td>
+                           <td>{{a.code_place}}</td>
+                   </tr>
+                    {%endfor %} 
+            </table>
+
+            <table class="span-11">
+           
+              <caption>{% trans "products" %}</caption>
+              
+                       <tr>
+                           <th>{% trans "Product name" %}</th>
+                           <th>{% trans "Product code" %}</th>
+                       </tr>
+                        {% for a in code_product %}
+                       <tr>
+                           <td>{{a.name}}</td>
+                           <td>{{a.code_product}}</td>
+                       </tr>
+                  {%endfor %} 
+            </table>
+
+        </div> 
+
+   {% endblock %}
+
+
+

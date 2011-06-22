@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}Nombre d'absents en moyenne à {{ school.name }},  &lt; Absentéisme &lt; Kodonso{% endblock %}
+{% block page-id %}census-by-classes{% endblock %}
+{% block content %}
+
+<div id="header">
+       
+    <div id="menu">
+        <ul>
+            <li class="first"><a href="/home/">{% trans "Home" %}</a></li>
+            <li ><a href="/census/dashboard">{% trans "Abstract" %}</a></li>
+            <li ><a href="/census/all/">{% trans "All absences" %}</a></li>
+            <li ><a href="/census/report_management/">{% trans "Reports Management" %}</a></li>
+            <li ><a href="{% url census_raport_pdf %}">{% trans "Summary" %}</a></li>
+        
+        </ul>
+    </div>
+   
+        <div id="login" class=" prepend-17">
+                {% trans "Welcome" %} {{ user.username }}
+                <a href="{% url logout_%}">{% trans "Disconnect" %}</a> 
+                <a href="{% url administration %}">{% trans "manage" %}</a>
+        </div>
+        
+        <h1>
+           {% trans "Average number of abcences to" %} {{ school.name }}<br />
+            
+            {% if duration %}
+                (<a href="{% url census-by-schools school.village.id, school.village.name|slugify, year, duration, duration_number %}">{{ school.village.name }}</a>)
+            {% else %}   
+                (<a href="{% url census-by-schools school.village.id, school.village.name|slugify, year %}">{{ school.village.name }}</a>)
+            {% endif %} 
+        </h1>
+
+        <div id="main-content" >
+           <span id="duration-pagination">
+            {% include "_duration_pagination.html" %}
+            </span>
+            {% include "_navigation_form.html" %}
+
+            <table  class="span-18 last">
+            
+                <caption>{% include "_time_pagination.html" %}</caption>
+
+                <tr>
+                    <td colspan="1">{% trans "Classes" %}</td>
+                    <td colspan="2">{% trans "Boys" %}</td>
+                    <td colspan="2">{% trans "Girls" %}</td>
+                    <td colspan="2">{% trans "Teachers" %}</td>
+                </tr>
+                <tr><td> </td>
+                   
+                   <td>{% trans " Number of missing" %}</td>  
+                   <td>{% trans "Total number" %}</td>
+                   <td>{% trans " Number of missing" %}</td> 
+                   <td>{% trans "Total number" %}</td>
+                   <td>{% trans " Number of missing" %}</td>
+                   <td>{% trans "Total number" %}</td>
+                </tr>
+            
+                
+                {% for class_abs in classes_abs %}
+                    <tr>
+                       <td>{{ class_abs.class_name }}</td>
+                       <td>{{ class_abs.boys_absentees|floatformat:0 }} </td>
+                        <td>{{ class_abs.boys_count }} </td>
+                       <td>{{ class_abs.girls_absentees|floatformat:0 }}</td> 
+                       <td>{{ class_abs.girls_count }}</td>
+                       <td>{{ class_abs.teacher_absentees|floatformat:0 }}</td>
+                        <td>{{ class_abs.teachers_count }}</td>
+                    </tr>
+ 
+
+                                            {% empty %}
+                         <tr>
+                            <td colspan="4">{{ in_empty_case }} <a href="{% url census-report-management %}" class = "prepend-2">{% trans "Add a new call"%}</a></td>
+                         </tr>
+                              {% endfor%}
+                              {% if not empty  %}
+                    <tfoot>          
+                        <tr>
+                            <td >{% trans "Total" %}</td>
+                            <td> {{total_abs_boys|floatformat:0}}</td>
+                            <td>{{total_count_boys}}</td>
+                            <td> {{total_abs_girls|floatformat:0}}</td>
+                            <td>{{total_count_girls}}</td>
+                            <td> {{total_abs_teachers|floatformat:0}}</td>
+                            <td>{{total_count_teachers}}</td>        
+                        </tr>
+                    </tfoot>
+                             {% endif %}
+                {% for school_class_name in classes_whithout_activities %}
+                <tfoot>
+                       <tr>
+                        <td>{{ school_class_name }}</td>
+                        <td colspan="7">{% trans "No appeal has been made" %}<a href="{% url census-report-management %}" class = "prepend-2">{% trans "Add a new call"%}</a></td>
+                    </tr>
+                    </tfoot>   
+                {%endfor%}
+
+            </table>
+          
+            </div>
+                {% if classes_abs %}
+                    {% if duration %} 
+                        <a class="prepend-16" href="{% url by_classes_census_csv school.id, school.name|slugify year, duration, duration_number %}">
+                            {% trans "Download those data at size CSV" %}
+                        </a>
+                        {% else %}
+                        <a class="prepend-16" href="{% url by_classes_census_csv school.id, school.name|slugify year %}">
+                            {% trans "Download those data at size CSV" %}
+                        </a>
+                    {% endif %}
+                {% endif %}
+            </div>
+    {% endblock %}
+  
+</div>

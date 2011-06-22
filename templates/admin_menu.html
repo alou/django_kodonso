@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}Administration{% endblock %}
+{% block page-id %}menu_admin{% endblock %} 
+{% block content %}
+
+<div id="header">
+    <div id="menu">
+        <ul>
+            <li class="first"><a href="/home/">{% trans "Home" %}</a></li>
+            <li><a href="{% url prevision %}">{% trans "Calculation of forecast" %}</a></li>
+            <li><a href="{% url stock-codif %}">{% trans " Stock Consolidation" %}</a></li>
+            <li><a href="{% url census-codif %}">{% trans "Consolidation absence" %}</a></li>
+        </ul>
+    </div>
+
+        <div id="login" class=" prepend-17 last">
+        
+                {% trans "Welcome" %} {{ user.username }}
+                <a href="{% url logout_%}">{% trans "Disconnect" %}</a> 
+                <a class="current_page_item" href="{% url administration %}">{% trans "manage" %}</a>
+        </div>
+        <h1>{% trans "Select the user to change" %}</h1>
+        <div id="menu_admin">
+          
+            <ul>
+                <li>
+                    <a href="{% url adduser %}">{% trans "Add user" %}</a>
+                </li>
+
+            </ul>
+           
+        </div>
+        <div id = "table_featured">  
+            <table >
+             
+            <tr>
+                <th>{% trans "User" %}</th>
+                <th>{% trans "First name" %}</th>
+                <th>{% trans "Last name" %}</th>
+                <th>{% trans "Email" %}</th>
+                <th>{% trans "Group" %}</th>
+            </tr>        
+            {% for nom in users%}                          
+                <tr>
+                   <td><a href='{{nom.url}}'>{{ nom }}</a></td>                        
+                
+                    <td>{{nom.first_name}}</td>
+                    <td>{{nom.last_name}}</td>
+                    <td>{{nom.email}}</td>
+                    <td>{% for group in nom.groupe %} {{group}}  {% endfor %}</td>
+                </tr>
+            {% endfor %}
+                     
+            </table>
+         </div>
+        
+
+    {% endblock %}
+

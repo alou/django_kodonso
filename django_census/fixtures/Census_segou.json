@@ -1,0 +1,2061 @@
+[
+    {
+        "pk": 1, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Dioro"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Farakou"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Konou"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Kolomi"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Tiby"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Gouakolomba"
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Babougou"
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Komine"
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Soko"
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Founoukouni"
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Diakoroba"
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Dougounikoro"
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Boumboukoro"
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Touba"
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Songolon"
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Bozola"
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Blombabougou"
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Wena Were"
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Koila Bamana"
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Wena"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "dio1", 
+            "name": "Dioro I", 
+            "village": 1
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "dio2", 
+            "name": "Dioro II", 
+            "village": 1
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "dio3", 
+            "name": "Dioro III", 
+            "village": 1
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "dio4", 
+            "name": "Dioro IV", 
+            "village": 1
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "kom", 
+            "name": "Komine", 
+            "village": 9
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "sok", 
+            "name": "Soko", 
+            "village": 10
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "fou", 
+            "name": "Founoukouni", 
+            "village": 11
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "far", 
+            "name": "Farakou", 
+            "village": 2
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "dia", 
+            "name": "Diakoroba", 
+            "village": 12
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "dou", 
+            "name": "Dougounikoro", 
+            "village": 13
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "bou", 
+            "name": "Boumboukoro", 
+            "village": 14
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "gou", 
+            "name": "Gouakolomba", 
+            "village": 6
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "kou", 
+            "name": "Konou", 
+            "village": 3
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "tou", 
+            "name": "Touba", 
+            "village": 15
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "son", 
+            "name": "Songolon", 
+            "village": 16
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "gju", 
+            "name": "Gjuidjo Alimamy", 
+            "village": 17
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "blo", 
+            "name": "Blombabougou", 
+            "village": 18
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "bab", 
+            "name": "Babougou", 
+            "village": 8
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "wwe", 
+            "name": "Wena Were", 
+            "village": 19
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "kb", 
+            "name": "Koila Bamana", 
+            "village": 20
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "wen", 
+            "name": "Wena", 
+            "village": 21
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "tib", 
+            "name": "Tiby", 
+            "village": 5
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "django_census.school", 
+        "fields": {
+            "code_school": "kol", 
+            "name": "Kolomi", 
+            "village": 4
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 5, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ko1", 
+            "boys_count": 34, 
+            "teachers_count": 1, 
+            "girls_count": 34, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 5, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ko2", 
+            "boys_count": 25, 
+            "teachers_count": 1, 
+            "girls_count": 35, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 5, 
+            "grade": "3 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ko3", 
+            "boys_count": 46, 
+            "teachers_count": 1, 
+            "girls_count": 34, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 5, 
+            "grade": "4 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ko4", 
+            "boys_count": 25, 
+            "teachers_count": 1, 
+            "girls_count": 19, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 5, 
+            "grade": "5 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ko5", 
+            "boys_count": 21, 
+            "teachers_count": 1, 
+            "girls_count": 16, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 5, 
+            "grade": "6 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ko6", 
+            "boys_count": 16, 
+            "teachers_count": 1, 
+            "girls_count": 17, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 6, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "so1", 
+            "boys_count": 20, 
+            "teachers_count": 1, 
+            "girls_count": 31, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 6, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "so2", 
+            "boys_count": 27, 
+            "teachers_count": 1, 
+            "girls_count": 23, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 6, 
+            "grade": "3 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "so3", 
+            "boys_count": 50, 
+            "teachers_count": 1, 
+            "girls_count": 39, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 6, 
+            "grade": "4 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "so4", 
+            "boys_count": 16, 
+            "teachers_count": 1, 
+            "girls_count": 13, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 6, 
+            "grade": "5 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "so5", 
+            "boys_count": 17, 
+            "teachers_count": 1, 
+            "girls_count": 9, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 6, 
+            "grade": "6 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "so6", 
+            "boys_count": 24, 
+            "teachers_count": 1, 
+            "girls_count": 7, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 7, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "fo1", 
+            "boys_count": 12, 
+            "teachers_count": 1, 
+            "girls_count": 22, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 7, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "fo2", 
+            "boys_count": 31, 
+            "teachers_count": 1, 
+            "girls_count": 23, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 8, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "fa1", 
+            "boys_count": 22, 
+            "teachers_count": 1, 
+            "girls_count": 19, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 8, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "fa2", 
+            "boys_count": 23, 
+            "teachers_count": 1, 
+            "girls_count": 17, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 8, 
+            "grade": "3 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "fa3", 
+            "boys_count": 41, 
+            "teachers_count": 1, 
+            "girls_count": 32, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 18, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 8, 
+            "grade": "4 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "fa4", 
+            "boys_count": 12, 
+            "teachers_count": 1, 
+            "girls_count": 14, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 19, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 5.0, 
+            "school": 8, 
+            "grade": "6 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "fa6", 
+            "boys_count": 9, 
+            "teachers_count": 1, 
+            "girls_count": 2, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 20, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 9, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "di1", 
+            "boys_count": 22, 
+            "teachers_count": 1, 
+            "girls_count": 19, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 21, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 9, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "di2", 
+            "boys_count": 26, 
+            "teachers_count": 1, 
+            "girls_count": 21, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 22, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 10, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "do1", 
+            "boys_count": 12, 
+            "teachers_count": 1, 
+            "girls_count": 20, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 23, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 10, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "do2", 
+            "boys_count": 20, 
+            "teachers_count": 1, 
+            "girls_count": 16, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 24, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 10, 
+            "grade": "3 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "do3", 
+            "boys_count": 32, 
+            "teachers_count": 1, 
+            "girls_count": 25, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 25, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 10, 
+            "grade": "4 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "do4", 
+            "boys_count": 11, 
+            "teachers_count": 1, 
+            "girls_count": 4, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 26, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 5.0, 
+            "school": 10, 
+            "grade": "5 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "do5", 
+            "boys_count": 6, 
+            "teachers_count": 1, 
+            "girls_count": 5, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 27, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 5.0, 
+            "school": 10, 
+            "grade": "6 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "do6", 
+            "boys_count": 12, 
+            "teachers_count": 1, 
+            "girls_count": 9, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 28, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 10, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "bo1", 
+            "boys_count": 28, 
+            "teachers_count": 1, 
+            "girls_count": 43, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 29, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 11, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "bo2", 
+            "boys_count": 41, 
+            "teachers_count": 1, 
+            "girls_count": 45, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 30, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 12, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "go1", 
+            "boys_count": 14, 
+            "teachers_count": 1, 
+            "girls_count": 11, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 31, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 12, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "go2", 
+            "boys_count": 7, 
+            "teachers_count": 1, 
+            "girls_count": 17, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 32, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 12, 
+            "grade": "3 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "go3", 
+            "boys_count": 16, 
+            "teachers_count": 1, 
+            "girls_count": 18, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 33, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 12, 
+            "grade": "4 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "go4", 
+            "boys_count": 44, 
+            "teachers_count": 1, 
+            "girls_count": 34, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 34, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 12, 
+            "grade": "6 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "go6", 
+            "boys_count": 9, 
+            "teachers_count": 1, 
+            "girls_count": 17, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 35, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 5.0, 
+            "school": 13, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kon1", 
+            "boys_count": 11, 
+            "teachers_count": 1, 
+            "girls_count": 3, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 36, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 13, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kon2", 
+            "boys_count": 24, 
+            "teachers_count": 1, 
+            "girls_count": 14, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 37, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 13, 
+            "grade": "3 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kon3", 
+            "boys_count": 39, 
+            "teachers_count": 1, 
+            "girls_count": 16, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 38, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 13, 
+            "grade": "4 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kon4", 
+            "boys_count": 45, 
+            "teachers_count": 1, 
+            "girls_count": 9, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 39, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 4.0, 
+            "school": 13, 
+            "grade": "5 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kon5", 
+            "boys_count": 5, 
+            "teachers_count": 1, 
+            "girls_count": 3, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 40, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 5.0, 
+            "school": 13, 
+            "grade": "6 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kon6", 
+            "boys_count": 10, 
+            "teachers_count": 1, 
+            "girls_count": 1, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 41, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 14, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "to1", 
+            "boys_count": 16, 
+            "teachers_count": 1, 
+            "girls_count": 24, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 42, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 14, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "to2", 
+            "boys_count": 21, 
+            "teachers_count": 1, 
+            "girls_count": 19, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 43, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 14, 
+            "grade": "3 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "to3", 
+            "boys_count": 30, 
+            "teachers_count": 1, 
+            "girls_count": 40, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 44, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 15, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "son1", 
+            "boys_count": 21, 
+            "teachers_count": 1, 
+            "girls_count": 23, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 45, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 15, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "son2", 
+            "boys_count": 81, 
+            "teachers_count": 1, 
+            "girls_count": 62, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 46, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 16, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "gj1", 
+            "boys_count": 23, 
+            "teachers_count": 1, 
+            "girls_count": 7, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 47, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 16, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "gj2", 
+            "boys_count": 13, 
+            "teachers_count": 1, 
+            "girls_count": 17, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 48, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 17, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "bl1", 
+            "boys_count": 13, 
+            "teachers_count": 1, 
+            "girls_count": 11, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 49, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 17, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "bl2", 
+            "boys_count": 32, 
+            "teachers_count": 1, 
+            "girls_count": 17, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 50, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 18, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ba1", 
+            "boys_count": 34, 
+            "teachers_count": 1, 
+            "girls_count": 38, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 51, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 18, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ba2", 
+            "boys_count": 37, 
+            "teachers_count": 1, 
+            "girls_count": 35, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 52, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 18, 
+            "grade": "3 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ba3", 
+            "boys_count": 55, 
+            "teachers_count": 1, 
+            "girls_count": 50, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 53, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 18, 
+            "grade": "4 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ba4", 
+            "boys_count": 39, 
+            "teachers_count": 1, 
+            "girls_count": 45, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 54, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 18, 
+            "grade": "5 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ba5", 
+            "boys_count": 47, 
+            "teachers_count": 1, 
+            "girls_count": 33, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 55, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 18, 
+            "grade": "6 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ba6", 
+            "boys_count": 29, 
+            "teachers_count": 1, 
+            "girls_count": 20, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 56, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 4, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dIV1", 
+            "boys_count": 36, 
+            "teachers_count": 1, 
+            "girls_count": 40, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 57, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 4, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dIV2", 
+            "boys_count": 49, 
+            "teachers_count": 1, 
+            "girls_count": 39, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 58, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 4, 
+            "grade": "3 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dIV3", 
+            "boys_count": 37, 
+            "teachers_count": 1, 
+            "girls_count": 45, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 59, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 4, 
+            "grade": "4 EME A", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dIV4a", 
+            "boys_count": 46, 
+            "teachers_count": 1, 
+            "girls_count": 28, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 60, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 4, 
+            "grade": "4 EME B", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dIV4b", 
+            "boys_count": 49, 
+            "teachers_count": 1, 
+            "girls_count": 32, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 61, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 4, 
+            "grade": "5 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dIV5", 
+            "boys_count": 39, 
+            "teachers_count": 1, 
+            "girls_count": 40, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 62, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 3, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dIII 1", 
+            "boys_count": 32, 
+            "teachers_count": 1, 
+            "girls_count": 49, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 63, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 3, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dIII 2", 
+            "boys_count": 36, 
+            "teachers_count": 1, 
+            "girls_count": 35, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 64, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 3, 
+            "grade": "3 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dIII 3", 
+            "boys_count": 40, 
+            "teachers_count": 1, 
+            "girls_count": 53, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 65, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 3, 
+            "grade": "4 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dIII 4", 
+            "boys_count": 81, 
+            "teachers_count": 1, 
+            "girls_count": 73, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 66, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 3, 
+            "grade": "5 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dIII 5", 
+            "boys_count": 38, 
+            "teachers_count": 1, 
+            "girls_count": 35, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 67, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 3, 
+            "grade": "6 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dIII 6", 
+            "boys_count": 35, 
+            "teachers_count": 1, 
+            "girls_count": 25, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 68, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 2, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dII1", 
+            "boys_count": 36, 
+            "teachers_count": 1, 
+            "girls_count": 41, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 69, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 2, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dII2", 
+            "boys_count": 49, 
+            "teachers_count": 1, 
+            "girls_count": 35, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 70, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 2, 
+            "grade": "3 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dII3", 
+            "boys_count": 49, 
+            "teachers_count": 1, 
+            "girls_count": 42, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 71, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 2, 
+            "grade": "4 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dII4", 
+            "boys_count": 28, 
+            "teachers_count": 1, 
+            "girls_count": 31, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 72, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 2, 
+            "grade": "5 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dII5", 
+            "boys_count": 28, 
+            "teachers_count": 1, 
+            "girls_count": 31, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 73, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 2, 
+            "grade": "6 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dII6", 
+            "boys_count": 31, 
+            "teachers_count": 1, 
+            "girls_count": 39, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 74, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 1, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dI1", 
+            "boys_count": 65, 
+            "teachers_count": 1, 
+            "girls_count": 42, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 75, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 1, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "DI 2", 
+            "boys_count": 42, 
+            "teachers_count": 1, 
+            "girls_count": 43, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 76, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 1, 
+            "grade": "3 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dI3", 
+            "boys_count": 36, 
+            "teachers_count": 1, 
+            "girls_count": 40, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 77, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 1, 
+            "grade": "4 EME A", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dI 4a", 
+            "boys_count": 32, 
+            "teachers_count": 1, 
+            "girls_count": 28, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 78, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 1, 
+            "grade": "5 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dI5", 
+            "boys_count": 50, 
+            "teachers_count": 1, 
+            "girls_count": 40, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 79, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 1, 
+            "grade": "6 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dI6", 
+            "boys_count": 31, 
+            "teachers_count": 1, 
+            "girls_count": 45, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 80, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 1, 
+            "grade": "4 EME B", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "dI4b", 
+            "boys_count": 41, 
+            "teachers_count": 1, 
+            "girls_count": 23, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 81, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 19, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ww1", 
+            "boys_count": 18, 
+            "teachers_count": 1, 
+            "girls_count": 18, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 82, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 19, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ww2", 
+            "boys_count": 23, 
+            "teachers_count": 1, 
+            "girls_count": 39, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 83, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 20, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kb1", 
+            "boys_count": 16, 
+            "teachers_count": 1, 
+            "girls_count": 27, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 84, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 20, 
+            "grade": "2 EME B", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kb2", 
+            "boys_count": 53, 
+            "teachers_count": 1, 
+            "girls_count": 40, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 85, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 20, 
+            "grade": "3 EME B", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kb3b", 
+            "boys_count": 20, 
+            "teachers_count": 1, 
+            "girls_count": 20, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 86, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 20, 
+            "grade": "3 EME A", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kb3a", 
+            "boys_count": 25, 
+            "teachers_count": 1, 
+            "girls_count": 26, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 87, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 20, 
+            "grade": "4 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kb4", 
+            "boys_count": 36, 
+            "teachers_count": 1, 
+            "girls_count": 21, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 88, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 20, 
+            "grade": "5 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kb5", 
+            "boys_count": 25, 
+            "teachers_count": 1, 
+            "girls_count": 13, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 89, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 20, 
+            "grade": "6 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kb6", 
+            "boys_count": 38, 
+            "teachers_count": 1, 
+            "girls_count": 14, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 90, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 22, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "we1", 
+            "boys_count": 13, 
+            "teachers_count": 1, 
+            "girls_count": 18, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 91, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 22, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "we2", 
+            "boys_count": 13, 
+            "teachers_count": 1, 
+            "girls_count": 18, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 92, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 22, 
+            "grade": "3 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "we3", 
+            "boys_count": 22, 
+            "teachers_count": 1, 
+            "girls_count": 26, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 93, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 22, 
+            "grade": "4 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "we4", 
+            "boys_count": 55, 
+            "teachers_count": 1, 
+            "girls_count": 27, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 94, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 22, 
+            "grade": "5 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "we5", 
+            "boys_count": 7, 
+            "teachers_count": 1, 
+            "girls_count": 5, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 95, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 23, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ti1", 
+            "boys_count": 19, 
+            "teachers_count": 1, 
+            "girls_count": 26, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 96, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 23, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ti2", 
+            "boys_count": 30, 
+            "teachers_count": 1, 
+            "girls_count": 25, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 97, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 23, 
+            "grade": "3 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ti3", 
+            "boys_count": 69, 
+            "teachers_count": 1, 
+            "girls_count": 68, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 98, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 23, 
+            "grade": "4 EME B", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ti4b", 
+            "boys_count": 54, 
+            "teachers_count": 1, 
+            "girls_count": 27, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 99, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 4.0, 
+            "school": 23, 
+            "grade": "5 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ti5", 
+            "boys_count": 6, 
+            "teachers_count": 1, 
+            "girls_count": 6, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 100, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 3.0, 
+            "school": 23, 
+            "grade": "6 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ti6", 
+            "boys_count": 7, 
+            "teachers_count": 1, 
+            "girls_count": 0, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 101, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 23, 
+            "grade": "4 EME A", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "ti4a", 
+            "boys_count": 49, 
+            "teachers_count": 1, 
+            "girls_count": 28, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 102, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 4.0, 
+            "school": 24, 
+            "grade": "1 ERE", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kol1", 
+            "boys_count": 8, 
+            "teachers_count": 1, 
+            "girls_count": 5, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 103, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 24, 
+            "grade": "2 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kol2", 
+            "boys_count": 25, 
+            "teachers_count": 1, 
+            "girls_count": 28, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 104, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 24, 
+            "grade": "3 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kol3", 
+            "boys_count": 20, 
+            "teachers_count": 1, 
+            "girls_count": 15, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 105, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 24, 
+            "grade": "4 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kol4", 
+            "boys_count": 27, 
+            "teachers_count": 1, 
+            "girls_count": 11, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 106, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 10.0, 
+            "school": 24, 
+            "grade": "5 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kol5", 
+            "boys_count": 25, 
+            "teachers_count": 1, 
+            "girls_count": 9, 
+            "teacher_missing_day": 1.0
+        }
+    }, 
+    {
+        "pk": 107, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "people_missing_day": 2.0, 
+            "school": 24, 
+            "grade": "6 EME", 
+            "end_year": 2011, 
+            "begin_year": 2010, 
+            "code_schoolclass": "kol6", 
+            "boys_count": 4, 
+            "teachers_count": 1, 
+            "girls_count": 3, 
+            "teacher_missing_day": 1.0
+        }
+    }
+]

@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
+
+    <head>
+        <title>Résumé de l'état des stocks &lt; Stock &lt; Kodonso</title>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+        <!--[if IE]>
+            <link type="text/css" rel="stylesheet" href="/static/css/styles-ie.css" />
+            <link rel="stylesheet" href="/static/css/blueprint/screen.css" type="text/css" />
+        <![endif]-->
+            <link rel="stylesheet" href="/static/css/blueprint/screen.css" type="text/css" />
+          
+            <link href="/static/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+            <script type="text/javascript" src="/static/js/jquery.js"></script>
+            <script type="text/javascript" src="/static/js/behavior.js"></script>
+
+          {% load i18n %}
+    </head>
+    
+    <body>
+    
+        <div id="stock-dashboard" class="container "> 
+
+<div id="header">
+        <div id="menu">
+            <ul>
+                <li class="first"><a href="{% url kodonso-home %}">{% trans "Home" %}</a></li>
+                <li class="current_page_item"><a href="{% url stock-dashboard %}">{% trans "Abstract" %}</a></li>
+                <li><a href="{% url stock-all %}">{% trans "All Stocks" %}</a></li>
+                <li><a href="{% url stock-report-management %}">{% trans "Reports Management" %}</a></li>
+                <li><a href="{% url stock_raport_pdf %}">{% trans "Summary" %}</a></li>     
+                <li><a href="{% url stock_maxi %}">{% trans "Maximum stock" %}</a></li>
+            </ul>
+        </div>
+        <div id="login" class=" prepend-17">
+                {% trans "Welcome" %} {{ user.username }}
+                <a href="{% url logout_%}">{% trans "Disconnect" %}</a> 
+                <a href="{% url administration %}">{% trans "manage" %}</a>
+        </div>
+        
+        <h1 class= "span-24">{% trans "Summary of stock " %}</h1>
+
+        <div id="left-column" class="span-15">
+
+            <table class="span-7">
+
+                <caption>
+                    {% trans "Schools in short" %}
+                </caption>
+                <tbody> 
+                
+                    {% for report in lowest_remaining_by_place %}
+                        <tr>
+                           <td>
+                               <a href="{% url stock-by-products report.place.id,report.place.name|slugify %}">
+                                   {{ report.place.name  }}
+                               </a>
+                           </td>
+
+                           <td>
+                              <a href="{% url stock-by-places report.product.id,report.product.name|slugify %}">
+                                {{ report.product.name }}
+                              </a>
+                           </td>
+
+                           <td>{{ report.maximum|floatformat:0 }} %</td>
+                        </tr>
+                    {% empty %}
+                         <tr>
+                            <td colspan="2">{% trans "No record of stock" %}   <a  href="{% url stock-report-management %}">{% trans "Add record"%}</a></td>
+                         </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+            <table class="span-7">            
+                <caption>
+                    {% trans "Largest consumers of the month" %}
+                </caption>
+
+                <tbody> 
+                    {% for consumption in top_consumption %}
+                        <tr>
+                           <td>
+                                <a href="{% url stock-by-products consumption.place.id,consumption.place.name|slugify %}">
+                                   {{ consumption.place.name  }}
+                                </a>
+                           </td>
+                           <td>
+                                <a href="{% url stock-by-places consumption.product.id,consumption.product.name|slugify %}">
+                                   {{ consumption.product.name }}
+                                </a>
+                           </td>
+                           
+                           <td>{{ consumption.maximum|floatformat:0 }} %</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                         <td colspan="3">{% trans "No record of stock" %}<a  href="{% url stock-report-management %}"> {% trans "Add record"%}</a></td>
+                        </tr>
+                    {% endfor %}    
+                </tbody>
+                    
+                </table>
+                <table id="warning-stock" >                        
+                    <caption>
+                            <center><h3><font color='red'>{% trans "Warning" %}</font></h3></center>
+                    </caption>
+
+                    <tbody> 
+                        <tr>
+                            <td>
+                                {% for warning in warning_report %}
+                                <center> 
+                                    <p>{% trans "The" %} {{warning.date|date:"d b Y"}} {{ warning.place.name  }} {% trans "has exceeded its normal consumption" %} {{ warning.product.name }} ({% trans "whether" %} <font color='green' >{{warning.s_day.stock_day}}</font> kg) {% trans "of" %} <font color='red' >
+                                    {{warning.sub_stock}}</font> kg. 
+                                    </p>
+                                </center>  
+                                {% empty %}
+                                    <center>{% trans "No warning" %}</center>
+                                {% endfor %} 
+                            </td> 
+                        </tr> 
+                    </tbody>
+                </table>   
+            </table> 
+        </div><!-- fin de left-column -->
+
+        <table  id="last-reports" class ="span-8 last">
+            
+            <caption>{% trans "Last movements" %}</caption>
+            
+            <tbody> 
+            
+                {% for report in last_reports %}
+                    <tr>
+                        <td class="{{ report.type }}">
+                             {{ report.sign }} 
+                             {{ report.quantity }} kg
+                        </td>
+                        <td>
+                            <a href="{% url stock-by-places report.product.id,report.product.name|slugify %}">
+                                {{ report.product.name }}
+                            </a> 
+                        </td>
+                        <td>
+                            <a href="{% url stock-by-products report.place.id,report.place.name|slugify %}">
+                                {{ report.place.name }}
+                            </a>
+                        </td>
+                        <td>{{ report.date|date:"d b Y" }}</td>
+                    </tr>   
+                {% empty %}
+                    <tr>
+                        <td>{% trans "No record of stock" %} </td>
+                    </tr>
+                {% endfor %}
+                
+            </tbody> 
+            
+        </table>
+    </div>           
+
+        </div>
+        
+        
+        
+    </body>
+    
+</html>
+

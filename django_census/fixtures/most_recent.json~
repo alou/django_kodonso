@@ -1,0 +1,532 @@
+[
+    {
+        "pk": 1, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Konou"
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Farakou"
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Kolomi"
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Tiby"
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": " Gouakolomba"
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Babougou"
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "django_census.village", 
+        "fields": {
+            "name": "Wena"
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Konou 1", 
+            "village": 1
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Konou 2", 
+            "village": 1
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Farakou 1", 
+            "village": 2
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Farakou 2", 
+            "village": 2
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Kolomi 1", 
+            "village": 3
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Kolomi 2", 
+            "village": 3
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Tiby 1", 
+            "village": 4
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Tiby 2", 
+            "village": 4
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Guakolomba 1", 
+            "village": 5
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Guakolomba 2", 
+            "village": 5
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Babougou 1", 
+            "village": 6
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Babougou 2", 
+            "village": 6
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Wena 1", 
+            "village": 7
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "django_census.school", 
+        "fields": {
+            "name": "Wena 2", 
+            "village": 7
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 1, 
+            "grade": "1 A", 
+            "end_year": 2010, 
+            "begin_year": 2009, 
+            "boys_count": 65, 
+            "teachers_count": 1, 
+            "girls_count": 50
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 2, 
+            "grade": "1 A", 
+            "end_year": 2010, 
+            "begin_year": 2009, 
+            "boys_count": 50, 
+            "teachers_count": 1, 
+            "girls_count": 45
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 3, 
+            "grade": "1 A", 
+            "end_year": 2010, 
+            "begin_year": 2009, 
+            "boys_count": 70, 
+            "teachers_count": 1, 
+            "girls_count": 35
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 4, 
+            "grade": "1 A", 
+            "end_year": 2010, 
+            "begin_year": 2009, 
+            "boys_count": 40, 
+            "teachers_count": 1, 
+            "girls_count": 45
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 5, 
+            "grade": "2 A", 
+            "end_year": 2010, 
+            "begin_year": 2009, 
+            "boys_count": 40, 
+            "teachers_count": 1, 
+            "girls_count": 50
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 6, 
+            "grade": "1 A", 
+            "end_year": 2010, 
+            "begin_year": 2009, 
+            "boys_count": 70, 
+            "teachers_count": 1, 
+            "girls_count": 50
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 7, 
+            "grade": "1 A", 
+            "end_year": 2010, 
+            "begin_year": 2009, 
+            "boys_count": 40, 
+            "teachers_count": 1, 
+            "girls_count": 35
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 8, 
+            "grade": "1 A", 
+            "end_year": 2010, 
+            "begin_year": 2009, 
+            "boys_count": 80, 
+            "teachers_count": 1, 
+            "girls_count": 30
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 9, 
+            "grade": "1 A", 
+            "end_year": 2010, 
+            "begin_year": 2009, 
+            "boys_count": 65, 
+            "teachers_count": 1, 
+            "girls_count": 30
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 10, 
+            "grade": "1 A", 
+            "end_year": 2010, 
+            "begin_year": 2009, 
+            "boys_count": 50, 
+            "teachers_count": 1, 
+            "girls_count": 50
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 11, 
+            "grade": "1 A", 
+            "end_year": 2010, 
+            "begin_year": 2009, 
+            "boys_count": 65, 
+            "teachers_count": 1, 
+            "girls_count": 35
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 12, 
+            "grade": "1 A", 
+            "end_year": 2010, 
+            "begin_year": 2009, 
+            "boys_count": 70, 
+            "teachers_count": 1, 
+            "girls_count": 45
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 13, 
+            "grade": "1 A", 
+            "end_year": 2010, 
+            "begin_year": 2009, 
+            "boys_count": 40, 
+            "teachers_count": 1, 
+            "girls_count": 50
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "django_census.schoolclass", 
+        "fields": {
+            "school": 14, 
+            "grade": "1 A", 
+            "end_year": 2010, 
+            "begin_year": 2009, 
+            "boys_count": 80, 
+            "teachers_count": 1, 
+            "girls_count": 50
+        }
+    }, 
+    {
+        "pk": 1, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-01-23", 
+            "boys_absentees": 10, 
+            "teacher_absentees": 0, 
+            "school_class": 1, 
+            "girls_absentees": 15
+        }
+    }, 
+    {
+        "pk": 2, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-01-01", 
+            "boys_absentees": 14, 
+            "teacher_absentees": 0, 
+            "school_class": 2, 
+            "girls_absentees": 8
+        }
+    }, 
+    {
+        "pk": 3, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-10", 
+            "boys_absentees": 20, 
+            "teacher_absentees": 1, 
+            "school_class": 3, 
+            "girls_absentees": 10
+        }
+    }, 
+    {
+        "pk": 4, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2009-02-03", 
+            "boys_absentees": 14, 
+            "teacher_absentees": 0, 
+            "school_class": 4, 
+            "girls_absentees": 10
+        }
+    }, 
+    {
+        "pk": 5, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-02-10", 
+            "boys_absentees": 12, 
+            "teacher_absentees": 0, 
+            "school_class": 5, 
+            "girls_absentees": 17
+        }
+    }, 
+    {
+        "pk": 6, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-02-20", 
+            "boys_absentees": 20, 
+            "teacher_absentees": 0, 
+            "school_class": 7, 
+            "girls_absentees": 8
+        }
+    }, 
+    {
+        "pk": 7, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-02-25", 
+            "boys_absentees": 12, 
+            "teacher_absentees": 0, 
+            "school_class": 6, 
+            "girls_absentees": 17
+        }
+    }, 
+    {
+        "pk": 8, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-01", 
+            "boys_absentees": 5, 
+            "teacher_absentees": 0, 
+            "school_class": 8, 
+            "girls_absentees": 14
+        }
+    }, 
+    {
+        "pk": 9, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-15", 
+            "boys_absentees": 10, 
+            "teacher_absentees": 1, 
+            "school_class": 9, 
+            "girls_absentees": 14
+        }
+    }, 
+    {
+        "pk": 10, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-23", 
+            "boys_absentees": 20, 
+            "teacher_absentees": 0, 
+            "school_class": 10, 
+            "girls_absentees": 8
+        }
+    }, 
+    {
+        "pk": 11, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-22", 
+            "boys_absentees": 5, 
+            "teacher_absentees": 0, 
+            "school_class": 11, 
+            "girls_absentees": 8
+        }
+    }, 
+    {
+        "pk": 12, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-22", 
+            "boys_absentees": 14, 
+            "teacher_absentees": 0, 
+            "school_class": 12, 
+            "girls_absentees": 14
+        }
+    }, 
+    {
+        "pk": 13, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-02-13", 
+            "boys_absentees": 1, 
+            "teacher_absentees": 1, 
+            "school_class": 5, 
+            "girls_absentees": 2
+        }
+    }, 
+    {
+        "pk": 14, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-20", 
+            "boys_absentees": 4, 
+            "teacher_absentees": 1, 
+            "school_class": 1, 
+            "girls_absentees": 5
+        }
+    }, 
+    {
+        "pk": 15, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-22", 
+            "boys_absentees": 7, 
+            "teacher_absentees": 1, 
+            "school_class": 14, 
+            "girls_absentees": 6
+        }
+    }, 
+    {
+        "pk": 16, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-21", 
+            "boys_absentees": 2, 
+            "teacher_absentees": 1, 
+            "school_class": 14, 
+            "girls_absentees": 1
+        }
+    }, 
+    {
+        "pk": 17, 
+        "model": "django_census.report", 
+        "fields": {
+            "date": "2010-03-13", 
+            "boys_absentees": 2, 
+            "teacher_absentees": 1, 
+            "school_class": 12, 
+            "girls_absentees": 2
+        }
+    }
+]

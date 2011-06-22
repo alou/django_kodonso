@@ -1,0 +1,39 @@
+<div id="header">
+    <div id="menu">
+        <ul>
+            <li class="first"><a href="/home/">Acceuil</a></li>
+            <li ><a href="/census/dashboard">Resumé</a></li>
+            <li ><a href="/census/all/">Toutes les absences</a></li>
+            <li ><a href="/census/report_management/">Gestion des Rapports</a></li>
+        
+        </ul>
+    </div>
+
+    {% extends "base.html" %}
+        {% block title %}Modification de Rapport{% endblock %}
+        {% block page-id %}Modification de Rapport{% endblock %}
+    {% block content %}
+
+        <div id="login" class=" prepend-17">
+            Bienvenue {{ user.username }} 
+            <a href="{% url logout_%}">Deconnecter</a> 
+            <a href="{% url administration_ %}">Administrer</a>
+        </div>
+            
+        <h1>Formulaire de Modification</h1>
+        <div id ='addd'>
+        
+            <form method="post" action="">
+                <div id = 'add'>
+                {{form.as_ul}}
+                </div>
+                <p><input type='submit' value = 'Modifier' /></p>
+            </form>
+                
+            <h2>
+                <a href="{% url census-report-management %}">Retour</a>
+            </h2>
+        </div>
+    {% endblock %}
+</div>
+

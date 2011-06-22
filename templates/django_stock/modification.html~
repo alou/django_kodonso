@@ -1,0 +1,29 @@
+    {% extends "base.html" %}
+    {% load i18n %}
+    {% block title %}Modification de Rapport{% endblock %}
+    {% block page-id %}Modification de Rapport{% endblock %}
+    {% block content %}
+<div id="login"class="prepend-17">
+            Bienvenue {{ user.username }}     
+            <a href="{% url logout%}">Deconnecter</a>
+            <a href="{% url administration %}">Administrer</a>
+        </div>
+        <h1>Formulaire de Modification</h1>
+        <div id ='addd'>
+            <form method="post" action="">
+            
+                <div id = 'add'>
+                    {{form.as_ul}}
+                </div>
+                <script type="text/javascript">
+                jQuery('#id_date').datepicker({ dateFormat: 'dd-mm-yy' });
+                </script>
+                <p><input type='submit' value = 'Modifier' /></p>
+            </form>
+            <h2><a href="{% url stock-report-management %}">Retour</a></h2>
+        </div>
+</div>
+  
+{% endblock %}
+
+

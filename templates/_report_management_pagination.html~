@@ -1,0 +1,20 @@
+<ul id="time-pagination" class="prepend-17">
+
+    {% if page.has_previous %}
+           <li><a href="{{page.url_first}}">&lt;&lt; 1...</a></li>
+    {% endif %}
+    
+    {% if page.has_previous and not page.is_before_first %}
+           <li><a href="{{page.url_previous}}">&lt; précédant </a></li>
+    {% endif %}
+   
+    <li class="selected"><strong>Page {{ page.number }}</strong></li>
+    {% if page.has_next and not page.is_before_last %}
+        <li><a href="{{page.url_next}}"> suivant &gt;</a></li>
+    {% endif %}
+    
+    {% if page.has_next %}
+        <li><a href="{{page.url_last}}"> ... {{ paginator.num_pages }} &gt;&gt;</a></li>
+    {% endif %}
+</ul>
+

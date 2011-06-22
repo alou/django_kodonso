@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+# -*- coding= UTF-8 -*-
+
+from models import Report
+from django import forms
+
+
+
+class CensusReportForm(forms.ModelForm):
+    class Meta:
+        model = Report
+   
+        
+
+        
+class ModificationForm(forms.Form):
+    school_class = forms.CharField( label = 'Classe ')
+    boys_absentees = forms.IntegerField(label = 'Nombre de fille absente')
+    girls_absentees = forms.IntegerField(label = 'Nombre de garçon absent')
+    teacher_absentees = forms.IntegerField(label = "Nombre d'enseignant")
+    date = forms.DateField(label = 'date')

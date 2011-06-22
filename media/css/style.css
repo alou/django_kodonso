@@ -1,0 +1,619 @@
+/* TODO : compresser les feuilles de style y compris celles de blueprint en prod */
+#variation {text-align:center;}
+.debut{display : none;}
+#t1.before{display : none;}
+#t4.before{display : none;}
+
+
+/*** css auth ***/
+option [value="5"]{display : none;color: red ;}
+#d p{padding-left:8em ;
+padding-top:4em ;
+padding-bottom:2em;}
+#user {
+text-align:left;
+font-size: 18px;
+padding-bottom: 0em;
+background-color: #E0F5FA;
+}
+
+#label_fixed {position:absolute;}
+#user{padding-left: 13em;}
+#user option[value='5']{display : none;}
+#user input[id="id_username"]
+{width: 200px;  height: 20px; margin-left: 179px; }
+#user input[id="id_first_name"]
+{width: 200px;  height: 20px; margin-left: 179px}
+#user input[type="password"]
+{width: 200px;  height: 20px; margin-left: 220px}
+#user input[id="id_last_name"]
+{width: 200px;  height: 20px; margin-left: 179px}
+#user input[id="id_email"]
+{width: 200px;  height: 20px; margin-left: 180px}
+#user select
+{margin-bottom:-40px; margin-left: 150px}
+#user input[id="id_password"]
+{margin-top:10px; margin-left: 178px;}
+#user input[id="id_is_active"]
+{margin-left: 184px}
+#user input[id="id_actif"]
+{margin-top:10px; margin-left: 186px;}
+#user p input {margin-top:4em;}
+             
+#user select[id="id_groupe"]
+{margin-left: 177px}
+
+#save input[id="id_email"]
+{margin-top:10px; margin-left: 0px;}
+
+#save input[id="id_first_name"]
+{margin-top:10px; margin-left: 20px;}
+
+#save span {
+margin-left: -268px;}
+
+
+#modif input[id="id_last_name"]
+{width: 200px;  height: 20px; margin-left: 100px; }
+
+#modif input[id="id_first_name"]
+{width: 200px;  height: 20px; margin-left: 100px; }
+
+#modif input[id="id_email"]
+{width: 200px;  height: 20px; margin-left: 100px; }
+#modif label{position:absolute;}
+
+
+
+/*** ========================== ***/
+#Modification_Report input[id ="id_remaining"] {
+visibility : hidden ;
+}
+
+/*** add report line ***/
+
+#formu ul{
+display : none;
+}
+#auth_error
+{text-align:center;
+color: red;
+font-family: Arial, Sans-Serif;
+font-size: 15px;}
+
+
+#auth.sent
+{display : none }
+
+#formu.before img
+{  display : none;}
+
+#formu input[id="id_date"] {
+width: 100px;
+}
+#formu p{
+display : inline;
+}
+
+#formu input[id="id_boys_absentees"], input[id="id_girls_absentees"],
+input[id="id_teacher_absentees"]
+{width: 30px;}
+
+#formu select[name="school_class"]
+{width: 100px;}
+
+#formu input[id="id_incomming"], input[id="id_consumption"]
+{width: 40px;}
+
+/*** **************************************************** ***/
+/*** Header ***/
+
+h1 {
+text-align:center;
+padding-top:1.5em ;
+}
+
+/*** ajustement des pages de modifications des raports.***/
+#addd
+{
+background-color:#E0F5FA;
+}
+
+h1
+{
+margin-top:0em;
+}
+
+#add 
+{   
+    font-family: Arial, Sans-Serif;
+    font-size: 13px;
+    
+    padding-right: 15em;
+    padding-left: 9em;
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+#addd input[type='submit'] 
+{
+    margin-left: 35em;
+}
+
+#addd p
+{
+
+    text-align : center;
+}
+
+#add label
+{
+font-size: 18px;
+
+line-height:200%;
+
+}
+
+#add.sent ul
+{
+color: red ;
+font-family: Sans-Serif;
+}
+
+#add.before ul
+{
+display: none;
+}
+
+#add input[type="text"], #add select
+{
+    font-family: Arial, Sans-Serif;
+    font-size: 13px;
+    margin-bottom: 3px;
+    display:block;
+    padding: 5px;
+    border: solid 1px #85b1de;
+    width: 300px;
+    float: right;
+    margin: 4px 5em 4px 4px;
+}
+
+#add select[id="id_school_class"]
+{
+    margin-bottom: 3px;
+    margin-left: 164px;
+    width: 312px;
+    
+}
+
+#add select[id="id_product"]
+{
+    height: 25px;
+    width: 312px;
+    
+}
+
+#add select[id="id_place"]
+{
+    height: 25px;
+    width: 312px;
+    
+}
+
+
+#add_rapport li, #add li {
+list-style-type: none;
+}
+#add_rapport {
+margin-top:3em;
+text-align:left;
+}
+#add_rapport h1 {
+text-decoration : underline ;
+}
+#add_rapport p strong  {
+color: red ;
+text-align : center;
+} 
+
+/*** gestion des rapports ***/
+#push_report_management {
+padding-top:0em;
+}
+
+
+
+/*** Pagination ***/
+
+#report_management_pagination {
+padding-top:2em;
+}
+
+
+/***stok by-product***/
+#duration-pagination{
+margin-left:5px;
+padding-top:3em ;
+margin-right:400px
+}
+
+
+#duration-pagination li {
+margin-left: 2ex;
+display: inline;
+}
+
+#time-pagination ul {
+margin-bottom:0;
+}
+
+#time-pagination li,
+#report-management-pagination li{
+margin-left: 1ex;
+display: inline;
+}
+
+
+/*** la page de confirmation ***/
+#id_tab{
+margin-top: 5em;
+}
+ 
+/*** Home ***/
+#central{
+margin-top: 6em;
+}
+
+#home #central-column{
+margin-top: 10em;
+}
+#central-column input[id="id_username"]
+{width: 200px;  height: 20px; margin-left: 150px; 
+}
+#central-column input[id="id_password"]
+{width: 200px;  height: 20px; margin-left: 150px; 
+}
+#central-column span {padding-left:5em ;
+padding-top:2em ;
+margin-left: 140px;}
+#central-column form label {position:absolute ;}
+
+/****   
+
+
+#home #central-column p {padding-left:5em ;
+padding-top:2em ;
+margin-left: 90px;}   ***/
+
+#home #invite {
+border-top: 1px solid black;
+border-bottom: 1px solid black;
+padding: 0em ;
+} 
+
+h4 {
+margin-left: -300px;
+} 
+#home ul {
+padding-left:0;
+margin-top:2em;
+}
+
+#home li {
+list-style-type: none;
+}
+
+#home li a {
+width:100%;
+text-align:center;
+}
+
+#home h1 {
+text-align: left;
+}
+
+/*** Tables ***/
+
+caption {
+height: 3em;
+padding-top:0.5em;
+}
+
+td, caption, th {
+text-align: center;
+}
+
+table, table td ,table th{
+border: 1px solid #EEEEEE;
+}
+
+tfoot {
+background-color:#EEEEEE;
+}
+
+#table_featured table tr td,#table_featured table th{text-align :left;}
+
+#save input[type="submit"]{margin-left: 21em}
+/*** Forms ***/
+/*
+form {
+
+text-align: center;
+
+}
+
+form p {
+display:inline;
+}
+
+/*************/
+/*** CENSUS ***/
+
+#delete{
+padding-top:5em;
+}
+/*************/
+
+/*************/
+/*** STOCK ***/
+/*************/
+
+/*** Stock dashboard ***/
+
+#stock-dashboard #last-reports h2 {
+font-size: 100%;
+padding:0.2em;
+background-color: #EEEEEE;
+}
+
+#stock-dashboard #last-reports li {
+list-style-type: none;
+}
+
+#stock-dashboard #last-reports .incomming {
+color: #7DE35E;
+font-weight:bold;
+}
+
+#stock-dashboard #last-reports .consumption {
+color: #EB5E5E;
+font-weight:bold;
+}
+
+/*****************************************************/
+
+#home_page {
+margin: 0;
+    padding: 0;
+    background: url(images/img01.jpg) repeat-x left top;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: url(images/img08.jpg) repeat-x left top;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+
+}
+
+hr { display: none; }
+
+
+
+/* Header */
+
+
+#header {
+    width: 920px;
+    height: 45px;
+    margin: 0 auto;
+}
+
+/* Menu */
+
+#menu {
+    padding-top:0.5em;
+    float: left;
+
+    height: 45px;
+}
+
+#menu ul {
+    display: inline;
+    margin: 0;
+    padding: 10px 0px 0px 5px;
+    list-style: none;
+    line-height: normal;
+}
+
+#menu li {
+    display: block;
+    float: left;
+}
+
+#menu a {
+    display: block;
+    float: left;
+    margin-right: 3px;
+    padding: 3px 25px 2px 25px;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: white;
+}
+#menu a:hover {
+    background: #F39D03;
+    color: #FFFFFF;
+    text-decoration: underline;
+    height: 25px;
+}
+
+
+#menu .current_page_item a {
+    height: 25px;
+    background: #FEC200 url(images/img02.jpg) repeat-x left top;
+    color: #FFFFFF;
+}
+
+#menu .first {
+    background: none;
+}
+#add_menu {
+height:3px;
+}
+    /** LOGO */
+
+#logo {
+    width: 860px;
+    height: 134px;
+    margin: 0 auto;
+    background: url(images/img04.jpg) no-repeat right top;
+}
+
+#logo h1, #logo p {
+    margin: 0px;
+    line-height: normal;
+/*
+    text-transform: lowercase;
+*/
+    font-weight: normal;
+    color: #FFFFFF;
+}
+
+#logo p {
+    text-transform: lowercase;
+    font-size: 10px;
+}
+
+#logo h1 {
+    
+    font-size: 34px;
+}
+
+
+#logo a {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+#logine{
+list-style-type: none;
+padding-top: 10em;
+}
+
+
+#login a{
+color: #FFFFFF;
+display: texte;
+
+}
+#login {
+color: #FFFFFF;
+display: texte;
+
+}
+
+#administration {
+list-style-type: none;
+}
+.errorlist{
+list-style-type: none;
+}
+
+#menu_admin li{
+text-align: center;
+list-style-type: none;
+text-decoration: none;
+
+}
+
+table.tablesorter thead tr .header {
+    background-image: url(/static/js/tablesorter/themes/green/bg1.png);
+    background-repeat: no-repeat;
+    background-position: center right;
+
+    cursor: pointer;
+}
+
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+    background-color: #e6EEEE;
+    border: 4px solid #FFF;
+    font-size: 8pt;
+    padding: 4px;
+}
+
+table.tablesorter thead tr .headerSortUp {
+    background-image: url(/static/js/tablesorter/themes/green/asc1.png);
+}
+table.tablesorter thead tr .headerSortDown {
+    background-image: url(/static/js/tablesorter/themes/green/desc1.png);
+}
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp {
+background-color: #8dbdd8;
+}
+#error {
+margin-top:4em;
+}
+#error h2 {
+text-align:center;
+}
+
+
+#left-column span{
+color: red;
+}
+
+#report_pdf form {padding-top : 7em;
+text-align:center;}
+#report_pdf form li,p {display:inline;}
+
+
+
+#report_pdf form {padding-top : 7em;
+text-align:center;}
+#report_pdf form li,p {display:inline;}
+#place {text-decoration:underline;
+font-weight:bolder;
+}
+#liste_pdf {
+font-size:medium;
+}
+#ffk {padding-bottom:2em;}
+#report_pdf h3 {margin-bottom:-2em}
+
+#report_pdf h3 {padding-top:2em;
+text-align:center;}
+#rept {padding-top:2em;}
+
+#report_pdf form {margin-bottom:2em;}
+
+
+#warning {padding:1em;
+}
+#warning-census{width: 790px;height: 40px;}
+
+#warning-stock {width: 550px; height: 60px;}
+
+#warning label[for="id_warning"], input[id="id_warning"],label[for="id_reporter"], select[id="id_reporter"]
+{
+display : none;
+}
+
+#graphe th {
+background-color:#EEEEEE
+}
+#erreur_saisie {
+color: red;
+}
+#error_doublon h2 {
+text-align:center;
+color: red;
+}
+#gras_table {
+font-weight: bold;
+}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}compte_utilisateur{% endblock %}
+{% load i18n %}
+{% block page-id %}add_user{% endblock %}
+{% block content %}
+
+
+    <div id="menu">
+        <ul>
+            <li ><a class="first"><a href="{% url kodonso-home %}">{% trans "Home" %}</a></li>
+        </ul>
+    </div>
+
+    <div id="login" class=" prepend-17" >
+        {% trans "Welcome" %} {{ user.username }}
+        <a href="{% url logout_%}">{% trans "Disconnect" %}</a> 
+        <a href="{% url administration %}">{% trans "manage" %}</a>
+    </div>
+
+        <h1>{% trans "Adding a user account" %}</h1>
+
+    <div id = 'd'>
+        <div id="user">
+            <form  method="post" action="">         
+                <div id="container">
+                    {{error}}
+                    {{error1}}
+                    <form  method="post" action="">
+                     
+                        {% for field in form %}<br/>
+                            <span id="label_fixed">{{ field.label_tag }}:</span> {{ field }}
+                            {% if field.errors %}
+                            <img id = 'image'  src="/static/css/images/Warning.png" width="15" height="15" title="{% for error in field.errors %}{{ error }}{% endfor %}" />
+                        {% endif %}{% endfor %}<br/>
+
+                        <p >
+                            <input  type='submit' value = "{% trans 'Save' %}" />
+                        </p>
+                    </form>
+                </div>  
+            </form>                
+        </div>
+    </div>
+{% endblock %}

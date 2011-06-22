@@ -1,0 +1,1382 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-08-06 10:46+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: django_census/admin.py:29 django_census/admin.py:50
+#: django_census/admin.py:73 django_census/form_.py:24
+#: django_census/form_.py:32 django_census/form_.py:54
+#: django_census/form_.py:60 django_census/form_.py:81
+#: django_census/form_.py:87
+msgid "Invalid entries: the number of absentees"
+msgstr "Saisie incorrecte : le nombre d'absents "
+
+#: django_census/admin.py:29 django_census/form_.py:24
+msgid "  is superior  to total number of boys"
+msgstr "  est supérieur à l'effectif total des garçons"
+
+#: django_census/admin.py:29 django_census/admin.py:50
+#: django_census/admin.py:73 django_census/form_.py:24
+#: django_census/form_.py:54 django_census/form_.py:81
+msgid "in this class"
+msgstr "de cette classe"
+
+#: django_census/admin.py:50 django_census/form_.py:54
+msgid "  is superior  to total number of girls  "
+msgstr "  est supérieur à l'effectif total des filles"
+
+#: django_census/admin.py:73 django_census/form_.py:81
+msgid "  is superior  to total number of teachers  "
+msgstr "  est supérieur à l'effectif total des professeurs"
+
+#: django_census/form_.py:32 django_census/form_.py:60
+#: django_census/form_.py:87
+msgid "should not be negative"
+msgstr "ne doit pas être négatif"
+
+#: django_census/form_.py:98 django_census/models.py:38
+#: django_census/models.py:58 templates/django_census/training_census.html:62
+msgid "Class"
+msgstr "Classe"
+
+#: django_census/form_.py:99 django_census/models.py:59
+msgid "Boy absent"
+msgstr "Garçon(s) absent(s)"
+
+#: django_census/form_.py:100 django_census/models.py:60
+msgid "Girl absent"
+msgstr "Fille(s) absente(s)"
+
+#: django_census/form_.py:101
+msgid "Teacher absent"
+msgstr "Professeur(s) absent(s)"
+
+#: django_census/form_.py:102 django_census/views.py:1057
+#: django_stock/form_.py:85 django_stock/models.py:50
+#: django_stock/views.py:903 rapidsms_kodonso/apps/django_stock/views.py:740
+#: templates/django_census/delete.html:35
+#: templates/django_census/delete_2.html:37
+#: templates/django_census/training_census.html:66
+#: templates/django_stock/report_management.html:86
+#: templates/django_stock/training_stock.html:66
+msgid "Date"
+msgstr "Date"
+
+#: django_census/form_.py:114
+msgid "FAO quota (g)"
+msgstr "Quota FAO en (g)"
+
+#: django_census/form_.py:117 django_stock/form_.py:132
+msgid "start date"
+msgstr "date debut"
+
+#: django_census/form_.py:118 django_stock/form_.py:133
+msgid "end date"
+msgstr "date fin"
+
+#: django_census/models.py:16
+msgid "Name of place"
+msgstr "Nom du village"
+
+#: django_census/models.py:24 django_census/views.py:202
+#: django_census/views.py:1057 django_stock/models.py:34
+#: templates/django_census/delete.html:29
+#: templates/django_census/delete_2.html:31
+#: templates/django_census/global_report.html:35
+#: templates/django_census/report_management.html:78
+msgid "Places"
+msgstr "Village"
+
+#: django_census/models.py:25
+msgid "Name of school"
+msgstr "Nom de l'école"
+
+#: django_census/models.py:39
+msgid "Total boy"
+msgstr "Nombre total de garçon"
+
+#: django_census/models.py:40
+msgid "Total Girl"
+msgstr "Nombre total de fille"
+
+#: django_census/models.py:41
+msgid "Total number of teachers"
+msgstr "Nombre total d'enseignant"
+
+#: django_census/models.py:42
+msgid "Begin year"
+msgstr "Début d'année"
+
+#: django_census/models.py:43
+msgid "end_year"
+msgstr "Fin d'année"
+
+#: django_census/models.py:45
+msgid "Daily absences of pupils"
+msgstr "Absence journaliere des eleves"
+
+#: django_census/models.py:46
+msgid "Daily absences of teachers"
+msgstr "Absence journaliere des professeurs"
+
+#: django_census/models.py:61
+msgid "teacher absent"
+msgstr "Professeur(s) absent(s)"
+
+#: django_census/models.py:63 django_stock/models.py:51
+#: templates/django_census/dashboard.html:143
+#: templates/django_stock/dashboard.html:90
+msgid "Warning"
+msgstr "Alerte"
+
+#: django_census/models.py:64 django_stock/models.py:52
+msgid "Reporter"
+msgstr "Raporteur"
+
+#: django_census/views.py:179 django_census/views.py:404
+#: django_census/views.py:658 django_census/views.py:809
+#: django_census/views.py:1022 templates/django_census/by_classes.html:97
+#: templates/django_census/dashboard.html:48
+#: templates/django_census/dashboard.html:76
+#: templates/django_census/dashboard.html:105
+#: templates/django_census/dashboard.html:134
+msgid "No appeal has been made"
+msgstr "Aucun appel n'a été fait"
+
+#: django_census/views.py:202 django_census/views.py:429
+#: django_census/views.py:1057 templates/django_census/by_classes.html:48
+#: templates/django_census/delete.html:32
+#: templates/django_census/delete_2.html:34
+#: templates/django_census/global_report.html:36
+#: templates/django_census/report_management.html:81
+#: templates/django_census/training_census.html:63
+msgid "Boys"
+msgstr "Garçons"
+
+#: django_census/views.py:203 django_census/views.py:430
+#: django_census/views.py:1057 templates/django_census/by_classes.html:49
+#: templates/django_census/by_schools.html:54
+#: templates/django_census/delete.html:33
+#: templates/django_census/delete_2.html:35
+#: templates/django_census/report_management.html:82
+#: templates/django_census/training_census.html:64
+msgid "Girls"
+msgstr "Filles"
+
+#: django_census/views.py:203 django_census/views.py:430
+#: django_census/views.py:1057 templates/django_census/by_classes.html:50
+#: templates/django_census/delete.html:34
+#: templates/django_census/delete_2.html:36
+#: templates/django_census/report_management.html:83
+#: templates/django_census/training_census.html:65
+msgid "Teachers"
+msgstr "Enseignants"
+
+#: django_census/views.py:203
+msgid "Number of days"
+msgstr " Nombre de jour"
+
+#: django_census/views.py:297 django_census/views.py:454
+msgid "Change place"
+msgstr "Changer de village"
+
+#: django_census/views.py:429 django_census/views.py:1057
+#: django_stock/models.py:45 templates/django_census/delete.html:30
+#: templates/django_census/delete_2.html:32
+#: templates/django_census/report_management.html:79
+#: templates/django_stock/global_report.html:37
+#: templates/django_stock/report_management.html:81
+msgid "Schools"
+msgstr "École"
+
+#: django_census/views.py:431
+msgid "Number of day"
+msgstr "Nombre de jour"
+
+#: django_census/views.py:580 django_census/views.py:708
+msgid "Changing schools"
+msgstr "Changer d'école"
+
+#: django_census/views.py:684
+msgid "Classe"
+msgstr "Classe"
+
+#: django_census/views.py:684
+msgid "Boys absentes"
+msgstr "Garçon(s) absent(s)"
+
+#: django_census/views.py:684
+msgid "Total Boys"
+msgstr "Nombre total de garçon"
+
+#: django_census/views.py:684
+msgid "Girls absentes"
+msgstr "Fille(s) absente(s)"
+
+#: django_census/views.py:684
+msgid "Total girls"
+msgstr "Nombre total de fille"
+
+#: django_census/views.py:684
+msgid "Teachers absentes"
+msgstr "Professeur(s) absent(s)"
+
+#: django_census/views.py:684
+msgid "Total teachers"
+msgstr "Nombre total d'enseignant"
+
+#: django_census/views.py:908 django_census/views.py:966
+#: django_stock/views.py:789 django_stock/views.py:851
+msgid "Warning Kodonso"
+msgstr "Alerte Kodonso"
+
+#: django_census/views.py:908
+msgid ""
+"There's a school whose absenteeism is High, please consuter http://rtl."
+"gotdns.org"
+msgstr ""
+"Il y'a une école dont l'absentéisme est élévé , veuillez consuter http://rtl."
+"gotdns.org"
+
+#: django_census/views.py:914
+msgid "The report already exists"
+msgstr "Ce rapport existe déjà"
+
+#: django_census/views.py:917 django_stock/views.py:799
+#: rapidsms_kodonso/apps/django_stock/views.py:692
+msgid "you can not add report "
+msgstr "Vous ne pouvez pas ajouter de rapport"
+
+#: django_census/views.py:966
+msgid ""
+"There is one school dont high absenteeism, please consuter http://rtl.gotdns."
+"org "
+msgstr ""
+"Il y'a une école dont l'absentéisme est élévé , veuillez consuter http://rtl."
+"gotdns.org"
+
+#: django_census/views.py:972 django_stock/views.py:796
+#: django_stock/views.py:856
+msgid "This report already exists"
+msgstr "Ce rapport existe déjà"
+
+#: django_census/views.py:1057 templates/django_census/by_classes.html:47
+#: templates/django_census/delete.html:31
+#: templates/django_census/delete_2.html:33
+#: templates/django_census/report_management.html:80
+msgid "Classes"
+msgstr "Classe"
+
+#: django_census/views.py:1155 django_stock/views.py:1045
+#: rapidsms_kodonso/apps/django_stock/views.py:824
+msgid "Please login ..."
+msgstr "Veuillez vous identifiez..."
+
+#: django_census/views.py:1176 django_stock/views.py:1063
+#: rapidsms_kodonso/apps/django_stock/views.py:844
+msgid "Interconnection of good!"
+msgstr "Connection reussie!"
+
+#: django_census/views.py:1184 django_stock/views.py:1081
+#: rapidsms_kodonso/apps/django_stock/views.py:850
+msgid "Your Account is not active, please contact the site admin."
+msgstr "Votre compte n'est pas en activité, entrez un  contact s'il vous plait"
+
+#: django_census/views.py:1186 django_stock/views.py:1083
+#: rapidsms_kodonso/apps/django_stock/views.py:852
+msgid "Your username and / or your password is incorrect."
+msgstr "Votre nom d'utilisateur et/ou votre mot de passe est incorrect."
+
+#: django_census/views.py:1307
+msgid "This report contains no period"
+msgstr "Cette periode ne contient aucun rapport"
+
+#: django_census/views.py:1310 django_stock/views.py:1548
+msgid " Select a period to view reports"
+msgstr "Choisissez une periode pour afficher les rapports"
+
+#: django_stock/form_.py:14 django_stock/models.py:35
+msgid "maximum stock"
+msgstr "Stocks maximal"
+
+#: django_stock/form_.py:15 django_stock/models.py:36
+msgid "daily quantity"
+msgstr "quantite journalier"
+
+#: django_stock/form_.py:46
+msgid "Invalid entries: Consumer input"
+msgstr "Saisie incorrecte : la consommation saisie"
+
+#: django_stock/form_.py:46
+msgid "is superior to quantity in stock"
+msgstr "est supérieur à la quantité en stock"
+
+#: django_stock/form_.py:55
+msgid "Invalid entries: Consumer input must not be negative"
+msgstr "Saisie incorrecte : la consomation saisie ne doit pas être negative"
+
+#: django_stock/form_.py:71
+msgid "Invalid entries: the entry must not be negative"
+msgstr "Saisie incorrecte :l'entrée ne doit pas être negative"
+
+#: django_stock/form_.py:81 django_stock/models.py:33
+#: django_stock/models.py:46 django_stock/views.py:201
+#: django_stock/views.py:375 django_stock/views.py:903
+#: rapidsms_kodonso/apps/django_stock/views.py:198
+#: rapidsms_kodonso/apps/django_stock/views.py:325
+#: rapidsms_kodonso/apps/django_stock/views.py:740
+#: templates/django_stock/by_products.html:51
+#: templates/django_stock/delete.html:28
+#: templates/django_stock/delete_2.html:14
+#: templates/django_stock/global_report.html:38
+#: templates/django_stock/modification_stock_max.html:30
+#: templates/django_stock/report_management.html:82
+#: templates/django_stock/stockmaxi.html:30
+#: templates/django_stock/training_stock.html:62
+msgid "Product"
+msgstr "Denrée"
+
+#: django_stock/form_.py:82 django_stock/views.py:578
+#: templates/django_census/by_schools.html:52
+#: templates/django_census/code.html:25
+#: templates/django_census/prevision.html:42
+#: templates/django_census/report_pdf.html:51
+#: templates/django_stock/by_places.html:35
+#: templates/django_stock/code.html:29 templates/django_stock/delete.html:27
+#: templates/django_stock/delete_2.html:13
+#: templates/django_stock/modification_stock_max.html:31
+#: templates/django_stock/stockmaxi.html:29
+#: templates/django_stock/training_stock.html:61
+msgid "School"
+msgstr "École"
+
+#: django_stock/form_.py:83 django_stock/models.py:47
+#: django_stock/views.py:201 django_stock/views.py:375
+#: django_stock/views.py:578 django_stock/views.py:903
+#: rapidsms_kodonso/apps/django_stock/views.py:198
+#: rapidsms_kodonso/apps/django_stock/views.py:325
+#: rapidsms_kodonso/apps/django_stock/views.py:511
+#: rapidsms_kodonso/apps/django_stock/views.py:740
+#: templates/django_stock/by_places.html:36
+#: templates/django_stock/by_products.html:52
+#: templates/django_stock/delete.html:29
+#: templates/django_stock/delete_2.html:15
+#: templates/django_stock/global_report.html:39
+#: templates/django_stock/report_management.html:83
+#: templates/django_stock/report_pdf_stock.html:56
+#: templates/django_stock/training_stock.html:63
+msgid "Incomming"
+msgstr "Entrées"
+
+#: django_stock/form_.py:84 django_stock/models.py:48
+#: django_stock/views.py:201 django_stock/views.py:375
+#: django_stock/views.py:578 django_stock/views.py:903
+#: rapidsms_kodonso/apps/django_stock/views.py:198
+#: rapidsms_kodonso/apps/django_stock/views.py:325
+#: rapidsms_kodonso/apps/django_stock/views.py:511
+#: rapidsms_kodonso/apps/django_stock/views.py:740
+#: templates/django_stock/by_places.html:37
+#: templates/django_stock/by_products.html:53
+#: templates/django_stock/delete.html:30
+#: templates/django_stock/delete_2.html:16
+#: templates/django_stock/global_report.html:40
+#: templates/django_stock/report_management.html:84
+#: templates/django_stock/report_pdf_stock.html:57
+#: templates/django_stock/training_stock.html:64
+msgid "Consumption"
+msgstr "Sorties"
+
+#: django_stock/form_.py:88 django_stock/form_.py:99 django_stock/form_.py:114
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: django_stock/form_.py:89 django_stock/form_.py:100
+#: django_stock/form_.py:115
+msgid "Password"
+msgstr "Mot de passe"
+
+#: django_stock/form_.py:101 django_stock/form_.py:109
+#: templates/admin_menu.html:40 templates/confirm_user.html:27
+msgid "Last name"
+msgstr "Prénom"
+
+#: django_stock/form_.py:102 django_stock/form_.py:110
+#: templates/admin_menu.html:39 templates/confirm_user.html:26
+msgid "First name"
+msgstr "Nom"
+
+#: django_stock/form_.py:103 django_stock/form_.py:111
+#: templates/admin_menu.html:41 templates/confirm_user.html:28
+msgid "Email"
+msgstr "Email"
+
+#: django_stock/form_.py:104
+msgid "Actif"
+msgstr "Actif"
+
+#: django_stock/form_.py:105 templates/admin_menu.html:42
+#: templates/confirm_user.html:29
+msgid "Group"
+msgstr "Groupe"
+
+#: django_stock/models.py:12
+msgid "Name of product"
+msgstr "Nom de la denrée"
+
+#: django_stock/models.py:20
+msgid "Name of Schools"
+msgstr "Nom de l'école"
+
+#: django_stock/models.py:49 django_stock/views.py:578
+#: rapidsms_kodonso/apps/django_stock/views.py:511
+#: templates/django_stock/report_pdf_stock.html:58
+#: templates/django_stock/training_stock.html:65
+msgid "Remaining"
+msgstr "Stocks restants"
+
+#: django_stock/views.py:59 django_stock/views.py:72 django_stock/views.py:82
+#: rapidsms_kodonso/apps/django_stock/views.py:65
+#: rapidsms_kodonso/apps/django_stock/views.py:82
+#: rapidsms_kodonso/apps/django_stock/views.py:93
+msgid "no maximum stock."
+msgstr "pas de stock maxi"
+
+#: django_stock/views.py:175 django_stock/views.py:344
+#: django_stock/views.py:554 rapidsms_kodonso/apps/django_stock/views.py:171
+#: rapidsms_kodonso/apps/django_stock/views.py:300
+#: templates/django_stock/dashboard.html:52
+#: templates/django_stock/dashboard.html:82
+#: templates/django_stock/dashboard.html:138
+#: templates/django_stock/global_report.html:82
+msgid "No record of stock"
+msgstr "Aucun relevé de stock"
+
+#: django_stock/views.py:201 django_stock/views.py:903
+#: rapidsms_kodonso/apps/django_stock/views.py:198
+#: rapidsms_kodonso/apps/django_stock/views.py:511
+#: rapidsms_kodonso/apps/django_stock/views.py:740
+#: templates/django_census/code.html:27
+#: templates/django_census/prevision.html:41
+#: templates/django_census/report_pdf.html:48
+#: templates/django_census/training_census.html:62
+msgid "Place"
+msgstr "Village"
+
+#: django_stock/views.py:201 django_stock/views.py:375
+#: django_stock/views.py:903 rapidsms_kodonso/apps/django_stock/views.py:198
+#: rapidsms_kodonso/apps/django_stock/views.py:325
+#: rapidsms_kodonso/apps/django_stock/views.py:740
+#: templates/django_stock/by_places.html:38
+#: templates/django_stock/by_products.html:54
+#: templates/django_stock/delete.html:31
+#: templates/django_stock/delete_2.html:17
+#: templates/django_stock/global_report.html:41
+#: templates/django_stock/report_management.html:85
+msgid "Remaining stocks"
+msgstr "Stocks restants"
+
+#: django_stock/views.py:275 django_stock/views.py:391
+msgid "Change school"
+msgstr "Changer d'école"
+
+#: django_stock/views.py:484 rapidsms_kodonso/apps/django_stock/views.py:419
+msgid "Change Product"
+msgstr "Changer de denrée"
+
+#: django_stock/views.py:690 django_stock/views.py:874
+msgid "No record of stock "
+msgstr "Aucun relevé de stock"
+
+#: django_stock/views.py:789
+msgid ""
+"There is a school that has exceeded its daily consumption, please consuter "
+"http://rtl.gotdns.org "
+msgstr ""
+"Il y'a une école dont l'absentéisme est élévé , veuillez consuter http://rtl."
+"gotdns.org"
+
+#: django_stock/views.py:851
+msgid ""
+"There is a school that has exceeded its daily consumption, please consuter "
+"rtl.gotdns.org"
+msgstr ""
+"Il y'a une école dont l'absentéisme est élévé , veuillez consuter http://rtl."
+"gotdns.org"
+
+#: django_stock/views.py:1173 django_stock/views.py:1213
+#: django_stock/views.py:1253
+msgid "the user name already exists"
+msgstr "le nom d'utilisateur existe déjà"
+
+#: django_stock/views.py:1280
+msgid "you can add a user Stock-Admin or Stock-Reporter"
+msgstr "vous ne pouvez ajouter qu'un utilisateur Stock-Admin ou Stock-Reporter"
+
+#: django_stock/views.py:1283
+msgid "you can add a user Census-Admin or Census-Reporter"
+msgstr ""
+"vous ne pouvez ajouter qu'un utilisateur Census-Admin ou Census-Reporter"
+
+#: django_stock/views.py:1287
+msgid "Shosse at least one group"
+msgstr "Choisissez au moins un groupe"
+
+#: django_stock/views.py:1543
+msgid " This report contains no period"
+msgstr "Cette periode ne contient aucun rapport"
+
+#: lib/tools.py:141 lib/tools.py:142 lib/tools.py:143
+msgid "Week of"
+msgstr "Sem du"
+
+#: lib/tools.py:141 lib/tools.py:142 lib/tools.py:143
+msgid "YYYY MMMM dd"
+msgstr "dd MMMM YYYY"
+
+#: lib/tools.py:144
+msgid "This week"
+msgstr "Cette semaine"
+
+#: lib/tools.py:191
+msgid "This month"
+msgstr "Ce mois-ci"
+
+#: lib/tools.py:230
+msgid "This year"
+msgstr "Cette année"
+
+#: rapidsms_kodonso/apps/django_stock/views.py:231
+msgid "Change Place"
+msgstr "Changer de village"
+
+#: rapidsms_kodonso/apps/ping/app.py:102
+#, python-format
+msgid "%(pingID)s on %(date)s"
+msgstr ""
+
+#: rapidsms_kodonso/apps/ping/app.py:107
+#, python-format
+msgid "pong on %(date)s"
+msgstr ""
+
+#: rapidsms_kodonso/apps/webapp/templates/layout.html:32
+msgid "Log out"
+msgstr "Déconnexion"
+
+#: rapidsms_kodonso/apps/webapp/templates/layout.html:34
+#: templates/authente.html:27
+msgid "Log in"
+msgstr "Connexion"
+
+#: templates/404.html:11
+msgid "The record requested does not exist!"
+msgstr "L'enregistrement demandé n'existe pas !!!"
+
+#: templates/_duration_pagination.html:9
+msgid "By"
+msgstr "Par"
+
+#: templates/_duration_pagination.html:13
+#: templates/_duration_pagination.html:15
+#: templates/django_census/evolution.html:96
+#: templates/django_stock/evolution_stock.html:96
+msgid "Week"
+msgstr "Semaine"
+
+#: templates/_duration_pagination.html:21
+#: templates/_duration_pagination.html:23
+#: templates/django_census/evolution.html:108
+#: templates/django_stock/evolution_stock.html:108
+msgid "Month"
+msgstr "Mois"
+
+#: templates/_duration_pagination.html:29
+#: templates/_duration_pagination.html:31
+msgid "Year"
+msgstr "Année"
+
+#: templates/_report_management_pagination.html:14
+msgid "Previous"
+msgstr "Précédant"
+
+#: templates/_report_management_pagination.html:19
+msgid "Next"
+msgstr "Suivant"
+
+#: templates/add_user.html:10 templates/admin_menu.html:10
+#: templates/confirm_user.html:16 templates/modif_group.html:11
+#: templates/page_right.html:9 templates/django_census/by_classes.html:11
+#: templates/django_census/by_schools.html:12
+#: templates/django_census/census_modification.html:10
+#: templates/django_census/code.html:10
+#: templates/django_census/dashboard.html:11
+#: templates/django_census/delete.html:11
+#: templates/django_census/delete_2.html:12
+#: templates/django_census/evolution.html:61
+#: templates/django_census/global_report.html:12
+#: templates/django_census/prevision.html:13
+#: templates/django_census/report_management.html:10
+#: templates/django_census/report_pdf.html:10
+#: templates/django_census/test.html:12
+#: templates/django_stock/by_places.html:9
+#: templates/django_stock/by_products.html:9
+#: templates/django_stock/code.html:9 templates/django_stock/dashboard.html:9
+#: templates/django_stock/delete.html:9
+#: templates/django_stock/evolution_stock.html:61
+#: templates/django_stock/global_report.html:10
+#: templates/django_stock/modification.html:11
+#: templates/django_stock/modification_stock_max.html:10
+#: templates/django_stock/report_management.html:10
+#: templates/django_stock/report_pdf_stock.html:10
+#: templates/django_stock/stockmaxi.html:11
+msgid "Home"
+msgstr "Acceuil"
+
+#: templates/add_user.html:15 templates/admin_menu.html:19
+#: templates/confirm_user.html:8 templates/modif_group.html:16
+#: templates/django_census/by_classes.html:21
+#: templates/django_census/by_schools.html:22
+#: templates/django_census/census_modification.html:19
+#: templates/django_census/code.html:16
+#: templates/django_census/dashboard.html:19
+#: templates/django_census/delete.html:19
+#: templates/django_census/delete_2.html:20
+#: templates/django_census/evolution.html:70
+#: templates/django_census/global_report.html:20
+#: templates/django_census/prevision.html:18
+#: templates/django_census/report_management.html:20
+#: templates/django_census/report_pdf.html:20
+#: templates/django_census/test.html:20
+#: templates/django_census/training_census.html:14
+#: templates/django_stock/by_places.html:18
+#: templates/django_stock/by_products.html:19
+#: templates/django_stock/code.html:16
+#: templates/django_stock/dashboard.html:18
+#: templates/django_stock/delete.html:18
+#: templates/django_stock/evolution_stock.html:71
+#: templates/django_stock/global_report.html:19
+#: templates/django_stock/modification.html:20
+#: templates/django_stock/modification_stock_max.html:22
+#: templates/django_stock/report_management.html:23
+#: templates/django_stock/report_pdf_stock.html:21
+#: templates/django_stock/stockmaxi.html:20
+#: templates/django_stock/training_stock.html:14
+msgid "Welcome"
+msgstr "Bienvenue"
+
+#: templates/add_user.html:16 templates/admin_menu.html:20
+#: templates/confirm_user.html:9 templates/modif_group.html:17
+#: templates/django_census/by_classes.html:22
+#: templates/django_census/by_schools.html:23
+#: templates/django_census/census_modification.html:20
+#: templates/django_census/code.html:17
+#: templates/django_census/dashboard.html:20
+#: templates/django_census/delete.html:20
+#: templates/django_census/delete_2.html:21
+#: templates/django_census/evolution.html:71
+#: templates/django_census/global_report.html:21
+#: templates/django_census/prevision.html:19
+#: templates/django_census/report_management.html:21
+#: templates/django_census/report_pdf.html:21
+#: templates/django_census/test.html:21
+#: templates/django_census/training_census.html:15
+#: templates/django_stock/by_places.html:19
+#: templates/django_stock/by_products.html:20
+#: templates/django_stock/code.html:17
+#: templates/django_stock/dashboard.html:19
+#: templates/django_stock/delete.html:19
+#: templates/django_stock/evolution_stock.html:72
+#: templates/django_stock/global_report.html:20
+#: templates/django_stock/modification.html:21
+#: templates/django_stock/modification_stock_max.html:23
+#: templates/django_stock/report_management.html:24
+#: templates/django_stock/report_pdf_stock.html:22
+#: templates/django_stock/stockmaxi.html:21
+#: templates/django_stock/training_stock.html:15
+msgid "Disconnect"
+msgstr "Deconnexion"
+
+#: templates/add_user.html:17 templates/admin_menu.html:21
+#: templates/confirm_user.html:10 templates/modif_group.html:18
+#: templates/django_census/by_classes.html:23
+#: templates/django_census/by_schools.html:24
+#: templates/django_census/census_modification.html:21
+#: templates/django_census/code.html:18
+#: templates/django_census/dashboard.html:21
+#: templates/django_census/delete.html:21
+#: templates/django_census/delete_2.html:22
+#: templates/django_census/evolution.html:72
+#: templates/django_census/global_report.html:22
+#: templates/django_census/prevision.html:20
+#: templates/django_census/report_management.html:22
+#: templates/django_census/report_pdf.html:22
+#: templates/django_census/test.html:22
+#: templates/django_stock/by_places.html:20
+#: templates/django_stock/by_products.html:21
+#: templates/django_stock/code.html:18
+#: templates/django_stock/dashboard.html:20
+#: templates/django_stock/delete.html:20
+#: templates/django_stock/evolution_stock.html:73
+#: templates/django_stock/global_report.html:21
+#: templates/django_stock/modification.html:22
+#: templates/django_stock/modification_stock_max.html:24
+#: templates/django_stock/report_management.html:25
+#: templates/django_stock/report_pdf_stock.html:23
+#: templates/django_stock/stockmaxi.html:22
+msgid "manage"
+msgstr "Administrer"
+
+#: templates/add_user.html:20
+msgid "Adding a user account"
+msgstr "Ajout d'un compte d'utilisateur"
+
+#: templates/add_user.html:37 templates/modif_group.html:79
+#: templates/django_census/report_management.html:50
+#: templates/django_census/training_census.html:39
+#: templates/django_stock/report_management.html:52
+#: templates/django_stock/training_stock.html:39
+msgid "Save"
+msgstr "Enregistrer"
+
+#: templates/admin_menu.html:11
+msgid "Calculation of forecast"
+msgstr "Calcul de la prévision"
+
+#: templates/admin_menu.html:12
+msgid " Stock Consolidation"
+msgstr "Codification stock"
+
+#: templates/admin_menu.html:13 templates/django_census/code.html:11
+msgid "Consolidation absence"
+msgstr "Codification absence"
+
+#: templates/admin_menu.html:23
+msgid "Select the user to change"
+msgstr "Sélectionnez l'utilisateur à changer"
+
+#: templates/admin_menu.html:28
+msgid "Add user"
+msgstr "Ajouter un utilisateur"
+
+#: templates/admin_menu.html:38 templates/confirm_user.html:21
+msgid "User"
+msgstr "l'utilisateur"
+
+#: templates/authente.html:12 templates/django_stock/home.html:22
+msgid "School management groups"
+msgstr "Gestion de groupe scolaire"
+
+#: templates/confirm_user.html:21
+msgid "has been added"
+msgstr "a été ajouté"
+
+#: templates/confirm_user.html:41
+msgid "Add another user"
+msgstr "Ajouter un autre utilisateur"
+
+#: templates/modif_group.html:21
+msgid "User account edit "
+msgstr "Modification du compte d'utilisateur"
+
+#: templates/page_right.html:7
+msgid "You are not authorized to access this page"
+msgstr "Vous n'êtes pas autorisé à accéder à cette page"
+
+#: templates/django_census/by_classes.html:12
+#: templates/django_census/by_schools.html:13
+#: templates/django_census/census_modification.html:11
+#: templates/django_census/dashboard.html:12
+#: templates/django_census/delete.html:12
+#: templates/django_census/delete_2.html:13
+#: templates/django_census/evolution.html:62
+#: templates/django_census/global_report.html:13
+#: templates/django_census/report_management.html:11
+#: templates/django_census/report_pdf.html:11
+#: templates/django_census/test.html:13
+#: templates/django_stock/by_places.html:10
+#: templates/django_stock/by_products.html:10
+#: templates/django_stock/dashboard.html:10
+#: templates/django_stock/delete.html:10
+#: templates/django_stock/evolution_stock.html:62
+#: templates/django_stock/global_report.html:11
+#: templates/django_stock/modification.html:12
+#: templates/django_stock/modification_stock_max.html:11
+#: templates/django_stock/report_management.html:11
+#: templates/django_stock/report_pdf_stock.html:11
+#: templates/django_stock/stockmaxi.html:12
+msgid "Abstract"
+msgstr "Résumé"
+
+#: templates/django_census/by_classes.html:13
+#: templates/django_census/by_schools.html:14
+#: templates/django_census/census_modification.html:12
+#: templates/django_census/dashboard.html:13
+#: templates/django_census/delete.html:13
+#: templates/django_census/delete_2.html:14
+#: templates/django_census/evolution.html:63
+#: templates/django_census/global_report.html:14
+#: templates/django_census/global_report.html:24
+#: templates/django_census/report_management.html:12
+#: templates/django_census/report_pdf.html:12
+#: templates/django_census/test.html:14
+msgid "All absences"
+msgstr "Toutes les absences"
+
+#: templates/django_census/by_classes.html:14
+#: templates/django_census/by_schools.html:15
+#: templates/django_census/census_modification.html:13
+#: templates/django_census/dashboard.html:14
+#: templates/django_census/delete.html:14
+#: templates/django_census/delete_2.html:15
+#: templates/django_census/evolution.html:64
+#: templates/django_census/global_report.html:15
+#: templates/django_census/test.html:15
+#: templates/django_stock/by_places.html:12
+#: templates/django_stock/by_products.html:12
+#: templates/django_stock/dashboard.html:12
+#: templates/django_stock/delete.html:12
+#: templates/django_stock/evolution_stock.html:64
+#: templates/django_stock/global_report.html:13
+#: templates/django_stock/modification.html:14
+#: templates/django_stock/modification_stock_max.html:13
+#: templates/django_stock/report_management.html:13
+#: templates/django_stock/report_pdf_stock.html:13
+#: templates/django_stock/stockmaxi.html:14
+msgid "Reports Management"
+msgstr "Gestion des rapports"
+
+#: templates/django_census/by_classes.html:15
+#: templates/django_census/by_schools.html:16
+#: templates/django_census/census_modification.html:14
+#: templates/django_census/dashboard.html:15
+#: templates/django_census/delete.html:15
+#: templates/django_census/delete_2.html:16
+#: templates/django_census/evolution.html:65
+#: templates/django_census/global_report.html:16
+#: templates/django_census/report_management.html:14
+#: templates/django_census/report_pdf.html:14
+#: templates/django_stock/by_places.html:13
+#: templates/django_stock/by_products.html:13
+#: templates/django_stock/dashboard.html:13
+#: templates/django_stock/delete.html:13
+#: templates/django_stock/evolution_stock.html:65
+#: templates/django_stock/global_report.html:14
+#: templates/django_stock/modification.html:15
+#: templates/django_stock/modification_stock_max.html:14
+#: templates/django_stock/report_management.html:14
+#: templates/django_stock/report_pdf_stock.html:14
+#: templates/django_stock/stockmaxi.html:15
+msgid "Summary"
+msgstr "Récapitulatif"
+
+#: templates/django_census/by_classes.html:27
+#: templates/django_census/by_schools.html:26
+#: templates/django_census/test.html:25
+msgid "Average number of abcences to"
+msgstr "Nombre total d'absent à"
+
+#: templates/django_census/by_classes.html:54
+#: templates/django_census/by_classes.html:56
+#: templates/django_census/by_classes.html:58
+#: templates/django_census/by_schools.html:61
+#: templates/django_census/by_schools.html:63
+#: templates/django_census/by_schools.html:65
+#: templates/django_census/global_report.html:43
+#: templates/django_census/global_report.html:45
+#: templates/django_census/global_report.html:47
+msgid " Number of missing"
+msgstr " Nbre d'absent"
+
+#: templates/django_census/by_classes.html:55
+#: templates/django_census/by_classes.html:57
+#: templates/django_census/by_classes.html:59
+msgid "Total number"
+msgstr "Effectif total"
+
+#: templates/django_census/by_classes.html:77
+#: templates/django_census/by_classes.html:97
+#: templates/django_census/by_schools.html:97
+#: templates/django_census/dashboard.html:134
+#: templates/django_census/global_report.html:79
+msgid "Add a new call"
+msgstr "Ajouter un nouvel appel"
+
+#: templates/django_census/by_classes.html:83
+#: templates/django_stock/by_places.html:66
+#: templates/django_stock/by_products.html:77
+#: templates/django_stock/global_report.html:90
+msgid "Total"
+msgstr "Total"
+
+#: templates/django_census/by_classes.html:108
+#: templates/django_census/by_classes.html:112
+#: templates/django_census/by_schools.html:107
+#: templates/django_census/by_schools.html:111
+#: templates/django_census/global_report.html:86
+#: templates/django_census/global_report.html:89
+#: templates/django_census/report_management.html:142
+#: templates/django_stock/by_places.html:77
+#: templates/django_stock/by_places.html:79
+#: templates/django_stock/by_products.html:89
+#: templates/django_stock/by_products.html:92
+#: templates/django_stock/global_report.html:105
+#: templates/django_stock/global_report.html:108
+#: templates/django_stock/report_management.html:119
+msgid "Download those data at size CSV"
+msgstr "Télécharger ces données au format csv"
+
+#: templates/django_census/by_schools.html:36
+msgid "See evolution week "
+msgstr "Voir l'evolution par semaine"
+
+#: templates/django_census/by_schools.html:39
+msgid "See daily evolution "
+msgstr "Voir l'evolution par jour"
+
+#: templates/django_census/by_schools.html:42
+msgid " See the evolution of months"
+msgstr "Voir l'evolution des mois"
+
+#: templates/django_census/by_schools.html:53
+msgid " Boys "
+msgstr "Garçons"
+
+#: templates/django_census/by_schools.html:55
+msgid "Teachers "
+msgstr "Enseignants"
+
+#: templates/django_census/by_schools.html:60
+#: templates/django_census/by_schools.html:62
+#: templates/django_census/by_schools.html:64
+#: templates/django_census/global_report.html:42
+#: templates/django_census/global_report.html:44
+#: templates/django_census/global_report.html:46
+msgid "Absence Rates"
+msgstr "Taux d'absence"
+
+#: templates/django_census/by_schools.html:90
+#: templates/django_census/by_schools.html:91
+#: templates/django_census/by_schools.html:92
+#: templates/django_census/global_report.html:73
+#: templates/django_census/global_report.html:74
+#: templates/django_census/global_report.html:75
+#: templates/django_census/prevision.html:56
+msgid "days"
+msgstr "Jour"
+
+#: templates/django_census/census_modification.html:24
+#: templates/django_stock/modification.html:24
+#: templates/django_stock/modification_stock_max.html:26
+msgid "Modification form"
+msgstr "Formulaire de modification"
+
+#: templates/django_census/census_modification.html:31
+#: templates/django_census/report_management.html:86
+#: templates/django_stock/modification.html:30
+#: templates/django_stock/modification_stock_max.html:35
+#: templates/django_stock/report_management.html:88
+#: templates/django_stock/stockmaxi.html:33
+msgid "Edit"
+msgstr "Modifier"
+
+#: templates/django_census/code.html:21
+msgid "Schools and classes code"
+msgstr "Code des écoles et des classes"
+
+#: templates/django_census/code.html:28 templates/django_stock/code.html:33
+msgid "School name"
+msgstr "Nom de l'écoles"
+
+#: templates/django_census/code.html:29 templates/django_stock/code.html:34
+msgid "School code"
+msgstr "Code de l' écoles"
+
+#: templates/django_census/code.html:30
+msgid "Class name"
+msgstr "Nom de la classe"
+
+#: templates/django_census/code.html:31
+msgid "Class code"
+msgstr "Code des classes"
+
+#: templates/django_census/dashboard.html:26
+msgid "Summary of absences"
+msgstr "Résumé de l'état des absenteïsmes"
+
+#: templates/django_census/dashboard.html:27
+msgid "Schools with more pupils absent"
+msgstr "Écoles avec le plus d'élèves absents"
+
+#: templates/django_census/dashboard.html:33
+#: templates/django_census/dashboard.html:90
+msgid "Yesterday"
+msgstr "Hier"
+
+#: templates/django_census/dashboard.html:48
+#: templates/django_census/dashboard.html:76
+#: templates/django_census/dashboard.html:105
+msgid "Add a new appeal"
+msgstr "Ajouter un nouvel appel"
+
+#: templates/django_census/dashboard.html:61
+#: templates/django_census/dashboard.html:118
+msgid "Last Week"
+msgstr "Semaine dernière"
+
+#: templates/django_census/dashboard.html:84
+msgid "Schools with more teachers absent"
+msgstr "Écoles avec le plus de professeurs absents"
+
+#: templates/django_census/dashboard.html:161
+#: templates/django_stock/dashboard.html:103
+msgid "No warning"
+msgstr "Pas d'alerte"
+
+#: templates/django_census/delete.html:25
+#: templates/django_census/delete_2.html:27
+#: templates/django_stock/delete.html:23
+#: templates/django_stock/delete_2.html:9
+msgid "Do you want to delete this report"
+msgstr "Voulez-vous supprimer ce rapport?"
+
+#: templates/django_census/delete.html:64
+#: templates/django_census/delete_2.html:66
+#: templates/django_stock/delete.html:45
+#: templates/django_stock/delete_2.html:31
+msgid "NO"
+msgstr "NON"
+
+#: templates/django_census/delete.html:66
+#: templates/django_census/delete_2.html:68
+#: templates/django_stock/delete.html:47
+#: templates/django_stock/delete_2.html:33
+msgid "YES"
+msgstr "OUI"
+
+#: templates/django_census/evolution.html:77
+msgid "Evolution of absenteeism"
+msgstr "Evolution de l'absentéisme à "
+
+#: templates/django_census/evolution.html:77
+#: templates/django_stock/evolution_stock.html:77
+msgid "in"
+msgstr "en"
+
+#: templates/django_census/evolution.html:82
+#: templates/django_stock/evolution_stock.html:83
+msgid "Days"
+msgstr "Jour"
+
+#: templates/django_census/evolution.html:83
+#: templates/django_census/evolution.html:97
+#: templates/django_census/evolution.html:109
+msgid "Average"
+msgstr "Moyenne"
+
+#: templates/django_census/global_report.html:37
+msgid " Girls"
+msgstr "Filles"
+
+#: templates/django_census/global_report.html:38
+msgid " Teachers "
+msgstr "Enseignants"
+
+#: templates/django_census/prevision.html:23
+#: templates/django_census/prevision.html:45
+msgid "Quantity forecast"
+msgstr "Calcul de la prévision"
+
+#: templates/django_census/prevision.html:31
+msgid "ok"
+msgstr "ok"
+
+#: templates/django_census/prevision.html:39
+msgid "Forecast"
+msgstr "Prévision"
+
+#: templates/django_census/prevision.html:43
+msgid "Total student"
+msgstr "Effectif total des élèvés"
+
+#: templates/django_census/prevision.html:44
+msgid "FAO quota"
+msgstr "Quota FAO "
+
+#: templates/django_census/prevision.html:45
+msgid "months"
+msgstr "mois"
+
+#: templates/django_census/report_management.html:13
+#: templates/django_census/report_pdf.html:13
+msgid "Management Reports"
+msgstr "Gestion des rapports"
+
+#: templates/django_census/report_management.html:26
+#: templates/django_stock/report_management.html:29
+msgid "Reports management"
+msgstr "Gestion des rapports"
+
+#: templates/django_census/report_management.html:84
+msgid "Dates"
+msgstr "Date"
+
+#: templates/django_census/report_management.html:85
+#: templates/django_census/training_census.html:67
+#: templates/django_stock/report_management.html:87
+#: templates/django_stock/training_stock.html:67
+msgid "Delete"
+msgstr "Supprimer"
+
+#: templates/django_census/report_pdf.html:25
+#: templates/django_stock/report_pdf_stock.html:26
+msgid "Periodic Report"
+msgstr "Rapport périodique"
+
+#: templates/django_census/report_pdf.html:28
+#: templates/django_stock/report_pdf_stock.html:29
+msgid "GO"
+msgstr "Ok"
+
+#: templates/django_census/report_pdf.html:36
+#: templates/django_stock/report_pdf_stock.html:38
+msgid "Report"
+msgstr "Rapport"
+
+#: templates/django_census/report_pdf.html:39
+#: templates/django_stock/report_pdf_stock.html:40
+msgid "From"
+msgstr "Du"
+
+#: templates/django_census/report_pdf.html:39
+#: templates/django_stock/report_pdf_stock.html:40
+msgid "to"
+msgstr "au"
+
+#: templates/django_census/report_pdf.html:54
+msgid "the number of missing girls"
+msgstr "Le nombre de filles absentes"
+
+#: templates/django_census/report_pdf.html:55
+msgid "the total number of girls"
+msgstr "L'effectif total des filles"
+
+#: templates/django_census/report_pdf.html:56
+msgid "the number of missing boys"
+msgstr "Le nombre de garçons absents"
+
+#: templates/django_census/report_pdf.html:57
+msgid "the total number of boys"
+msgstr "L'effectif total des garçons"
+
+#: templates/django_census/report_pdf.html:58
+msgid "the number of missing teachers "
+msgstr "Le nombre de professeurs absents"
+
+#: templates/django_census/report_pdf.html:59
+msgid "the total number of teachers"
+msgstr "L'effectif total des professeurs"
+
+#: templates/django_census/report_pdf.html:61
+msgid "the absence rate"
+msgstr "Taux d'absence"
+
+#: templates/django_census/training_census.html:9
+#: templates/django_stock/training_stock.html:9
+msgid "Stock data entry"
+msgstr "Saisie des données stocks"
+
+#: templates/django_census/training_census.html:10
+#: templates/django_stock/training_stock.html:10
+msgid "Census data entry"
+msgstr "Saisie des données assiduite"
+
+#: templates/django_census/training_census.html:18
+msgid "Adding report absenteeism"
+msgstr "Ajout de rapport d'absenteisme"
+
+#: templates/django_census/training_census.html:62
+msgid " Schools"
+msgstr "École"
+
+#: templates/django_stock/by_places.html:11
+#: templates/django_stock/by_products.html:11
+#: templates/django_stock/dashboard.html:11
+#: templates/django_stock/delete.html:11
+#: templates/django_stock/evolution_stock.html:63
+#: templates/django_stock/global_report.html:12
+#: templates/django_stock/global_report.html:25
+#: templates/django_stock/modification.html:13
+#: templates/django_stock/modification_stock_max.html:12
+#: templates/django_stock/report_management.html:12
+#: templates/django_stock/report_pdf_stock.html:12
+#: templates/django_stock/stockmaxi.html:13
+msgid "All Stocks"
+msgstr "Tous les stocks"
+
+#: templates/django_stock/by_places.html:14
+#: templates/django_stock/by_products.html:14
+#: templates/django_stock/dashboard.html:14
+#: templates/django_stock/delete.html:14
+#: templates/django_stock/evolution_stock.html:66
+#: templates/django_stock/global_report.html:15
+#: templates/django_stock/modification.html:16
+#: templates/django_stock/modification_stock_max.html:15
+#: templates/django_stock/report_management.html:15
+#: templates/django_stock/report_pdf_stock.html:15
+#: templates/django_stock/stockmaxi.html:16
+#: templates/django_stock/stockmaxi.html:25
+#: templates/django_stock/stockmaxi.html:31
+msgid "Maximum stock"
+msgstr "Stocks maximal"
+
+#: templates/django_stock/by_places.html:22
+#: templates/django_stock/by_products.html:24
+msgid "Stocks of"
+msgstr "Stocks de "
+
+#: templates/django_stock/by_places.html:22
+msgid "by school"
+msgstr "par école"
+
+#: templates/django_stock/by_places.html:59
+#: templates/django_stock/by_products.html:70
+#: templates/django_stock/dashboard.html:52
+#: templates/django_stock/dashboard.html:82
+#: templates/django_stock/global_report.html:74
+#: templates/django_stock/global_report.html:82
+msgid "Add record"
+msgstr "Ajouter un relevé"
+
+#: templates/django_stock/by_products.html:24
+msgid "by product"
+msgstr "par denrée"
+
+#: templates/django_stock/by_products.html:35
+msgid "See evolution week"
+msgstr "Voir l'evolution par semaine"
+
+#: templates/django_stock/by_products.html:38
+msgid "See daily evolution"
+msgstr "Voir l'evolution par jour"
+
+#: templates/django_stock/by_products.html:41
+msgid "See the evolution of months"
+msgstr "Voir l'evolution des mois"
+
+#: templates/django_stock/code.html:3
+msgid "Consolidation"
+msgstr "Codification"
+
+#: templates/django_stock/code.html:10
+msgid "Stock Consolidation"
+msgstr "Codification stock"
+
+#: templates/django_stock/code.html:21
+msgid "Schools and products code"
+msgstr "Code des écoles et produits"
+
+#: templates/django_stock/code.html:46
+msgid "products"
+msgstr "Denrée"
+
+#: templates/django_stock/code.html:49
+msgid "Product name"
+msgstr "Nom de la denrée"
+
+#: templates/django_stock/code.html:50
+msgid "Product code"
+msgstr "Code du produit"
+
+#: templates/django_stock/dashboard.html:23
+msgid "Summary of stock "
+msgstr "Résumé de l'état des stocks"
+
+#: templates/django_stock/dashboard.html:30
+msgid "Schools in short"
+msgstr "Écoles en pénurie"
+
+#: templates/django_stock/dashboard.html:61
+msgid "Largest consumers of the month"
+msgstr "Plus gros consommateurs ce mois-ci"
+
+#: templates/django_stock/dashboard.html:98
+msgid "The"
+msgstr "Le"
+
+#: templates/django_stock/dashboard.html:98
+msgid "has exceeded its normal consumption"
+msgstr "a depasse sa consommation normale en"
+
+#: templates/django_stock/dashboard.html:98
+msgid "whether"
+msgstr "soit"
+
+#: templates/django_stock/dashboard.html:98
+msgid "of"
+msgstr "de"
+
+#: templates/django_stock/dashboard.html:114
+msgid "Last movements"
+msgstr "Derniers mouvements"
+
+#: templates/django_stock/evolution_stock.html:4
+msgid "Changes in inventories averaged"
+msgstr "Evolution de Stocks en moyenne à"
+
+#: templates/django_stock/evolution_stock.html:77
+msgid "Evolution in Stock has"
+msgstr "Evolution en Stock a"
+
+#: templates/django_stock/evolution_stock.html:84
+#: templates/django_stock/evolution_stock.html:97
+#: templates/django_stock/evolution_stock.html:109
+msgid "average"
+msgstr "Moyenne"
+
+#: templates/django_stock/home.html:15
+msgid "WELCOME KODONSO"
+msgstr "BIENVENUE SUR KODONSO"
+
+#: templates/django_stock/home.html:23
+msgid "Choose a topic to start"
+msgstr "Choisissez un sujet pour commencer"
+
+#: templates/django_stock/home.html:27
+msgid "Stocks canteens"
+msgstr "Stocks des cantines"
+
+#: templates/django_stock/home.html:30
+msgid "Absences of pupils and teachers"
+msgstr "Absences des élèves et enseignants"
+
+#: templates/django_stock/report_pdf_stock.html:51
+msgid "Canteen"
+msgstr "Cantine de"
+
+#: templates/django_stock/stockmaxi.html:32
+msgid "limit the amount of consumption per day"
+msgstr "la quantité limite de consomation par jour"
+
+#: templates/django_stock/stockmaxi.html:46
+msgid "maximum stock is not defined (please consult the administrator)"
+msgstr ""
+"stock maximum n'est pas défini (s'il vous plaît consulter l'administrateur)"
+
+#: templates/django_stock/training_stock.html:18
+msgid "Add stock report"
+msgstr "Ajout de rapport de stock"
+
+#~ msgid "Changes in Stock"
+#~ msgstr "Changer de denrée"

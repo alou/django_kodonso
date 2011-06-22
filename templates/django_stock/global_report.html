@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}Tous les stocks &lt; Stock &lt; Kodonso{% endblock %}
+{% block page-id %}global_report{% endblock %}
+{% block content %}
+    
+<div id="header">
+    <div id="menu">
+        <ul>
+            <li class="first"><a href="{% url kodonso-home %}">{% trans "Home" %}</a></li>
+            <li ><a href="{% url stock-dashboard %}">{% trans "Abstract" %}</a></li>
+            <li class="current_page_item"><a href="{% url stock-all %}">{% trans "All Stocks" %}</a></li>
+            <li><a href="{% url stock-report-management %}">{% trans "Reports Management" %}</a></li>  
+            <li><a href="{% url stock_raport_pdf %}">{% trans "Summary" %}</a></li>
+            <li><a href="{% url stock_maxi %}">{% trans "Maximum stock" %}</a></li>     
+        </ul>
+    </div>
+    <div id="login" class=" prepend-17">
+            {% trans "Welcome" %} {{ user.username }}
+            <a href="{% url logout_%}">{% trans "Disconnect" %}</a> 
+            <a href="{% url administration %}">{% trans "manage" %}</a>
+</div>        
+    <div id="global-report" class="container"> 
+          
+        <h1 class="span-24 last">{% trans "All Stocks" %}</h1>
+        
+    <span id="duration-pagination">
+            {% include "_duration_pagination.html" %}
+     </span>
+        <table>
+            <caption>
+                {% include "_time_pagination.html" %}
+            </caption>
+
+            <table  class="tablesorter" width="200" border="0" id="data">
+                <thead>        
+                    <tr>
+                        <th>{% trans "Schools" %}</th>
+                        <th>{% trans "Product" %}</th>
+                        <th>{% trans "Incomming" %}</th>
+                        <th>{% trans "Consumption" %}</th>
+                        <th>{% trans "Remaining stocks" %}</th>
+                    </tr>
+                </thead> 
+            
+                <tbody> 
+                {% for report in reports %} 
+                    <tr>
+                        <td>  
+                        {% if duration %}           
+                            <a href="{% url stock-by-products report.place__id,report.place__name|slugify, year, duration, duration_number %}">
+                                   {{ report.place__name }}
+                            </a>
+                        {% else %}
+                        <a href="{% url stock-by-products report.place__id,report.place__name|slugify, year %}">
+                                   {{ report.place__name  }}
+                        {% endif %}
+                        </td>
+                        <td>  
+                        {% if duration %}            
+                            <a href="{% url stock-by-places report.product__id,report.product__name|slugify, year, duration, duration_number %}">
+                                   {{ report.product__name  }}
+                            </a>
+                        {% else %}
+                        <a href="{% url stock-by-places report.product__id,report.product__name|slugify, year %}">
+                        {{ report.product__name  }}
+                        {% endif %}
+                        </td>
+                        <td>{{ report.incomming__sum }} kg</td>
+                        <td>{{ report.consumption__sum }} kg</td>
+                        <td>{{ report.remaining }} kg</td>
+                    </tr>
+                        {% empty %}
+                             <tr>
+                                <td colspan="5">{{ in_empty_case }}  <a href="{% url stock-report-management %}" class = "prepend-2">  {% trans "Add record"%}</a></td>
+                             </tr>
+                {% endfor %}
+                        
+                {% for place in place_whithout_activities %}
+                
+                    <tr>
+                        <td>{{ place }}</td>
+                        <td colspan="4">{% trans "No record of stock" %}   <a href="{% url stock-report-management %}" class = "prepend-2">  {% trans "Add record"%}</a></td>
+                    </tr>
+                    
+                {%endfor%}
+                 
+                {% if not in_empty_case  %} 
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">{% trans "Total" %}</td>
+                            <td> {{total_incomming|floatformat:0}} kg</td>
+                            <td> {{total_consumption|floatformat:0}} kg</td>
+                            <td> </td>        
+                        </tr>
+                    </tfoot>
+                {%endif%}
+            
+            </tbody>     
+        </table>
+        
+    </div>
+    
+     {% if reports %}
+        {% if duration %} 
+                <a class="prepend-17"href="{% url export_all_stock year, duration, duration_number %}">{% trans "Download those data at size CSV" %}</a>
+                 {% endif %}
+        {% if not duration %}
+                <a class="prepend-17" href="{% url export_all_stock year %}">{% trans "Download those data at size CSV" %}</a>
+        {% endif %}
+    {% endif %}
+{% endblock %}

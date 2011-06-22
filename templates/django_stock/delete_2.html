@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}Suppresion de rapport{% endblock %}
+{% block page-id %}global_report{% endblock %}
+{% block content %}
+    <div id="header">
+        
+
+            <h1>{% trans "Do you want to delete this report" %}</h1>
+        <div id="id_tab">
+            <table>            
+                <tr>
+                    <th>{% trans "School" %}</th>
+                    <th>{% trans "Product" %}</th>
+                    <th>{% trans "Incomming" %}</th>
+                    <th>{% trans "Consumption" %}</th>
+                    <th>{% trans "Remaining stocks" %}</th>
+                </tr>
+                
+                <tr>
+                    <td>{{ report.place.name  }}</td>
+                    <td>{{ report.product.name  }}</td>
+                    <td>{{ report.incomming }} kg</td>
+                    <td>{{ report.consumption }} kg</td>
+                    <td>{{ report.remaining }} kg</td>
+                </tr>            
+            </table>
+                
+            <h6><p class='prepend-0'></p>
+            <a class='prepend-10' href="{% url stock-report-training %}" >
+                {% trans "NO" %}</a>
+                <span>
+                    <a class='prepend-3' href="{{report.url_delete_2}}" >{% trans "YES" %}</a>
+                </span>
+            </h6>
+        </div>
+    </div> 
+{% endblock %}
+

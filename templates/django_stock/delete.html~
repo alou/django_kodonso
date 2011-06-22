@@ -1,0 +1,54 @@
+
+		  
+<div id= "delete">
+
+{% extends "base.html" %}
+
+{% block title %}Suppresion de rapport{% endblock %}
+
+{% block content %}
+
+  <div id="login"class="prepend-17">
+Bienvenu(e) {{ user.username }} <a href="{% url logout%}">Deconnecter</a> <a href="{% url administration %}">Administrer</a>
+</div>
+    
+<div id="global-report" class="container">
+
+<h1>Suppression de rapport</h1>
+<table>
+        
+            <tr>
+                <th>Village</th>
+                <th>Denrée</th>
+                <th>Entrée</th>
+                <th>Consommation</th>
+                <th>stock restant</th>
+            </tr>
+            
+            
+                <tr>
+                    <td>  
+                    
+                               {{ report.place.name  }}
+                
+                    </td>
+                    <td>  
+                   
+                    {{ report.product.name  }}
+
+                    </td>
+                    <td>{{ report.incomming }} t</td>
+                    <td>{{ report.consumption }} t</td>
+                    <td>{{ report.remaining }} t</td>
+                </tr>
+        
+        </table>
+        
+        <p class='prepend-2'>Voulez-vous supprimer ce rapport?</p>
+        <a class='prepend-2' href="{% url stock-report-management %}" >NON</a>
+        <a class='prepend-2' href="{{report.url_delete}}" >OUI</a>
+{% endblock %}
+
+</div>
+</div>
+

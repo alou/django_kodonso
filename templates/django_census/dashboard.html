@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}Résumé de l'absenteisme &lt; Absentéisme &lt; Kodonso{% endblock %}
+{% block page-id %}census-dashboard{% endblock %}
+{% block content %}
+
+<div id="header">
+
+        <div id="menu">
+            <ul>
+                <li class="first"><a href="{% url kodonso-home %}">{% trans "Home" %}</a></li>
+                <li class="current_page_item"><a href="{% url census-dashboard %}">{% trans "Abstract" %}</a></li>
+                <li ><a href="{% url census-all %}">{% trans "All absences" %}</a></li>
+                <li ><a href="{% url census-report-management %}">{% trans "Reports Management" %}</a></li>
+                <li ><a href="{% url census_raport_pdf %}">{% trans "Summary" %}</a></li>
+            </ul>
+        </div>
+         <div id="login" class=" prepend-17">
+                {% trans "Welcome" %} {{ user.username }}
+                <a href="{% url logout_%}">{% trans "Disconnect" %}</a> 
+                <a href="{% url administration %}">{% trans "manage" %}</a>
+        </div>
+        
+        <div id="middle-column" class="span-22 prepend-2">
+
+            <h1 class="span-22" >{% trans "Summary of absences" %}  </h1>
+            <h2 class="span-20" >{% trans "Schools with more pupils absent" %}
+
+            </h2>
+            <div id="today-student-absentees" class="span-10">
+         
+                <table >
+                    <caption>{% trans "Yesterday" %}</caption> 
+                    
+                    {% for rate in yesterdays_students_abs_rate %}
+                        <tr>
+                            <td>
+                                <a href="{% url census-by-classes rate.school_id,rate.school_name|slugify %}">
+                                    {{ rate.school_name }}
+                                </a>
+                            </td>
+                            <td>{{ rate.students_abs_rate|floatformat:0 }} %</td>
+                        </tr>
+                    {%endfor%}
+                    
+                    {% if not yesterdays_students_abs_rate%}
+                        <tr>
+                            <td colspan="2">{% trans "No appeal has been made" %}<a href="{% url census-report-management %}" class = "prepend-2">{% trans "Add a new appeal" %}</a></td>
+                        </tr>
+                    {% endif %}
+                    
+                </table>    
+                  
+             
+            </div>
+ 
+              
+            <div id="last-week-student-absentees" class="span-10 last">
+           <table >
+                    
+                    <caption>{% trans "Last Week" %}</caption> 
+                    
+                    {% for rate in lasts_week_students_abs_rate %}
+                        <tr>
+                            <td>
+                                <a href="{% url census-by-classes rate.school_id,rate.school_name|slugify %}">
+                                    {{ rate.school_name }}
+                                </a>
+                            </td>
+                            <td>{{  rate.students_abs_rate|floatformat:0 }} %</td>
+                        </tr>
+                    {%endfor%}
+                    
+                    {% if not lasts_week_students_abs_rate %}
+                        <tr>
+                            <td colspan="2">{% trans "No appeal has been made" %} <a href="{% url census-report-management %}" class = "prepend-2"> {% trans "Add a new appeal" %}</a></td>
+                        </tr>
+                    {% endif %}
+
+                </table>    
+                            
+            </div>
+
+            <h2 class="span-20">{% trans "Schools with more teachers absent" %}</h2>
+
+            <div id="today-teacher-absentees" class="span-10">
+
+                <table>
+                
+                    <caption>{% trans "Yesterday" %}</caption> 
+                
+                    {% for rate in yesterdays_teachers_abs_rate %}
+                        <tr>
+                            <td>
+                                <a href="{% url census-by-classes rate.school_id,rate.school_name|slugify %}">
+                                    {{ rate.school_name }}
+                                </a>
+                            </td>
+                            <td>{{ rate.teachers_abs_rate|floatformat:0 }} %</td>
+                        </tr>
+                    {%endfor%}
+                    
+                    {% if not yesterdays_students_abs_rate %}
+                        <tr>
+                            <td colspan="2">{% trans "No appeal has been made" %}<a href="{% url census-report-management %}" class = "prepend-2"> {% trans "Add a new appeal" %}</a></td>
+                        </tr>
+                    {% endif %}
+                    
+                </table>
+                
+
+            </div>
+
+            <div id="last-week-teacher-absentees" class="span-10 last">
+                
+                <table >
+                
+                    <caption>{% trans "Last Week" %}</caption> 
+
+                    {% for rate in lasts_week_teachers_abs_rate %}
+                        <tr>
+                            <td>
+                                <a href="{% url census-by-classes rate.school_id,rate.school_name|slugify %}">
+                                    {{ rate.school_name }}
+                                </a>
+                            </td>
+                            <td>
+                                {{ rate.teachers_abs_rate|floatformat:0 }}%</td>
+                        </tr>
+                    {%endfor%}
+                        
+                    {% if not lasts_week_teachers_abs_rate%}
+                         <tr>
+                            <td colspan="2">{% trans "No appeal has been made" %} <a href="{% url census-report-management %}" class = "prepend-2">{% trans "Add a new call"%}</a></td>
+                         </tr>
+                    {% endif %}
+
+                </table>
+
+            </div>
+            <table id ='warning-census' >                        
+                <caption>
+                        <center><h3><font color='red'>{% trans "Warning" %}</font></h3></center>
+                </caption>
+
+                <tbody> 
+                    <tr>
+                        <td>
+                           {% for warning in warning_report %}
+                           
+                           {% if warning.eleve %}  
+                               <center> <p>Le {{warning.date|date:"d b Y"}} a {{ warning.school_class.school.name}}, la {{ warning.school_class.grade }} a eu {{warning.sub_census_p}} eleves absents plus que prevu (soit <font color='green' >{{warning.s_day.people_missing_day}}</font>)<font color='red'>{{warning.sub_census}}</font>. 
+                                </p></center>
+                            {% endif %}
+                            
+                            {% if not warning.eleve %}  
+                            <center> <p><font color='red'>Le {{warning.date|date:"d b Y"}} a {{ warning.school_class.school.name}}, la {{ warning.school_class.grade }} n'a pas eu de professeur. 
+                            </font></p></center>
+                            {% endif %}
+                             {% empty %}
+								<center>{% trans "No warning" %}</center>
+							 {% endfor %}
+                        </td> 
+                    </tr> 
+                </tbody>    
+            </table>
+                        
+                       
+               
+             
+
+    {% endblock %}

@@ -1,0 +1,945 @@
+#!/usr/bin/env python
+# -*- coding= UTF-8 -*-
+import operator
+import csv
+
+from models import * 
+from django_census.form_ import CensusReportForm, ModificationForm
+from django.db.models import Avg, Sum, Q
+from lib.tools import extract_date_info_from_url
+from django.shortcuts import render_to_response,HttpResponseRedirect, redirect
+from django.core.paginator import Paginator, EmptyPage
+from django.core.urlresolvers import reverse
+from django.template.defaultfilters import slugify
+from django.contrib.auth import authenticate, login as django_login, logout as django_logout
+from django.contrib.auth.decorators import login_required
+from form_ import LoginForm_
+from django.http import Http404
+from django.http import HttpResponse
+
+from lib.tools import *
+from datetime import datetime, timedelta
+
+# TODO : pour stock et census, mettre comme date pas default (si 
+# url sans année ni rien) le mois actuel de l'année actuelle
+# TODO : mettre les vues dans un dossier view et dans des fichiers a part
+# TODO : deplacer les codes des filtres dans le modele
+# TODO : mettre les url à la même date que la date courante 
+
+def my_custom_404_view():
+    
+    return render_to_response('django_stock/404.html')
+    
+@login_required
+def dashboard(request):
+    """
+    Afficher un résumé de la situation actuelle pour le recencement
+    des élèves et de professeurs.
+    """
+    
+    # Récupération des données des quatre tableaux récapitulant l'absence des
+    # élèves et des enseignants hier et la semaine derniere
+    # recuperation de la date et du numero de semaine actuelles
+    today = datetime.today()
+    delta = timedelta(1)
+    year, week_number, week_day = today.isocalendar()
+    
+    # recuperation de la date d'hier et de celle du premier et du dernier
+    # jour de la semaine derniere
+    yesterday = today - delta
+    previous_week = week_number-1
+    last_week_boundaries = get_week_boundaries(year,previous_week)
+    
+    # On filtre les rapport par ces date
+    # TODO : calculer par pourcentage et ordre décroissant
+    yesterday_queryset = Report.objects.filter(date=yesterday)[:10]
+    
+    last_weeks_queryset = Report.objects.filter(date__gte=last_week_boundaries[0], 
+                                                date__lte=last_week_boundaries[1])[:10]             
+    
+    # on recupere les plus grosses absences pour ces date
+    yesterdays_students_abs_rate, yesterdays_teachers_abs_rate = Report.get_most_important_abs_rates(yesterday_queryset)
+    lasts_week_students_abs_rate, lasts_week_teachers_abs_rate = Report.get_most_important_abs_rates(last_weeks_queryset)
+    
+    ctx = {"yesterdays_teachers_abs_rate": yesterdays_teachers_abs_rate,
+         "yesterdays_students_abs_rate": yesterdays_students_abs_rate,
+         "lasts_week_students_abs_rate": lasts_week_students_abs_rate,
+         "lasts_week_teachers_abs_rate": lasts_week_teachers_abs_rate,"user":request.user}
+    
+    return render_to_response('django_census/dashboard.html', ctx)
+
+
+def global_report(request, *args, **kwargs):                            
+    """
+        Affiche l'état général de l'absenteisme par village.
+    """
+    
+    total_count_boys, total_count_girls, total_count_teachers = 0, 0, 0
+    total_abs_boys, total_abs_girls, total_abs_teachers = 0, 0, 0
+       
+    # on recupere les rapports filtres pour la date demandee
+    year, duration, duration_number = extract_date_info_from_url(kwargs)
+    village_reports = Report.get_reports_filtered_by_duration(year, 
+                                                              duration, 
+                                                              duration_number).order_by('school_class__school__name')
+                                                              
+                                                          
+                                                              
+    
+    # TODO : Transformer cette fonction en middleware ou context processor
+    # car ça devient gigantesque
+    previous_date_url, \
+    todays_date_url, \
+    next_date_url, \
+    previous_date, \
+    current_date, \
+    next_date, \
+    todays_date, \
+    todays_date_is_before, \
+    todays_date_is_after = get_time_pagination(year, duration,
+                                               duration_number, "census-all")
+    week_date_url, \
+    month_date_url, \
+    year_date_url = get_duration_pagination(year, duration,
+                                            duration_number, "census-all")
+                  
+    # on calcule les absences dans tous ces rapports
+    village_abs_sum = village_reports.values("school_class__school__village__name",
+                                             "school_class__school__village__id")\
+                                    .annotate(boys_absentees=Sum('boys_absentees'),
+                                              girls_absentees=Sum('girls_absentees'),
+                                              teacher_absentees=Sum('teacher_absentees'))
+    
+    villages_abs = []
+    villages_with_activities = set()
+    for village_abs in village_abs_sum:
+        
+        village_id = village_abs['school_class__school__village__id']
+        
+        # on recupere le nombre d'eleves et de profs total
+        # pour toutes les classes de chaque village
+        attendees_count = SchoolClass.objects\
+                        .filter(school__village__id=village_id)\
+                        .values("school__village__id")\
+                        .annotate(boys_count=Sum("boys_count"),
+                                  girls_count=Sum("girls_count"), 
+                                  teachers_count=Sum("teachers_count")).get()
+        
+        # on met a jour le dico qui contient toutes les infos qu'on va 
+        # passer au template
+        village_abs["village_name"] = village_abs['school_class__school__village__name']     
+        village_abs["village_id"] = village_id
+        village_abs.update(attendees_count)
+        villages_abs.append(village_abs)
+        
+        # on fait les totaux pour tous les villages
+        total_abs_boys += village_abs["boys_absentees"]
+        total_abs_girls += village_abs["girls_absentees"]
+        total_abs_teachers += village_abs["teacher_absentees"]
+
+        total_count_boys += attendees_count["boys_count"]
+        total_count_girls +=  attendees_count["girls_count"]
+        total_count_teachers += attendees_count["teachers_count"]
+        
+        # on met a jour un set contenant la liste de tous les villages
+        # qui possedent des rapports pour cette date
+        villages_with_activities.add(village_abs['school_class__school__village__name'])
+
+    ctx = {"villages_abs": villages_abs,"user":request.user}
+   
+    if not villages_with_activities:
+        ctx.update({"in_empty_case": "Aucun appel n'a été  fait"})
+
+    else:
+        # on liste les village sans rapports pour cette date
+        village_whithout_activities = []
+        
+        for village in Village.objects.all():
+            if village.name not in villages_with_activities:
+                village_whithout_activities.append(village.name)
+        
+    ctx.update(locals())
+    
+    return render_to_response('django_census/global_report.html', ctx)
+    
+    
+def global_report_census_csv(request, *args, **kwargs):
+
+    # Create the HttpResponse object with the appropriate CSV header.
+    response = HttpResponse(mimetype='text/csv')
+    response['Content-Disposition'] = 'attachment;filename=global_report_census_csv.csv'
+    
+    # Create the CSV writer using the HttpResponse as the "file"
+    writer = csv.writer(response)
+    writer.writerow(['Villages','Garçons','Filles','Enseignants'])
+    
+    # on recupere les rapports filtres pour la date demandee
+    year, duration, duration_number = extract_date_info_from_url(kwargs)
+    
+    village_reports = Report.get_reports_filtered_by_duration(year, 
+                                                              duration, 
+                                                              duration_number).order_by('school_class__school__name')
+    village_abs_sum = village_reports.values("school_class__school__village__name",
+                                             "school_class__school__village__id")\
+                                    .annotate(boys_absentees=Sum('boys_absentees'),
+                                              girls_absentees=Sum('girls_absentees'),
+                                              teacher_absentees=Sum('teacher_absentees'))
+
+    villages_abs = []
+    villages_with_activities = set()
+    for village_abs in village_abs_sum:
+
+        village_id = village_abs['school_class__school__village__id']
+        
+        # on recupere le nombre d'eleves et de profs total
+        # pour toutes les classes de chaque village
+        attendees_count = SchoolClass.objects\
+                        .filter(school__village__id=village_id)\
+                        .values("school__village__id")\
+                        .annotate(boys_count=Sum("boys_count"),
+                                  girls_count=Sum("girls_count"), 
+                                  teachers_count=Sum("teachers_count")).get()
+
+        # on met a jour le dico qui contient toutes les infos qu'on va 
+        # passer au template
+        village_abs["village_name"] = village_abs['school_class__school__village__name']     
+        village_abs["village_id"] = village_id                    
+        village_abs.update(attendees_count)                         
+        villages_abs.append(village_abs)
+
+    # l'export csv 
+    # on boucle sur villages_abs pour abtenir toute les données la page
+    for village_abs in villages_abs:
+        writer.writerow([village_abs['village_name'],
+                        (str(village_abs['boys_absentees'])+' / '+ str(village_abs['boys_count'])),
+                        (str(village_abs['girls_absentees'])+' / '+str(village_abs['girls_count'])),
+                        (str(village_abs['teacher_absentees'])+' / '+str(village_abs['teachers_count'])),
+                        ])
+    return response 
+
+
+def by_schools(request, *args, **kwargs):
+    """
+     Affiche l'absenteisme de toutes les ecoles d'un village par 
+     filles, garcons et enseignants
+    """
+    
+    id_ = int(request.POST.get('to_display', 0)) or int(kwargs["id"])
+    
+    # charger l'ecole dont on veut afficher les ecoles
+    # si ce village n'existe pas, mettre une page d'erreur
+    try: 
+        village = Village.objects.get(id=id_)
+    except Village.DoesNotExist:
+        raise Http404
+        
+    year, duration, duration_number = extract_date_info_from_url(kwargs)
+        
+    if request.method == 'POST' :
+        return get_redirection("census-by-schools", village,
+                                year, duration, duration_number)
+        
+    navigation_form = get_navigation_form(Village.objects.all(),
+                                          "Changer de village",
+                                          village,
+                                          "census-by-schools",
+                                          year, duration, duration_number)
+    
+    total_count_boys, total_count_girls, total_count_teachers = 0, 0, 0
+    total_abs_boys, total_abs_girls, total_abs_teachers = 0, 0, 0
+    
+    # on recupere les rapports filtres pour la date demandee
+    reports = Report.get_reports_filtered_by_duration(year, 
+                                                      duration, 
+                                                      duration_number)
+
+    previous_date_url, \
+    todays_date_url, \
+    next_date_url,\
+    previous_date,\
+    current_date,\
+    next_date,\
+    todays_date,\
+    todays_date_is_before,\
+    todays_date_is_after = get_time_pagination(year, duration,
+                                               duration_number, 
+                                               "census-by-schools",
+                                               additional_args=(id_, 
+                                                                slugify(village.name)))
+    week_date_url, \
+    month_date_url,\
+    year_date_url = get_duration_pagination(year, duration,
+                                            duration_number, 
+                                            "census-by-schools",
+                                            additional_args=(id_, 
+                                                                slugify(village.name)))
+
+    # TODO : faire la moyenne de la somme des écoles 
+    # (ou la somme des moyennes, je ne sais plus)
+    # et non juste la moyenne générale qui n'est pas représentative
+    
+    # on recupere une liste contenant garcons, filles et enseignants
+    # absents pour chaque ecole
+    schools_abs_sum = reports.filter(school_class__school__village__id=id_)\
+                    .values("school_class__school__name",
+                            "school_class__school_id")\
+                    .annotate(boys_absentees=Avg('boys_absentees'),                     
+                              girls_absentees=Avg('girls_absentees'),                  
+                              teacher_absentees=Avg('teacher_absentees'))         
+
+    schools_abs = [] 
+    schools_with_activities = set()
+    for school_abs in schools_abs_sum:
+
+        school_id = school_abs['school_class__school_id']
+        
+        # on recupere le nombre d'eleves et de profs total
+        # pour toutes les classes de chaque ecole
+        attendees_count = SchoolClass.objects\
+                        .filter(id=school_id)\
+                        .values("school__name", "school__id")\
+                        .annotate(boys_count=Sum("boys_count"),
+                                  girls_count=Sum("girls_count"), 
+                                  teachers_count=Sum("teachers_count")).get()
+                            
+        # on met a jour le dico qui contient toutes les infos qu'on va 
+        # passer au template
+        school_abs["school_name"] = attendees_count["school__name"]
+        school_abs["school_id"] = school_id
+        school_abs.update(attendees_count)
+        schools_abs.append(school_abs)
+        
+        # on fait les totaux pour toutes les ecoles
+        total_count_boys += attendees_count["boys_count"]
+        total_count_girls += attendees_count["girls_count"]
+        total_count_teachers += attendees_count["teachers_count"]
+        
+        total_abs_boys += school_abs["boys_absentees"]
+        total_abs_girls += school_abs["girls_absentees"]
+        total_abs_teachers += school_abs["teacher_absentees"]
+        
+        # on met a jour un set contenant la liste de toutes les ecoles
+        # qui possedent des rapports pour cette date
+        schools_with_activities.add(school_abs["school_name"])
+
+    ctx = {"schools_abs": schools_abs, "village": village,"user":request.user}
+
+    if not schools_with_activities:
+        ctx.update({"in_empty_case": "Aucun appel n'a été  fait"})
+
+    else:
+        # lister les ecoles sans releves d'absence
+        school_whithout_activities = []
+        all_school = School.objects.filter(village__id= village.id)
+
+        for school in all_school:
+            if school.name not in schools_with_activities:
+                school_whithout_activities.append(school.name)
+
+    ctx.update(locals())
+                    
+    return render_to_response('django_census/by_schools.html', ctx)
+    
+def by_schools_census_csv(request, *args, **kwargs):
+    
+    # Create the HttpResponse object with the appropriate CSV header.
+    
+    response = HttpResponse(mimetype='text/csv')
+    response['Content-Disposition'] = 'attachment;filename= export_census_by_schools.csv'
+    
+    # Create the CSV writer using the HttpResponse as the "file"
+    
+    writer = csv.writer(response)
+    writer.writerow(['Ecoles','Garçons','Filles','Enseignants'])
+    
+    """
+     Affiche l'absenteisme de toutes les ecoles d'un village par 
+     filles, garcons et enseignants
+    """
+
+    id_ = int(request.POST.get('to_display', 0)) or int(kwargs["id"])
+    
+    # charger l'ecole dont on veut afficher les ecoles
+    # si ce village n'existe pas, mettre une page d'erreur
+    try: 
+        village = Village.objects.get(id=id_)
+    except Village.DoesNotExist:
+        raise Http404
+        
+    year, duration, duration_number = extract_date_info_from_url(kwargs)
+        
+    if request.method == 'POST' :
+        return get_redirection("census-by-schools", village,
+                                year, duration, duration_number)
+        
+    navigation_form = get_navigation_form(Village.objects.all(),
+                                          "Changer de village",
+                                          village,
+                                          "census-by-schools",
+                                          year, duration, duration_number)
+    
+    total_count_boys, total_count_girls, total_count_teachers = 0, 0, 0
+    total_abs_boys, total_abs_girls, total_abs_teachers = 0, 0, 0
+
+    # on recupere les rapports filtres pour la date demandee
+    reports = Report.get_reports_filtered_by_duration(year, 
+                                                      duration, 
+                                                      duration_number)
+
+    previous_date_url, \
+    todays_date_url, \
+    next_date_url,\
+    previous_date,\
+    current_date,\
+    next_date,\
+    todays_date,\
+    todays_date_is_before,\
+    todays_date_is_after = get_time_pagination(year, duration,
+                                               duration_number, 
+                                               "census-by-schools",
+                                               additional_args=(id_, 
+                                                                slugify(village.name)))
+    week_date_url, \
+    month_date_url,\
+    year_date_url = get_duration_pagination(year, duration,
+                                            duration_number, 
+                                            "census-by-schools",
+                                            additional_args=(id_, 
+                                                                slugify(village.name)))
+
+    # TODO : faire la moyenne de la somme des écoles 
+    # (ou la somme des moyennes, je ne sais plus)
+    # et non juste la moyenne générale qui n'est pas représentative
+    
+    # on recupere une liste contenant garcons, filles et enseignants
+    # absents pour chaque ecole
+    schools_abs_sum = reports.filter(school_class__school__village__id=id_)\
+                    .values("school_class__school__name",
+                            "school_class__school_id")\
+                    .annotate(boys_absentees=Avg('boys_absentees'),                     
+                              girls_absentees=Avg('girls_absentees'),                  
+                              teacher_absentees=Avg('teacher_absentees'))         
+
+    schools_abs = [] 
+    schools_with_activities = set()
+    for school_abs in schools_abs_sum:
+        school_id = school_abs['school_class__school_id']
+        
+        # on recupere le nombre d'eleves et de profs total
+        # pour toutes les classes de chaque ecole
+        attendees_count = SchoolClass.objects\
+                        .filter(id=school_id)\
+                        .values("school__name", "school__id")\
+                        .annotate(boys_count=Sum("boys_count"),
+                                  girls_count=Sum("girls_count"), 
+                                  teachers_count=Sum("teachers_count")).get()
+
+        # on met a jour le dico qui contient toutes les infos qu'on va 
+        # passer au template
+        school_abs["school_name"] = attendees_count["school__name"]
+        school_abs["school_id"] = school_id
+        school_abs.update(attendees_count)
+        schools_abs.append(school_abs)
+        
+    for report in schools_abs:
+
+        writer.writerow([report['school__name'].encode('utf-8'),
+                        ( str(report['boys_absentees'])+'  '+str(report['boys_count'])), 
+                        (str(report["girls_absentees"])+' / '+str( report['girls_count'])),
+                        (str(report['teacher_absentees']) +' / '+str(report['teachers_count']))
+                        ])
+    return response 
+    
+def by_classes(request, *args, **kwargs):
+    """
+     Affiche l'absenteisme de toutes les ecoles d'une ecole par 
+     filles, garcons et enseignants
+    """
+
+    id_ = int(request.POST.get('to_display', 0)) or int(kwargs["id"])
+
+    # charger l'ecole dont on veut afficher les ecoles
+    # si ce village n'existe pas, mettre une page d'erreur
+    try: 
+        school = School.objects.get(id=id_)
+    except School.DoesNotExist:
+        raise Http404
+
+    year, duration, duration_number = extract_date_info_from_url(kwargs)
+    
+    if request.method == 'POST' :
+        return get_redirection("census-by-classes", school,
+                                year, duration, duration_number)
+
+    schools = School.objects.filter(village__id=school.village.id)
+    navigation_form = get_navigation_form(schools,
+                                          "Changer d'école",
+                                          school,
+                                          "census-by-classes",
+                                          year, duration, duration_number)
+    
+    total_count_boys, total_count_girls, total_count_teachers = 0, 0, 0
+    total_abs_boys, total_abs_girls, total_abs_teachers = 0, 0, 0
+    
+    # on recupere les rapports filtres pour la date demandee
+    reports = Report.get_reports_filtered_by_duration(year, 
+                                                      duration, 
+                                                      duration_number)
+                                                      
+    previous_date_url,\
+    todays_date_url,\
+    next_date_url,\
+    previous_date,\
+    current_date,\
+    next_date,\
+    todays_date,\
+    todays_date_is_before,\
+    todays_date_is_after = get_time_pagination(year, duration,
+                                                duration_number, 
+                                                "census-by-classes",
+                                                additional_args=(id_,
+                                                                 slugify(school.name)))
+    week_date_url,\
+    month_date_url,\
+    year_date_url = get_duration_pagination(year, duration,
+                                            duration_number,
+                                            "census-by-classes",
+                                            additional_args=(id_,
+                                                             slugify(school.name)))
+    
+    # c'est la moyenne par ecole 
+    # on recupere une liste contenant garcons, filles et enseignants
+    # absents pour chaque classe
+    classes_abs_avg = reports.filter(Q(school_class__school__id=id_), 
+                                     Q(school_class__begin_year=year) 
+                                     | Q(school_class__end_year=year))\
+                              .values('school_class__id')\
+                              .annotate(boys_absentees=Avg("boys_absentees"),
+                                        girls_absentees=Avg('girls_absentees'),
+                                        teacher_absentees=Avg('teacher_absentees'))
+
+    classes_abs = []
+    classes_with_activities = set()
+    for class_abs in classes_abs_avg:
+        
+        class_id = class_abs['school_class__id']
+        school_class = SchoolClass.objects.get(id=class_id)
+        
+        # on recupere le nombre d'eleves et de profs total
+        # pour toutes les classes de chaque classe
+        # et on met a jour le dico qui contient toutes les infos qu'on va 
+        # passer au template
+        class_abs["class_name"] = school_class.grade
+        class_abs["boys_count"] = school_class.boys_count
+        class_abs["girls_count"] = school_class.girls_count
+        class_abs["teachers_count"] = school_class.teachers_count
+        classes_abs.append(class_abs)
+        
+        # on fait les totaux pour toutes les classes
+        total_abs_boys += class_abs["boys_absentees"]
+        total_abs_girls += class_abs["girls_absentees"]
+        total_abs_teachers += class_abs["teacher_absentees"]
+          
+        total_count_boys += class_abs["boys_count"]
+        total_count_girls += class_abs["girls_count"]
+        total_count_teachers += class_abs["teachers_count"]
+        
+        # on met a jour un set contenant la liste de toutes les classes
+        # qui possedent des rapports pour cette date
+        classes_with_activities.add(class_id)
+        
+    ctx = {"classes_abs": classes_abs, "school": school,"user":request.user}
+    
+    if not classes_with_activities:
+        ctx.update({"in_empty_case": "Aucun appel n'a été  fait"})
+
+    else:
+        # lister les classes sans releves d'absence
+        classes_whithout_activities = []
+        all_classes = SchoolClass.objects.filter(Q(school__id=id_),
+                                                 Q(begin_year=year) 
+                                                 | Q(end_year=year))
+
+        for school_class in all_classes:
+            if school_class.id not in classes_with_activities:
+                classes_whithout_activities.append(school_class.grade)
+        
+    ctx.update(locals())
+
+    return render_to_response('django_census/by_classes.html',ctx)
+def by_classes_census_csv(request, *args, **kwargs):
+    
+    # Create the HttpResponse object with the appropriate CSV header.
+    
+    response = HttpResponse(mimetype='text/csv')
+    response['Content-Disposition'] = 'attachment;filename= export_census_by_schools.csv'
+    
+    # Create the CSV writer using the HttpResponse as the "file"
+    
+    writer = csv.writer(response)
+    writer.writerow(['Classes','Garçons','Filles','Enseignants'])
+    
+    """
+     Affiche l'absenteisme de toutes les ecoles d'une ecole par 
+     filles, garcons et enseignants
+    """
+
+    id_ = int(request.POST.get('to_display', 0)) or int(kwargs["id"])
+
+    # charger l'ecole dont on veut afficher les ecoles
+    # si ce village n'existe pas, mettre une page d'erreur
+    try: 
+        school = School.objects.get(id=id_)
+    except School.DoesNotExist:
+        raise Http404
+
+    year, duration, duration_number = extract_date_info_from_url(kwargs)
+    
+    if request.method == 'POST' :
+        return get_redirection("census-by-classes", school,
+                                year, duration, duration_number)
+
+    schools = School.objects.filter(village__id=school.village.id)
+    navigation_form = get_navigation_form(schools,
+                                          "Changer d'école",
+                                          school,
+                                          "census-by-classes",
+                                          year, duration, duration_number)
+    
+    total_count_boys, total_count_girls, total_count_teachers = 0, 0, 0
+    total_abs_boys, total_abs_girls, total_abs_teachers = 0, 0, 0
+    
+    # on recupere les rapports filtres pour la date demandee
+    reports = Report.get_reports_filtered_by_duration(year, 
+                                                      duration, 
+                                                      duration_number)
+                                                      
+    previous_date_url,\
+    todays_date_url,\
+    next_date_url,\
+    previous_date,\
+    current_date,\
+    next_date,\
+    todays_date,\
+    todays_date_is_before,\
+    todays_date_is_after = get_time_pagination(year, duration,
+                                                duration_number, 
+                                                "census-by-classes",
+                                                additional_args=(id_,
+                                                                 slugify(school.name)))
+    week_date_url,\
+    month_date_url,\
+    year_date_url = get_duration_pagination(year, duration,
+                                            duration_number,
+                                            "census-by-classes",
+                                            additional_args=(id_,
+                                                             slugify(school.name)))
+    
+    # c'est la moyenne par ecole 
+    # on recupere une liste contenant garcons, filles et enseignants
+    # absents pour chaque classe
+    classes_abs_avg = reports.filter(Q(school_class__school__id=id_), 
+                                     Q(school_class__begin_year=year) 
+                                     | Q(school_class__end_year=year))\
+                              .values('school_class__id')\
+                              .annotate(boys_absentees=Avg("boys_absentees"),
+                                        girls_absentees=Avg('girls_absentees'),
+                                        teacher_absentees=Avg('teacher_absentees'))
+
+    classes_abs = []
+    classes_with_activities = set()
+    for class_abs in classes_abs_avg:
+        
+        class_id = class_abs['school_class__id']
+        school_class = SchoolClass.objects.get(id=class_id)
+        
+        # on recupere le nombre d'eleves et de profs total
+        # pour toutes les classes de chaque classe
+        # et on met a jour le dico qui contient toutes les infos qu'on va 
+        # passer au template
+        class_abs["class_name"] = school_class.grade
+        class_abs["boys_count"] = school_class.boys_count
+        class_abs["girls_count"] = school_class.girls_count
+        class_abs["teachers_count"] = school_class.teachers_count
+        classes_abs.append(class_abs)
+
+    for report in classes_abs :
+
+        writer.writerow([report['class_name'].encode('utf-8'),
+                        ( str(report['boys_absentees'])+' / '+str(report['boys_count'])), 
+                        (str(report["girls_absentees"])+' / '+str( report['girls_count'])),
+                        (str(report['teacher_absentees']) +' / '+str(report['teachers_count']))
+                        ])
+    return response 
+        
+def report_management(request, *args, **kwargs):
+
+    # on recupere le numero depuis l'url si le numero 
+    # est none on donne 1 par  defaut
+    num = kwargs["num"] or 1
+    
+    # on ordonne par dates recentes les rapports
+    reports = Report.objects.order_by('school_class__school__village__name', '-date')
+ 
+    # s'execute si la base est vide
+    if not reports.count():
+        ctx = {"in_empty_case": "Aucun appel n'a été  fait"}
+        
+    # s'execute si il ya des données dans la base
+    else: 
+       
+        # pour mettre 20 elements par page
+        paginator = Paginator(reports, 20)
+          
+        try:
+            page = paginator.page(int(num))
+        
+        #affiche une erreur Http404 si l'on de passe la page est vide     
+        except EmptyPage:
+            raise Http404
+        # si le numero de la page est 2 
+        page.is_before_first = (page.number == 2)
+        # si le numero de la page est egale au numero de l'avant derniere page
+        page.is_before_last = (page.number == paginator.num_pages - 1)
+        # on constitue l'url de la page suivante
+        page.url_next = reverse('census-report-management', args=[int(num) + 1])
+        # on constitue l'url de la page precedente
+        page.url_previous= reverse('census-report-management', args=[int(num) - 1])
+        # on constitue l'url de la 1ere page
+        page.url_first = reverse('census-report-management')
+        # on constitue l'url de la derniere page
+        page.url_last = reverse('census-report-management', args = [paginator.num_pages])
+        # on constitue l'url du formulaire de saisie
+                
+        for report in page.object_list:
+        
+            village = report.school_class.school.village
+            school = report.school_class.school
+        
+            # on recupere l'année, le nombre de semaines et le nombre de jours
+            year, week_number, day_number = report.date.isocalendar()
+            
+            # on constitue l'url du lien pointant sur le nom de l'ecole
+            report.url_schools = reverse('census-by-schools', 
+                                         args=[village.id,
+                                               slugify(village.name),
+                                               year, 'week', week_number])
+                                                                   
+            # on constitue l'url du lien pointant sur le nom de la classe
+            report.url_classes = reverse('census-by-classes', 
+                                          args=[school.id,
+                                                slugify(school.name),
+                                                year, 'week', week_number])
+            # on constitue l'url du lien pointant sur la vue de la confirmation du rapport
+            report.url_delete = reverse('census-confirm', args=[report.id])
+            # on constitue l'url du lien pointant sur la vue de la modification du rapport
+            report.url_modification = reverse("census-modification-report", args=[report.id])
+        ctx = {"page":page, "paginator":paginator,"user":request.user, 'lien':'before'}
+    
+    # on charge le formulaire
+    form = CensusReportForm(request.POST)
+    ctx.update( {'form':form,'valide':'before'})
+    if request.method == 'POST':
+        day, month ,year = request.POST['date'].split('-')
+        new_format = year + '- ' + month + '-' + day
+        print new_format
+        # on cree un dictionnaire et on le remplie 
+        dict ={}
+        dict = {'school_class': request.POST['school_class'],'boys_absentees': request.POST['boys_absentees'],'girls_absentees': request.POST['girls_absentees'],
+            'teacher_absentees': request.POST['teacher_absentees'],'date': new_format}
+        form = CensusReportForm(dict)
+        # on verifie le formulaire
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('census-report-management'))
+        else:
+            error = u"Enregistrement Invalide"
+        ctx.update({'form':form,'valide':'sent','lien':'sent'})
+    return render_to_response('django_census/report_management.html', ctx)
+
+def delete_confirm(request,*args, **kwargs):
+    """
+        Confirmation de la suppression d'un rapport
+    """
+     # on recupere le numero du rapport depuis l'url
+    id_report = kwargs["num"] 
+    # supprime le rapport
+    report = Report.objects.get(id = id_report)
+    report.url_delete = reverse('census-management', args=[report.id])
+    return render_to_response('django_census/delete.html',{'report':report})
+
+def export_census_manage(request, *args, **kwargs):
+    
+    # on recupere le numero depuis l'url si le numero 
+    # est none on donne 1 par  defaut
+    num = kwargs["num"] or 1
+    
+    # on ordonne par dates recentes les rapports
+    reports = Report.objects.order_by('school_class__school__village__name', '-date')
+ 
+    # s'execute si la base est vide
+    if not reports.count():
+        ctx = {"in_empty_case": "Aucun appel n'a été  fait"}
+        
+    # s'execute si il ya des données dans la base
+    else: 
+       
+        # pour mettre 20 elements par page
+        paginator = Paginator(reports, 20)
+          
+        try:
+            page = paginator.page(int(num))
+        
+        #affiche une erreur Http404 si l'on de passe la page est vide     
+        except EmptyPage:
+            raise Http404
+        # si le numero de la page est 2 
+        page.is_before_first = (page.number == 2)
+        # si le numero de la page est egale au numero de l'avant derniere page
+        page.is_before_last = (page.number == paginator.num_pages - 1)
+        # on constitue l'url de la page suivante
+        page.url_next = reverse('census-report-management', args=[int(num) + 1])
+        # on constitue l'url de la page precedente
+        page.url_previous= reverse('census-report-management', args=[int(num) - 1])
+        # on constitue l'url de la 1ere page
+        page.url_first = reverse('census-report-management')
+        # on constitue l'url de la derniere page
+        page.url_last = reverse('census-report-management', args = [paginator.num_pages])
+       
+        
+    
+
+        # Create the HttpResponse object with the appropriate CSV header.
+
+        response = HttpResponse(mimetype='text/csv')
+        response['Content-Disposition'] = 'attachment;filename=export_census_manage.csv'
+    
+        # Create the CSV writer using the HttpResponse as the "file"
+    
+        writer = csv.writer(response)
+        writer.writerow(['Villages','Ecoles','Classes','Garçons','Filles', 'Enseignants', 'Date'])
+        # on recupere les rapports filtres pour la date demandee
+        
+        for report in page.object_list:
+            writer.writerow([report.school_class.school.village, 
+                            report.school_class.school,
+                            ( str(report.school_class.grade )+'  '+str(report.school_class.begin_year)+' - '+str(report.school_class.end_year)), 
+                            (str(report.boys_absentees) +' / '+str(report.school_class.boys_count)),
+                            (str(report.girls_absentees )+' / '+str( report.school_class.girls_count)), 
+                            report.school_class.teachers_count, report.date])
+           
+        return response 
+    
+def deleting(request,*args, **kwargs):
+    """
+        Suppression de rapport
+    """
+    
+    # on recupere le numero du rapport depuis l'url
+    id_report = kwargs["num"] 
+    # supprime le rapport
+    Report.objects.get(id = id_report).delete()
+    
+    return HttpResponseRedirect(reverse('census-report-management'))
+
+def modification_report(request,*args, **kwargs):
+    """
+        Modifiction de rapport
+    """
+    
+    # on recupere le numero du rapport depuis l'url
+    id_report = kwargs["num"] 
+    # on recupere ce rapport
+    report = Report.objects.get(id = id_report)
+    # on cree un dictionnaire et on le remplie
+    dict ={}
+    dict = {'school_class': report.school_class,'boys_absentees': report.boys_absentees,'girls_absentees': report.girls_absentees,
+            'teacher_absentees': report.teacher_absentees,'date': report.date}
+    # on passe le dictionnaire au formulaire      
+    form = ModificationForm(dict)
+    # on verifie le formulaire
+    if request.method=='POST':
+        form = ModificationForm(request.POST)
+        if form.is_valid():
+            report.boys_absentees = int(request.POST.values()[1])
+            report.girls_absentees = int(request.POST.values()[4])
+            report.teacher_absentees = int(request.POST.values()[2])
+            report.date = request.POST.values()[0]
+            report.save()
+            return HttpResponseRedirect(reverse('census-report-management'))
+        
+    return render_to_response('django_census/census_modification.html',{'form':form,'user':request.user})
+    
+
+def login(request):
+    """
+    login est la views qui permet de se connecter
+    """
+    state = "Veuillez vous identifiez..."
+    
+    #Initialise username et password à vide
+    
+    username = password = ''
+    """
+    On appel la fonction LoginForm() dans le formulaire
+    
+    """
+    
+    form = LoginForm_()
+   
+    if request.method=='POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        url  = request.GET.get('next')
+        user = authenticate(username=username, password=password)
+      
+        if user is not None:
+            if user.is_active:
+                django_login(request, user)
+                state = "Connection reussie!"
+                if url:
+                    return HttpResponseRedirect(request, url)
+                else:
+                    return redirect(dashboard)
+            else:
+                state = "Your account is not active, please contact the site admin."
+        else:
+            state = "Votre nom d'utilisateur et/ou votre mot de passe est incorrect."
+    return render_to_response('authente_.html',{'form':form, 'state': state})
+
+def logout(request):
+    """ 
+    logout est la views qui permet de se deconnecter
+    
+    """
+    django_logout(request)
+    return redirect("/")
+
+
+ ###########################################################################   
+    
+    
+def administration(request,*args, **kwargs):
+    """
+        Ajout de rapport
+    """
+    
+    # on charge le formulaire
+    form = AdminForm(request.POST)
+    
+    ctx = {'form':form}
+    # on verifie le formulaire
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('administration'))
+        else:
+            error = u"Enregistrement Invalide"
+        ctx = {'form':form,"error":error}
+    ctx.update()
+    return render_to_response('adminform.html',ctx)
+
+    
+def menu_admin(request,*args, **kwargs):
+    
+    return render_to_response('django_census/census_menu_admin.html')

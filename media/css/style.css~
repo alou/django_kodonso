@@ -1,0 +1,363 @@
+/* TODO : compresser les feuilles de style y compris celles de blueprint en prod */
+
+/*** add report ***/
+
+#formu ul{
+display : none;
+}
+#formu.before input[type='submit']{
+display : none;}
+#formu input[type="text"]{
+width: 70px;
+
+}
+form input
+{
+display : inline;}
+/*** **************************************************** ***/
+/*** Header ***/
+
+h1 {
+text-align:center;
+padding-top:1.5em ;
+}
+
+/*** add_report***/
+#addd
+{background-color: #E0F5FA;}
+h1{margin-top:0em}
+#add 
+{   
+    font-family: Arial, Sans-Serif;
+    font-size: 13px;
+    
+    padding-right: 15em;
+    padding-left: 9em;
+    padding-top: 5em;
+    padding-bottom: 5em;
+}
+
+#add label
+{
+font-size: 20px;
+
+line-height:190%;
+
+}
+
+#add.sent ul
+{color: red ;
+font-family: Sans-Serif;}
+
+#add.before ul
+{display: none;}
+
+#add input[type="text"], #add select
+{
+    font-family: Arial, Sans-Serif;
+    font-size: 13px;
+    margin-bottom: 3px;
+    display:block;
+    padding: 5px;
+    border: solid 1px #85b1de;
+    width: 300px;
+    float: right;
+    margin: 4px 5em 4px 4px;
+}
+
+
+#add_rapport li, #add li {
+list-style-type: none;
+}
+#add_rapport {
+margin-top:3em;
+text-align:left;
+}
+#add_rapport h1 {
+text-decoration : underline ;
+}
+#add_rapport p strong  {
+color: red ;
+text-align : center;
+} 
+
+/*** gestion des rapports ***/
+#push_report_management {
+padding-top:0em;
+}
+
+
+
+/*** Pagination ***/
+
+#report_management_pagination {
+padding-top:2em;
+}
+
+#duration-pagination{
+margin-left:20px;
+padding-top:3em ;
+margin-right:400px
+}
+
+
+#duration-pagination li {
+margin-left: 2ex;
+display: inline;
+}
+
+#time-pagination ul {
+margin-bottom:0;
+}
+
+#time-pagination li,
+#report-management-pagination li{
+margin-left: 1ex;
+display: inline;
+}
+
+#report-management-pagination {
+position: relative;
+right: -60%;
+}
+
+/*** Home ***/
+
+
+#home #central-column {
+margin-top: 6em;
+} 
+
+#home #invite {
+border-top: 1px solid black;
+border-bottom: 1px solid black;
+padding: 0.3em 0;
+} 
+
+#home ul {
+padding-left:0;
+}
+
+#home li {
+list-style-type: none;
+}
+
+#home li a {
+width:100%;
+text-align:center;
+}
+
+#home h1 {
+text-align: left;
+}
+
+/*** Tables ***/
+
+caption {
+height: 3em;
+padding-top:0.5em;
+}
+
+td, caption, th {
+text-align: center;
+}
+
+table, table td {
+border: 1px solid #EEEEEE;
+}
+
+tfoot {
+background-color:#EEEEEE;
+}
+
+/*** Forms ***/
+/*
+form {
+
+text-align: center;
+
+}
+
+form p {
+display:inline;
+}
+*/
+/*************/
+/*** CENSUS ***/
+
+#delete{
+padding-top:5em;
+}
+/*************/
+
+/*************/
+/*** STOCK ***/
+/*************/
+
+/*** Stock dashboard ***/
+
+#stock-dashboard #last-reports h2 {
+font-size: 100%;
+padding:0.2em;
+background-color: #EEEEEE;
+}
+
+#stock-dashboard #last-reports li {
+list-style-type: none;
+}
+
+#stock-dashboard #last-reports .incomming {
+color: #7DE35E;
+font-weight:bold;
+}
+
+#stock-dashboard #last-reports .consumption {
+color: #EB5E5E;
+font-weight:bold;
+}
+
+/*****************************************************/
+
+#home_page {
+margin: 0;
+	padding: 0;
+	background: url(images/img01.jpg) repeat-x left top;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background: url(images/img08.jpg) repeat-x left top;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+
+}
+
+hr { display: none; }
+
+
+
+/* Header */
+
+
+#header {
+	width: 920px;
+	height: 45px;
+	margin: 0 auto;
+}
+
+/* Menu */
+
+#menu {
+    padding-top:0.5em;
+	float: left;
+	width: 540px;
+	height: 45px;
+}
+
+#menu ul {
+    display: inline;
+	margin: 0;
+	padding: 10px 0px 0px 5px;
+	list-style: none;
+	line-height: normal;
+}
+
+#menu li {
+	display: block;
+	float: left;
+}
+
+#menu a {
+	display: block;
+	float: left;
+	margin-right: 3px;
+	padding: 3px 25px 2px 25px;
+	text-decoration: none;
+	text-transform: capitalize;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: white;
+}
+
+#menu a:hover { text-decoration: underline; }
+
+#menu .current_page_item a {
+	height: 20px;
+	background: #FEC200 url(images/img02.jpg) repeat-x left top;
+	color: #FFFFFF;
+}
+
+#menu .first {
+	background: none;
+}
+#add_menu {
+height:3px;
+}
+	/** LOGO */
+
+#logo {
+	width: 860px;
+	height: 134px;
+	margin: 0 auto;
+	background: url(images/img04.jpg) no-repeat right top;
+}
+
+#logo h1, #logo p {
+	margin: 0px;
+	line-height: normal;
+	text-transform: lowercase;
+	font-weight: normal;
+	color: #FFFFFF;
+}
+
+#logo p {
+	text-transform: lowercase;
+	font-size: 10px;
+}
+
+#logo h1 {
+	
+	font-size: 34px;
+}
+
+
+#logo a {
+	text-decoration: none;
+	color: #FFFFFF;
+}
+
+#logine{
+list-style-type: none;
+padding-top: 10em;
+}
+
+
+#login a{
+color: #FFFFFF;
+display: texte;
+
+}
+#login {
+color: #FFFFFF;
+display: texte;
+
+}
+
+#administration {
+list-style-type: none;
+}
+.errorlist{
+list-style-type: none;
+}
+
+
+
+#menu_admin li{
+text-align: center;
+list-style-type: none;
+text-decoration: none;
+}

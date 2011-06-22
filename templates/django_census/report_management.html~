@@ -1,0 +1,113 @@
+<div id="header">
+		<div id="menu">
+			<ul>
+				<li class="first"><a href="/stock/home/">Acceuil</a></li>
+				<li ><a href="/census/dashboard">Resumé</a></li>
+				<li ><a href="/census/all/">Toutes les absences</a></li>
+				<li class="current_page_item"><a href="/census/report_management/">Gestion des Rapports</a></li>
+			
+			</ul>
+		</div>
+<div id ="push_report_management">  
+
+        {% extends "base.html" %}
+
+        {% block title %}Gestion des rapports{% endblock %}
+
+        {% block page-id %}census-report-management{% endblock %}
+
+        {% block menu %}
+        {% include "django_census/_menu.html" %}
+        {% endblock %} 
+              {% block content %} 
+     <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+     <div id="login"class="prepend-16">
+     {{ user.username }} est connecté <a href="{% url logout%}">Deconnecter</a> <a href="{% url administration %}">Administrer</a>
+     </div>
+
+
+
+    <div id="report_management_pagination">
+        <h1 class="span-24 last">Gestion des rapports</h1>
+        {% include "_report_management_pagination.html" %}
+    </div>
+        <a href="{{page.url_add_report}}">Ajouter un Rapport</a>
+<form id='formu' class='{{lien}}' method="post" action="">
+
+    {{form.as_table}}
+    <p >
+        <input type='submit' value = 'Enregistrer' />
+    </p>
+    <script type="text/javascript">
+        jQuery('#id_date').datepicker({ dateFormat: 'yy-mm-dd' });
+    </script>
+
+</form>
+        <table >
+
+            <tr>
+                <th>Villages</th>
+                <th>Ecoles</th>
+                <th>Classes</th>
+                <th>Garçons</th>
+                <th>Filles</th>
+                <th>Enseignants</th>
+                <th>Dates</th>
+            </tr>
+                
+            {% for report in page.object_list %}
+                
+                <tr>
+                    <td>
+                        <a href="{{report.url_schools}}">
+                            {{ report.school_class.school.village }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{report.url_classes}}">
+                            {{ report.school_class.school }}
+                        </a>
+                    </td>
+                    <td>
+                        {{ report.school_class.grade }} 
+                        ({{ report.school_class.begin_year }}
+                        -{{ report.school_class.end_year }}) 
+                    </td>
+                    <td>
+                        {{ report.boys_absentees }}
+                        /{{ report.school_class.boys_count }}
+                    </td>
+                    <td>
+                        {{ report.girls_absentees }} 
+                        / {{ report.school_class.girls_count }}
+                    </td>
+                    <td>{{ report.school_class.teachers_count }}</td>
+                    <td>{{ report.date|date:"d b Y" }}</td>
+                    <td><a
+                    href="{{report.url_delete}}">
+                    Supprimer
+                    </a></td>
+                    <td><a href="{{report.url_modification}}" >
+                Modifier</a>
+            </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="7">{{ in_empty_case }}</td>
+                </tr>
+            {% endfor %} 
+         
+        </table>
+
+            <a href="{{page.url_add_report}}">Ajouter un Rapport</a>
+
+        {% include "_report_management_pagination.html" %}
+
+            <a class="prepend-18" href="{% url export_census_manage page.number %}">Télécharger ces données au format CSV</a>
+
+        {% endblock %}
+
+</div>
+

@@ -1,0 +1,882 @@
+#!/usr/bin/env python
+# -*- coding= UTF-8 -*-
+
+import operator
+import csv
+
+from models import * 
+from django_stock.form_ import StockReportForm, ModificationForm
+from django.db.models import Avg, Sum, Q
+from lib.tools import extract_date_info_from_url
+from django.shortcuts import render_to_response,HttpResponseRedirect, redirect
+from django.core.paginator import Paginator, EmptyPage
+from django.core.urlresolvers import reverse
+from django.template.defaultfilters import slugify
+from django.contrib.auth import authenticate, login as django_login, logout as django_logout
+from django.contrib.auth.decorators import login_required
+from form_ import LoginForm, AdminForm
+
+from django.http import Http404
+from django.http import HttpResponse
+
+from lib.tools import *
+from datetime import date, timedelta
+
+# Créer une page 404 personnalisée
+
+
+def my_custom_404_view():
+    
+    return render_to_response('django_stock/404.html')
+
+
+def home(request):
+    """
+        Affiche la page d'acceuil.
+    """
+    return render_to_response('django_stock/home.html')
+    
+@login_required
+def dashboard(request):
+    """
+    Afficher un résumé de la situation actuelle pour le stock
+    des denrees de cantine.
+    """
+    
+    # TODO : prendre les derniers remaining pour chaque village, sinon ca n'a pas
+    # de sens
+    
+    # TODO : faire ça par pourcentage
+    lowest_remaining_by_place = Report.objects.order_by('remaining',
+                                                            'place',
+                                                        'date')[:5]
+                                                        
+    # recuperation denrées en pénurie en pourcentage
+                                                    
+    for report in lowest_remaining_by_place:
+        
+        report.maximum = report.remaining *100 /report.max
+      
+                                                            
+    lowest_remaining_by_product = Report.objects.order_by('remaining',
+                                                               'product',
+                                                               'date')[:5]
+                                                               
+    # recuperation villages en pénurie en pourcentage
+                                                               
+    for report in lowest_remaining_by_product:
+        
+        report.maximum = report.remaining *100 / report.max
+  
+    # TODO : s'assurer que l'on change sépare ces donnéees pour les deux tableaux
+    top_consumption = Report.objects.order_by('consumption')[:5]
+    
+    # recuperation des consommations en pourcentage
+    
+    for report in top_consumption:
+        report.maximum = report.consumption *100 /report.max
+    
+    
+    recent_comsumptions = Report.objects.filter(consumption__gt=0)\
+                                        .order_by('-date')[:5] 
+                                        
+    recent_incommings = Report.objects.filter(incomming__gt=0)\
+                                      .order_by('-date')[:5]   
+
+    # on recupere les derniere consommation et les dernieres entrees
+    for report in recent_comsumptions:
+        report.sign = "-"
+        report.quantity = report.consumption
+        report.type = "consumption"
+        
+    for report in recent_incommings:
+        report.sign = "+"
+        report.quantity = report.incomming
+        report.type = "incomming"
+        
+    # on ordonne ca par date
+    last_reports = list(recent_comsumptions) + list(recent_incommings)
+    last_reports.sort(key=operator.attrgetter("date"), reverse=True)
+    
+    ctx = {'last_reports': last_reports,
+           'top_consumption': top_consumption,
+           'lowest_remaining_by_product': lowest_remaining_by_product,
+           'lowest_remaining_by_place': lowest_remaining_by_place,"user": request.user}
+
+    return render_to_response('django_stock/dashboard.html', ctx)
+    
+    
+def global_report(request, *args, **kwargs):
+    """
+        Affiche l'état général des stocks pour chaque village
+        et chaque denree
+    """
+
+    # on recupere les rapports filtres pour la date demandee
+    year, duration, duration_number = extract_date_info_from_url(kwargs)
+    
+    
+    previous_date_url,\
+    todays_date_url,\
+    next_date_url,\
+    previous_date,\
+    current_date,\
+    next_date,\
+    todays_date,\
+    todays_date_is_before,\
+    todays_date_is_after = get_time_pagination(year,
+                                                duration,
+                                                duration_number, "stock-all")
+
+    week_date_url,\
+    month_date_url,\
+    year_date_url = get_duration_pagination(year,duration,duration_number,
+                                            "stock-all")
+    
+    
+    reports = Report.get_reports_filtered_by_duration(year, duration, duration_number).order_by('place__name','-date')
+   
+    total_incomming, total_consumption, total_remaining = 0, 0, 0
+    
+     # on recupere les noms des produits pour lesquels on a des 
+     # releves de stocks
+     # et on calcule le total des stock
+    reports_with_activities = set()
+    for report in reports:
+        
+        total_incomming += report.incomming
+        total_consumption += report.consumption
+        total_remaining += report.remaining
+        
+        reports_with_activities.add(report.place.name)
+    ctx = {'reports':reports,"user": request.user}
+    
+    if not reports_with_activities:
+        ctx.update({"in_empty_case": "Aucun relevé de stock","user": request.user})
+    
+    else:
+        
+        # lister les villages sans mouvement de stock
+        place_whithout_activities = []
+        
+        for place in Place.objects.all():
+            if place.name not in reports_with_activities:
+                place_whithout_activities.append(place.name)
+                
+    ctx.update(locals())    
+
+    return render_to_response('django_stock/global_report.html', ctx)
+    
+# Creer un middleware qui donne accès à l'url_name courrant si il
+# existe
+
+
+def global_report_csv(request, *args, **kwargs):
+
+    # Create the HttpResponse object with the appropriate CSV header.
+    response = HttpResponse(mimetype='text/csv')
+    response['Content-Disposition'] = 'attachment;filename=stock_global_report.csv'
+    
+    # Create the CSV writer using the HttpResponse as the "file"
+    writer = csv.writer(response)
+    writer.writerow(['Village','Denrée','Entrée','Consommation','stock restant'])
+    
+    # on recupere les rapports filtres pour la date demandee
+    year, duration, duration_number = extract_date_info_from_url(kwargs)
+    reports = Report.get_reports_filtered_by_duration(year, duration, duration_number).order_by('place__name','-date')
+    
+    for report in reports:
+        writer.writerow([report.place.name.encode('utf-8'), report.product.name.encode('utf-8'), report.incomming, report.consumption, report.remaining])
+       
+    return response    
+    
+def by_products(request, *args, **kwargs):
+    """
+        Affiche l'état des stocks pour chaque chaque denree d'un 
+        village
+    """
+    
+    id_ = int(request.POST.get('to_display', 0)) or int(kwargs["id"])
+    
+    # charger l'ecole dont on veut afficher les ecoles
+    # si ce village n'existe pas, mettre une page d'erreur
+    try: 
+        place = Place.objects.get(id=id_)
+    except Place.DoesNotExist:
+        raise Http404
+    
+    year, duration, duration_number = extract_date_info_from_url(kwargs)
+    
+    if request.method == 'POST':
+        return get_redirection("stock-by-products", place,
+                                year, duration, duration_number)
+        
+    navigation_form = get_navigation_form(Place.objects.all(),
+                                          "Changer de village",
+                                          place,
+                                          "stock-by-products",
+                                          year, duration, duration_number)
+        
+    total_incomming, total_consumption,total_remaining = 0, 0, 0
+
+    # on recupere les rapports filtres pour la date demandee
+    reports = Report.get_reports_filtered_by_duration(year, 
+                                                     duration, 
+                                                     duration_number)
+
+    previous_date_url,\
+    todays_date_url,\
+    next_date_url,\
+    previous_date,\
+    current_date,\
+    next_date,\
+    todays_date,\
+    todays_date_is_before,\
+    todays_date_is_after = get_time_pagination(year, duration,duration_number, 
+                                                "stock-by-products",
+                                                additional_args=(id_, 
+                                                                  slugify(place.name)))
+    
+    week_date_url,\
+    month_date_url,\
+    year_date_url = get_duration_pagination(year, duration, duration_number, 
+                                            "stock-by-products",
+                                            additional_args=(id_, 
+                                                              slugify(place.name)))
+    
+    # on filtre par village
+    reports = reports.filter(place__id=id_)
+     
+    # calcul des sommes des entrées et des sorties  
+    products_sum = reports.values("product__name",
+                                  "product__id")\
+                         .annotate(incomming=Sum("incomming"), 
+                                   consumption=Sum("consumption"))
+    
+    product_with_activities = set()
+    reports_by_product = []
+    for product_sum in products_sum:
+    
+        last_report = reports.filter(product__id=product_sum["product__id"])\
+                             .order_by('-date')[0]
+        by_product_dict = {}
+        
+        # remplissage du dictionnaire by_product_dict 
+        by_product_dict["id_"] = product_sum["product__id"]
+        by_product_dict["product"] = product_sum["product__name"]  
+        by_product_dict["incomming"] = product_sum["incomming"]
+        by_product_dict["consumption"] = product_sum["consumption"] 
+        by_product_dict["remaining"] = last_report.remaining                            
+        
+        reports_by_product.append(by_product_dict)
+        
+        total_incomming += product_sum["incomming"]
+        total_consumption += product_sum["consumption"]
+        total_remaining += last_report.remaining
+        
+        # on recupere les noms des produits pour lesquelles 
+        # on a des mouvements de stock
+        product_with_activities.add(by_product_dict["product"])
+    
+    ctx = {'village': place,"user": request.user}
+    
+    if not product_with_activities:
+        ctx.update({"in_empty_case": "Aucun relevé de stock"})
+    else:
+        
+        # lister les produits sans mouvement de stock
+        product_whithout_activities = []
+        
+        for product in Product.objects.all():
+            if product.name not in product_with_activities:
+                product_whithout_activities.append(product.name)
+
+    ctx.update(locals())
+        
+    return render_to_response('django_stock/by_products.html', ctx)
+
+def by_products_csv(request, *args, **kwargs):
+    # Create the HttpResponse object with the appropriate CSV header.
+    
+    id_ = int(request.POST.get('to_display', 0)) or int(kwargs["id"])
+    
+    response = HttpResponse(mimetype='text/csv')
+    response['Content-Disposition'] = 'attachment;filename=product_csv.csv'
+    
+    # Create the CSV writer using the HttpResponse as the "file"
+    
+    writer = csv.writer(response)
+    writer.writerow(['Denrée','Entrée','Sortie','stock restant'])
+    
+    # on recupere les rapports filtres pour la date demandee
+    
+    
+    # charger l'ecole dont on veut afficher les ecoles
+    # si ce village n'existe pas, mettre une page d'erreur
+    try: 
+        place = Place.objects.get(id=id_)
+    except Place.DoesNotExist:
+        raise Http404
+    
+    year, duration, duration_number = extract_date_info_from_url(kwargs)
+    
+    reports = Report.get_reports_filtered_by_duration(year, 
+                                                     duration, 
+                                                     duration_number)
+
+    previous_date_url,\
+    todays_date_url,\
+    next_date_url,\
+    previous_date,\
+    current_date,\
+    next_date,\
+    todays_date,\
+    todays_date_is_before,\
+    todays_date_is_after = get_time_pagination(year, duration,duration_number, 
+                                                "stock-by-products",
+                                                additional_args=(id_, 
+                                                                  slugify(place.name)))
+    
+    week_date_url,\
+    month_date_url,\
+    year_date_url = get_duration_pagination(year, duration, duration_number, 
+                                            "stock-by-products",
+                                            additional_args=(id_, 
+                                                              slugify(place.name)))
+    
+    # on filtre par village
+    reports = reports.filter(place__id=id_)
+     
+    # calcul des sommes des entrées et des sorties  
+    products_sum = reports.values("product__name",
+                                  "product__id")\
+                         .annotate(incomming=Sum("incomming"), 
+                                   consumption=Sum("consumption"))
+    
+    reports_by_product = []
+    for product_sum in products_sum:
+
+        last_report = reports.filter(product__id=product_sum["product__id"])\
+                             .order_by('-date')[0]
+        by_product_dict = {}
+        
+        # remplissage du dictionnaire by_product_dict 
+        by_product_dict[u"id_"] = product_sum["product__id"]
+        by_product_dict["product"] = product_sum["product__name"]  
+        by_product_dict["incomming"] = product_sum["incomming"]
+        by_product_dict["consumption"] = product_sum["consumption"] 
+        by_product_dict["remaining"] = last_report.remaining                            
+        
+        reports_by_product.append(by_product_dict)
+        
+    for report in reports_by_product:
+      
+        writer.writerow([report['product'].encode('utf-8'), report['incomming'], report['consumption'], report['remaining']])
+       
+    return response
+    
+
+def by_places (request,*args, **kwargs):
+    """
+        Affiche l'état des stocks pour chaque village 
+        qui consomment une denree
+    """
+    
+    id_ = int(request.POST.get('to_display', 0)) or int(kwargs["id"])
+    
+    # charger l'ecole dont on veut afficher les ecoles
+    # si ce village n'existe pas, mettre une page d'erreur
+    try: 
+        product = Product.objects.get(id=id_)
+    except Product.DoesNotExist:
+        raise Http404
+        
+    year, duration, duration_number = extract_date_info_from_url(kwargs)
+        
+    # TODO : on doit pouvoir améliorer ça en mettant la redirection
+    # comme partie du formulaire
+    if request.method == 'POST' :
+        return get_redirection("stock-by-places", product,
+                                year, duration, duration_number)
+        
+    navigation_form = get_navigation_form(Product.objects.all(),
+                                          "Changer de denrée",
+                                          product,
+                                          "stock-by-places",
+                                          year, duration, duration_number)
+    
+    total_incomming, total_consumption, total_remaining = 0, 0, 0
+    
+    # on a filtrer par entrée, mois, année, nom de denrée
+    reports = Report.get_reports_filtered_by_duration(year, 
+                                                     duration, 
+                                                     duration_number)
+
+    previous_date_url,\
+    todays_date_url,\
+    next_date_url,\
+    previous_date,\
+    current_date,\
+    next_date,\
+    todays_date,\
+    todays_date_is_before,\
+    todays_date_is_after = get_time_pagination(year, duration, duration_number,
+                                                "stock-by-places",
+                                                additional_args=(id_,
+                                                                slugify(product.name)))
+
+    week_date_url,\
+    month_date_url,\
+    year_date_url = get_duration_pagination(year, duration, duration_number,
+                                            "stock-by-places",
+                                            additional_args=(id_,
+                                                            slugify(product.name)))
+
+    # on filtre par produit
+    reports = reports.filter(product__id=id_)
+    
+    # calcul des sommes des entrées et des sorties 
+    places_sum = reports.values("place__name", "place__id")\
+                        .annotate(Sum("incomming"), 
+                                  Sum("consumption"))
+        
+    # filtrage par produit
+    village_reports = []
+    place_with_activities = set()
+    for place_sum in places_sum:
+        
+        last_report = reports.filter(place__id=place_sum["place__id"])\
+                             .order_by('-date')[0]      
+    
+        by_place_dict={}
+        
+        # remplissage du dictionnaire by_place_dict 
+        by_place_dict["id_"] = place_sum["place__id"]
+        by_place_dict["place"] = place_sum["place__name"]  
+        by_place_dict["incomming"] = place_sum["incomming__sum"]
+        by_place_dict["consumption"] = place_sum["consumption__sum"] 
+        by_place_dict["remaining"] = last_report.remaining
+
+        village_reports.append(by_place_dict)
+
+        total_incomming += by_place_dict["incomming"]
+        total_consumption += by_place_dict["consumption"]
+        total_remaining += by_place_dict["remaining"]
+        
+        place_with_activities.add(place_sum["place__name"])
+
+    ctx = {'product': product,"user": request.user}
+
+    if not place_with_activities:
+        ctx.update({"in_empty_case": "Aucun relevé de stock"})
+    else:    
+       
+        # lister les villages sans mouvement de stock
+        place_whithout_activities = []
+
+        for place in Place.objects.all():
+            if place.name not in place_with_activities:
+                place_whithout_activities.append(place.name)
+                
+    ctx.update(locals())
+         
+    return render_to_response('django_stock/by_places.html', ctx)
+    
+def by_places_csv(request, *args, **kwargs):
+    # Create the HttpResponse object with the appropriate CSV header.
+    
+    id_ = int(request.POST.get('to_display', 0)) or int(kwargs["id"])
+    response = HttpResponse(mimetype='text/csv')
+    response['Content-Disposition'] = 'attachment;filename=product_csv.csv'
+    
+    # Create the CSV writer using the HttpResponse as the "file"
+    
+    writer = csv.writer(response)
+    writer.writerow(['Village','Entrée','Sortie','stock restant'])
+    """
+        Affiche l'état des stocks pour chaque village 
+        qui consomment une denree
+    """
+    
+    id_ = int(request.POST.get('to_display', 0)) or int(kwargs["id"])
+    
+    # charger l'ecole dont on veut afficher les ecoles
+    # si ce village n'existe pas, mettre une page d'erreur
+    try: 
+        product = Product.objects.get(id=id_)
+    except Product.DoesNotExist:
+        raise Http404
+        
+    year, duration, duration_number = extract_date_info_from_url(kwargs)
+        
+    # TODO : on doit pouvoir améliorer ça en mettant la redirection
+    # comme partie du formulaire
+    if request.method == 'POST' :
+        return get_redirection("stock-by-places", product,
+                                year, duration, duration_number)
+        
+    navigation_form = get_navigation_form(Product.objects.all(),
+                                          "Changer de denrée",
+                                          product,
+                                          "stock-by-places",
+                                          year, duration, duration_number)
+    
+    total_incomming, total_consumption, total_remaining = 0, 0, 0
+    
+    # on a filtrer par entrée, mois, année, nom de denrée
+    reports = Report.get_reports_filtered_by_duration(year, 
+                                                     duration, 
+                                                     duration_number)
+
+    previous_date_url,\
+    todays_date_url,\
+    next_date_url,\
+    previous_date,\
+    current_date,\
+    next_date,\
+    todays_date,\
+    todays_date_is_before,\
+    todays_date_is_after = get_time_pagination(year, duration, duration_number,
+                                                "stock-by-places",
+                                                additional_args=(id_,
+                                                                slugify(product.name)))
+
+    week_date_url,\
+    month_date_url,\
+    year_date_url = get_duration_pagination(year, duration, duration_number,
+                                            "stock-by-places",
+                                            additional_args=(id_,
+                                                            slugify(product.name)))
+
+    # on filtre par produit
+    reports = reports.filter(product__id=id_)
+    
+    # calcul des sommes des entrées et des sorties 
+    places_sum = reports.values("place__name", "place__id")\
+                        .annotate(Sum("incomming"), 
+                                  Sum("consumption"))
+        
+    # filtrage par produit
+    village_reports = []
+    place_with_activities = set()
+    for place_sum in places_sum:
+        
+        last_report = reports.filter(place__id=place_sum["place__id"])\
+                             .order_by('-date')[0]      
+    
+        by_place_dict={}
+        
+        # remplissage du dictionnaire by_place_dict 
+        by_place_dict["id_"] = place_sum["place__id"]
+        by_place_dict["place"] = place_sum["place__name"]  
+        by_place_dict["incomming"] = place_sum["incomming__sum"]
+        by_place_dict["consumption"] = place_sum["consumption__sum"] 
+        by_place_dict["remaining"] = last_report.remaining
+
+        village_reports.append(by_place_dict)
+        
+    for report in village_reports:
+
+        writer.writerow([report['place'].encode('utf-8'), report['incomming'], report['consumption'], report['remaining']])
+       
+    return response
+    
+def report_management(request, *args, **kwargs):
+
+    # on recupere le numero depuis l'url si le numero 
+    # est none on donne 1 par  defaut
+    num = kwargs["num"] or 1
+    
+    # on ordonne par dates recentes les rapports 
+    
+    reports = Report.objects.order_by('place__name','-date')
+    
+    #pour mettre 20 rapport par page
+    paginator = Paginator(reports, 20)
+    
+    # s'execute si la base est vide  
+    if not reports.count():
+        ctx = {"in_empty_case": "Aucun relevé de stock "}
+    
+    # s'execute si il ya des données dans la base
+    else:
+
+        try:
+            page = paginator.page(int(num))
+            
+        # affiche une erreur Http404 si l'on de passe la page est vide    
+        except EmptyPage:
+            raise Http404
+        # si le numero de la page est 2
+        page.is_before_first = (page.number == 2 )
+        # si le numero de la page est egale au numero de l'avant derniere page
+        page.is_before_last = (page.number == paginator.num_pages - 1)
+        # on constitue l'url de la page suivante
+        page.url_next = reverse('stock-report-management', args=[int(num) + 1])
+        # on constitue l'url de la page precedente
+        page.url_previous= reverse('stock-report-management', args=[int(num) - 1])
+        # on constitue l'url de la 1ere page
+        page.url_first = reverse('stock-report-management')
+        # on constitue l'url de la derniere page
+        page.url_last = reverse('stock-report-management',
+                                args=[paginator.num_pages])
+              
+        for report in page.object_list:
+        
+            # on recupere l'année, le nombre de semaines et le nombre de jours
+            year, week_number, day_number = report.date.isocalendar()
+            
+            # on constitue l'url du lien pointant sur le nom du village
+            report.url_place = reverse('stock-by-products',
+                                       args=[report.place.id,
+                                             slugify(report.place),
+                                             year,'week',week_number])
+                                             
+            # on constitue l'url du lien pointant sur le nom du product
+            report.url_product = reverse('stock-by-places',
+                                          args=[report.product.id,
+                                                slugify(report.product),
+                                                year,'week', week_number])
+            # on constitue l'url du lien pointant sur la vue de la confirmation du rapport
+            report.url_delete = reverse('stock-confirm', args=[report.id])
+            # on constitue l'url du lien pointant sur la vue de la modification du rapport
+            report.url_modification = reverse("stock-modification-report", args=[report.id])
+            ctx = {"page": page, "paginator": paginator,"user": request.user, 'lien':'before'}
+        # on charge le formulaire
+    form = StockReportForm(request.POST)
+    ctx.update( {'form':form,'valide':'before'})
+    if request.method == 'POST':
+        day, month ,year = request.POST['date'].split('-')
+        new_format = year + '-' + month + '-' + day
+
+        # on cree un dictionnaire et on le remplie 
+        dict ={}
+        dict = {'product': request.POST['product'],'place': request.POST['place'],'incomming': request.POST['incomming'],
+            'consumption': request.POST['consumption'],'date': new_format}
+        form = StockReportForm(dict)
+        # on verifie le formulaire
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('stock-report-management'))
+        else:
+            error = u"Enregistrement Invalide"
+        ctx.update({'form':form,'valide':'sent','lien':'sent'})
+    return render_to_response('django_stock/report_management.html', ctx)
+
+
+def report_management_csv(request, *args, **kwargs):
+    
+    # Create the HttpResponse object with the appropriate CSV header.
+    num = kwargs["num"] or 1
+    
+    # on ordonne par dates recentes les rapports 
+    
+    reports = Report.objects.order_by('place__name','-date')
+    
+    #pour mettre 20 rapport par page
+    paginator = Paginator(reports, 20)
+    
+    # s'execute si la base est vide  
+    if not reports.count():
+        ctx = {"in_empty_case": "Aucun relevé de stock "}
+    
+    # s'execute si il ya des données dans la base
+    else:
+
+        try:
+            page = paginator.page(int(num))
+            
+        # affiche une erreur Http404 si l'on de passe la page est vide    
+        except EmptyPage:
+            raise Http404
+        # si le numero de la page est 2
+        page.is_before_first = (page.number == 2 )
+        # si le numero de la page est egale au numero de l'avant derniere page
+        page.is_before_last = (page.number == paginator.num_pages - 1)
+        # on constitue l'url de la page suivante
+        page.url_next = reverse('stock-report-management', args=[int(num) + 1])
+        # on constitue l'url de la page precedente
+        page.url_previous= reverse('stock-report-management', args=[int(num) - 1])
+        # on constitue l'url de la 1ere page
+        page.url_first = reverse('stock-report-management')
+        # on constitue l'url de la derniere page
+        page.url_last = reverse('stock-report-management',
+                                args=[paginator.num_pages])
+       
+        response = HttpResponse(mimetype='text/csv')
+        response['Content-Disposition'] = 'attachment;filename=report_management_csv.csv'
+        
+        writer = csv.writer(response)
+        writer.writerow(['Village','Denrée','Entrée','Sortie','stock restant', 'Date'])
+        
+        for report in page.object_list:
+            writer.writerow([report.place, report.product, report.incomming, report.consumption, report.remaining, report.date])
+        return response 
+
+
+def delete_confirm(request,*args, **kwargs):
+    """
+        Confirmation de la suppression d'un rapport
+    """
+    # on recupere le numero du rapport depuis l'url 
+    id_report = kwargs["num"] 
+    # on recupere ce rapport
+    report = Report.objects.get(id = id_report)
+    # on constitue l'url du lien pointant sur la vue de la suppression du rapport
+    report.url_delete = reverse('stock-management', args=[report.id])
+    
+    return render_to_response('django_stock/delete.html',{'report':report,"user": request.user})
+    
+def deleting(request,*args, **kwargs):
+    """
+        Suppression de rapport
+    """
+    
+    # on recupere le numero du rapport depuis l'url
+    id_report = kwargs["num"] 
+    # supprime le rapport
+    Report.objects.get(id = id_report).delete()
+    
+    return HttpResponseRedirect(reverse('stock-report-management'))
+
+def modification_report(request,*args, **kwargs):
+    """
+        Modifiction de rapport
+    """
+    # on recupere le numero du rapport depuis l'url
+    id_report = kwargs["num"] 
+    # on recupere ce rapport
+    report = Report.objects.get(id = id_report)
+    # on cree un dictionnaire et on le remplie 
+    dict ={}
+    dict = {'product': report.product,'place': report.place,'incomming': report.incomming,
+            'consumption': report.consumption,'date': report.date,'remaining': report.remaining}
+    
+    # on passe le dictionnaire au formulaire
+    form = ModificationForm(dict)
+    # on verifie le formulaire
+    if request.method=='POST':
+        form = ModificationForm(request.POST)
+        if form.is_valid():
+            report.consumption = float(request.POST.values()[1])
+            report.incomming = float(request.POST.values()[3])
+            report.date = request.POST.values()[4]
+            report.save()
+            return HttpResponseRedirect(reverse('stock-report-management'))
+    
+    return render_to_response('django_stock/modification.html',{'form':form})
+
+
+
+def login(request):
+    """
+    login est la views qui permet de se connecter
+    """
+    state = "Veuillez vous identifiez..."
+    
+    #Initialise username et password à vide
+    
+    username = password = ''
+    """
+    On appel la fonction LoginForm() dans le formulaire
+    
+    """
+    
+    form = LoginForm()
+    
+    if request.method=='POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        url  = request.GET.get('next')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                django_login(request, user)
+                state = "Connection reussie!"
+                if url:
+                    return HttpResponseRedirect(request, url)
+                else:
+                    return redirect(home)
+            else:
+                state = "Votre compte n'est pas en activité, entrent en contact avec svp l'emplacement admin.."
+        else:
+            state = "Votre nom d'utilisateur et/ou votre mot de passe est incorrect."
+    return render_to_response('authente.html',{'form':form, 'state': state})
+
+def logout(request):
+    """ 
+    logout est la views qui permet de se deconnecter
+    
+    """
+    django_logout(request)
+    return redirect("/")
+    
+ ###########################################################################   
+    
+    
+def add_group(request,*args, **kwargs):
+    """
+        Ajout de rapport
+    """
+    
+    # on charge le formulaire
+    form = AdminForm(request.POST)
+    
+    ctx = {'form':form}
+    # on verifie le formulaire
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('add_group'))
+        else:
+            error = u"Enregistrement Invalide"
+        ctx = {'form':form,"error":error}
+    
+    return render_to_response('addgroup.html',ctx)
+    
+    
+    
+def menu_admin(request,*args, **kwargs):
+    
+    return render_to_response('django_stock/stock_menu_admin.html')
+
+    
+def modif_group(request,*args, **kwargs):
+    """
+        Ajout de rapport
+    """
+    
+    # on charge le formulaire
+    form = AdminForm(request.POST)
+    
+    ctx = {'form':form}
+    # on verifie le formulaire
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('modif_group'))
+        else:
+            error = u"Enregistrement Invalide"
+        ctx = {'form':form,"error":error}
+    
+    return render_to_response('modifgroup.html',ctx)
+
+def modif_user(request,*args, **kwargs):
+    """
+        Ajout de rapport
+    """
+    
+    # on charge le formulaire
+    form = AdminForm(request.POST)
+    
+    ctx = {'form':form}
+    # on verifie le formulaire
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('modif_user'))
+        else:
+            error = u"Enregistrement Invalide"
+        ctx = {'form':form,"error":error}
+    
+    return render_to_response('modifuser.html',ctx)

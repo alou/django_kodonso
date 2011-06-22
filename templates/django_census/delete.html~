@@ -1,0 +1,72 @@
+
+<div id="header">
+		<div id="menu">
+			<ul>
+				<li class="first"><a href="/home/">Acceuil</a></li>
+				<li class="current_page_item"><a href="/census/dashboard">Resumé</a></li>
+				<li ><a href="/census/all/">Toutes les absences</a></li>
+				<li ><a href="/census/report_management/">Gestion des Rapports</a></li>
+			</ul>
+		</div>
+<div id= "delete">
+{% extends "base.html" %}
+{% block title %}Suppresion de rapport{% endblock %}
+{% block page-id %}census-delete{% endblock %}
+{% block menu %}
+{% include "django_census/_menu.html" %}            
+{% endblock %}
+{% block content %}
+ <div id="login"class="prepend-17">
+ Bienvenu(e) {{ user.username }} <a href="{% url logout%}">Deconnecter</a> <a href="{% url administration %}" >Administrer</a>
+</div>
+    <div id="global-report" class="container">
+<h1>Suppression de rapport</h1>
+<table>
+        
+        <tr>
+            <th>Villages</th>
+            <th>Ecoles</th>
+            <th>Classes</th>
+            <th>Garçons</th>Bienvenu(e) Deconnecter A
+            <th>Filles</th>
+            <th>Enseignants</th>
+            <th>Date</th>
+            
+        <tr>
+            <td>
+               
+                    {{ report.school_class.school.village }}
+                </a>
+            </td>
+            <td>
+               
+                    {{ report.school_class.school }}
+                
+            </td>
+            <td>
+                {{ report.school_class.grade }} 
+                ({{ report.school_class.begin_year }}
+                -{{ report.school_class.end_year }}) 
+            </td>
+            <td>
+                {{ report.boys_absentees }}
+                /{{ report.school_class.boys_count }}
+            </td>
+            <td>
+                {{ report.girls_absentees }} 
+                / {{ report.school_class.girls_count }}
+            </td>
+            <td>{{ report.school_class.teachers_count }}</td>
+            <td>{{ report.date|date:"d b Y" }}</td>
+
+        </tr>
+        
+        </table>
+        <p class='prepend-2'>Voulez-vous supprimer ce rapport?</p>
+        <a class='prepend-2' href="{% url census-report-management %}" >NON</a>
+        <a class='prepend-2' href="{{report.url_delete}}" >OUI</a>
+	</div>
+    {% endblock %}
+
+</div>
+</div>

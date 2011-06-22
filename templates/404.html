@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} error_404{% endblock %}
+{% block append-stylesheet %}{% endblock %}
+{% block content %}
+    
+    
+    <body>
+        <h1>
+            <center>
+                    {% trans "The record requested does not exist!" %}
+            </center>
+        </h1> 
+    </body>
+    
+</html>

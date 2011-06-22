@@ -1,0 +1,29 @@
+# -*- coding: utf-8 -*-
+from datetime import date, timedelta
+
+
+def extract_date_info_from_url(kwargs)
+    """
+       Récpère les informations de kwargs sur la pagination temporelle
+    """
+
+    year = int(kwargs["year"] or date.today().year) 
+    duration = kwargs.get("duration", "")                                
+    duration_number = int(kwargs["duration_number"] or 0)
+    
+    return (year, duration, duration_number)
+    
+
+def get_week_boundaries(year, week):
+    """
+        Return the dates of the first and the last day of a given week.
+    """
+    d = date(year, 1, 1)
+    
+    if(d.weekday() > 3):
+        d = d + timedelta(7 - d.weekday())
+    else:
+        d = d - timedelta(d.weekday())
+        
+    dlt = timedelta(days = (week - 1) * 7)
+    return d + dlt,  d + dlt + timedelta(days=6)

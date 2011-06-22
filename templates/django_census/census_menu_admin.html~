@@ -1,0 +1,38 @@
+
+	<div id="header">
+    		<div id="menu">
+			<ul>
+				<li ><a href="/" class="first">Acceuil</a></li>
+				<li ><a href="/census/dashboard">Resumé</a></li>
+				<li ><a href="/census/all/">Toutes les absences</a></li>
+				<li ><a href="/census/report_management/">Gestion des Rapports</a></li>
+			</ul>
+		</div>
+
+{% extends "base.html" %}
+
+{% block title %}Administration{% endblock %}
+
+{% block page-id %}menu_admin{% endblock %}
+  {% block menu %}
+        {% include "django_census/_menu.html" %}
+        {% endblock %} 
+{% block content %}
+
+<div id="login"class="prepend-17">
+Bienvenu(e) {{ user.username }} <a href="{% url logout%}">Deconnecter</a> <a href="{% url administration %}">Administrer</a>
+</div>
+<div id="menu_admin">
+
+<h1>Gestion des utilisateurs</h1>
+<ul>
+<li><a href="/admin/auth/user/add">Ajouter un utilisateur</a></li>
+<li><a href="/admin/auth/user">Supprimer ou Modifier un utilisateur</a></li>
+</ul>
+
+
+</div>
+
+
+
+{% endblock %}

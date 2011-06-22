@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}Codification &lt; Census &lt; Kodonso{% endblock %}
+{% block page-id %}census-global-report{% endblock %}  
+{% block content %}
+
+    <div id="header">
+        <div id="menu">
+            <ul>
+                <li class="first"><a href="{% url kodonso-home %}">{% trans "Home" %}</a></li>
+                <li class="current_page_item"><a href="{% url census-codif %}">{% trans "Consolidation absence" %}</a></li>
+                
+            </ul>
+        </div>
+        <div id="login" class=" prepend-17">
+            {% trans "Welcome" %} {{ user.username }}
+            <a href="{% url logout_%}">{% trans "Disconnect" %}</a> 
+            <a href="{% url administration %}">{% trans "manage" %}</a>
+        </div>
+        
+        <h1 class= "span-24">{% trans "Schools and classes code" %}</h1>
+        <div id="left-column" class="span-24">
+            <div id = "table_featured">
+                <table>
+                    <caption>{% trans "School" %}</caption>
+                    <tr>
+                        <th>{% trans "Place" %}</th>
+                        <th>{% trans "School name" %}</th>
+                        <th>{% trans "School code" %}</th>
+                        <th>{% trans "Class name" %}</th>
+                        <th>{% trans "Class code" %}</th>
+                    </tr>
+                    {% for a in code_class_school_village_grade  %}
+                        <tr>
+                            <td>{{ a.school__village__name}}</td>
+                            <td>{{ a.school__name}}</td>
+                            <td>{{a.school__code_school }}</td>
+                            <td>{{a.grade}}</td>
+                            <td>{{a.code_schoolclass}}</td>
+                        </tr>
+                    {%endfor %} 
+                </table > 
+            </div>
+        </div>     
+    </div> 
+{% endblock %}
+
+
+

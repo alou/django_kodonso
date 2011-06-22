@@ -1,0 +1,112 @@
+
+<div id="header">
+		<div id="menu">
+			<ul>
+				<li class="first"><a href="/home/">Acceuil</a></li>
+				<li ><a href="/stock/dashboard">Resumé</a></li>
+				<li class="current_page_item"><a href="/stock/all/">Tous les Stocks</a></li>
+				<li><a href="/stock/report_management/">Gestion des Rapports</a></li>
+			
+			</ul>
+		</div>
+            {% extends "base.html" %}
+{% block title %}Tous les stocks &lt; Stock &lt; Kodonso{% endblock %}
+{% block page-id %}global_report{% endblock %}
+{% block menu %}
+{% include "django_stock/_menu.html" %}
+{% endblock %}
+
+<!-- TODO : rajouter un logo -->
+
+{% block content %}
+
+
+<div id="login" class="prepend-17">
+        Bienvenu(e) {{ user.username }}<a href="{% url logout_%}">Deconnecter</a> <a href="{% url administration %}">Administrer</a>
+ </div>
+ 
+ 
+    <div id="global-report" class="container"> 
+      
+        <h1 class="span-24 last">Tous les stocks</h1>
+
+        {% include "_duration_pagination.html" %}
+            
+        <table>
+        
+            <caption>
+                   {% include "_time_pagination.html" %}
+            </caption>
+            
+            <tr>
+                <th>Villages</th>
+                <th>Denrées</th>
+                <th>Entrées</th>
+                <th>Consommations</th>
+                <th>stocks restants</th>
+            </tr>
+            
+            {% for report in reports %} 
+                <tr>
+                    <td>  
+                    {% if duration %}           
+                        <a href="{% url stock-by-products report.place.id,report.place.name|slugify, year, duration, duration_number %}">
+                               {{ report.place.name  }}
+                        </a>
+                    {% else %}
+                    <a href="{% url stock-by-products report.place.id,report.place.name|slugify, year %}">
+                               {{ report.place.name  }}
+                    {% endif %}
+                    </td>
+                    <td>  
+                    {% if duration %}            
+                        <a href="{% url stock-by-places report.product.id,report.product.name|slugify, year, duration, duration_number %}">
+                               {{ report.product.name  }}
+                        </a>
+                    {% else %}
+                    <a href="{% url stock-by-places report.product.id,report.product.name|slugify, year %}">
+                    {{ report.product.name  }}
+                    {% endif %}
+                    </td>
+                    <td>{{ report.incomming }} t</td>
+                    <td>{{ report.consumption }} t</td>
+                    <td>{{ report.remaining }} t</td>
+                </tr>
+            {% empty %}
+                 <tr>
+                    <td colspan="5">{{ in_empty_case }}  <a href="{% url stock-modification%}" class = "prepend-2"> Ajouter un relevé</a></td>
+                 </tr>
+            {% endfor %}
+            
+            {% for place in place_whithout_activities %}
+                <tr>
+                    <td>{{ place }}</td>
+                    <td colspan="4">Aucun relevé de stock   <a href="{% url stock-modification%}" class = "prepend-2"> Ajouter un relevé</a></td>
+                </tr>
+            {%endfor%}
+             
+            {% if not in_empty_case  %} 
+                <tfoot>
+                    <tr>
+                        <td colspan="2">Total</td>
+                        <td> {{total_incomming|floatformat:0}} t</td>
+                        <td> {{total_consumption|floatformat:0}} t</td>
+                        <td> {{total_remaining|floatformat:0}} t</td>        
+                    </tr>
+                </tfoot>
+            {%endif%}
+        
+        </table>
+    
+    </div>
+        {% if duration %} 
+                <a class="prepend-17"href="{% url export_all_stock year, duration, duration_number %}">Télécharger ces données au format CSV</a>
+        {% else %}
+                <a class="prepend-17" href="{% url export_all_stock year %}">Télécharger ces données au format CSV</a>
+        {% endif %}
+{% endblock %}
+
+</div>
+
+
+

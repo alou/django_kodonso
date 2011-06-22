@@ -1,0 +1,190 @@
+<div id="header">
+    <div id="menu">
+        <ul>
+            <li class="first"><a href="/home/">Acceuil</a></li>
+            <li class="current_page_item"><a href="/stock/dashboard">Resumé</a></li>
+            <li><a href="/stock/all/">Tous les Stocks</a></li>
+            <li><a href="/stock/report_management/">Gestion des Rapports</a></li>        
+        </ul>
+    </div>
+            <!-- end #menu -->
+    {% extends "base.html" %}
+    {% block title %}Résumé de l'état des stocks &lt; Stock &lt; Kodonso{% endblock %}
+    {% block page-id %}stock-dashboard{% endblock %}
+    
+    {% block content %}
+
+        <div id="login" class=" prepend-17">
+            Bienvenue {{ user.username }}
+            <a href="{% url logout_%}">Deconnecter</a> 
+            <a href="{% url administration %}">Administrer</a>
+        </div>
+        <!-- TODO : faire des lignes paires et impaires de couleurs différentes -->
+
+        <!-- TODO : mettre des valeurs en % ici -->
+
+        <h1 class= "span-24">Résumé de l'état des stocks</h1>
+
+        <div id="left-column" class="span-16">
+
+            <table class="span-8">
+
+                <caption>Villages en pénurie</caption>
+
+                <tbody> 
+                
+                    {% for report in lowest_remaining_by_place %}
+                        <tr>
+                           <td>
+                               <a href="{% url stock-by-products report.place.id,report.place.name|slugify %}">
+                                   {{ report.place.name  }}
+                               </a>
+                           </td>
+                           
+                           <td>
+                              <a href="{% url stock-by-places report.product.id,report.product.name|slugify %}">
+                                {{ report.product.name }}
+                              </a>
+                           </td>
+                           
+                           <td>{{ report.maximum|floatformat:0 }} %</td>
+                        </tr>
+                    {% empty %}
+                         <tr>
+                            <td colspan="3">Aucun relevé de stock   <a href="{% url stock-report-management%}" class = "prepend-2"> Ajouter un relevé</a></td>
+                         </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+            <table class="span-8 last">
+
+                <caption>Denrées en pénurie</caption>
+               
+                <tbody> 
+                   {% for report in lowest_remaining_by_product %}
+                       <tr>
+                           <td>
+                              <a href="{% url stock-by-places report.product.id,report.product.name|slugify %}">
+                                {{report.product.name}}
+                              </a>
+                           </td>
+                           
+                           <td>
+                               <a href="{% url stock-by-products report.place.id,report.place.name|slugify %}">
+                                   {{ report.place.name  }}
+                               </a>
+                           </td>
+                           
+                           <td>{{ report.maximum|floatformat:0 }} %</td>
+                       </tr>
+                    {% empty %}
+                     <tr>
+                        <td colspan="3">Aucun relevé de stock  <a href="{% url stock-report-management%}" class = "prepend-2"> Ajouter un relevé</a></td>
+                     </tr>
+           
+                    {% endfor %}
+                </tbody>
+                
+            </table>
+
+
+            <table class="span-8">
+            
+              <caption>Plus gros consommateurs ce mois-ci</caption>
+
+              <tbody> 
+                   {% for consumption in top_consumption %}
+                       <tr>
+                           <td>
+                                <a href="{% url stock-by-products consumption.place.id,consumption.place.name|slugify %}">
+                                   {{ consumption.place.name  }}
+                                </a>
+                           </td>
+                           <td>
+                                <a href="{% url stock-by-places consumption.product.id,consumption.product.name|slugify %}">
+                                   {{ consumption.product.name }}
+                                </a>
+                           </td>
+                           
+                           <td>{{ consumption.maximum|floatformat:0 }} %</td>
+                       </tr>
+                    {% empty %}
+                        <tr>
+                         <td colspan="3">Aucun relevé de stock   <a href="{% url stock-report-management%}" class = "prepend-2"> Ajouter un relevé</a></td>
+                        </tr>
+                    {% endfor %}    
+                </tbody>
+                
+            </table>
+
+            <table class="span-8 last">
+               
+
+                <caption>Plus grosse consommation ce mois-ci</caption>
+
+                <tbody> 
+                
+                   {% for consumption in top_consumption %}
+                       <tr>
+                           
+                           <td>
+                               <a href="{% url stock-by-places consumption.product.id,consumption.product.name|slugify %}">
+                                   {{ consumption.product }}
+                               </a>
+                           </td>
+                           <td>
+                               <a href="{% url stock-by-products consumption.place.id,consumption.place.name|slugify %}">
+                                   {{ consumption.place.name  }}
+                               </a>
+                           </td>
+                           <td>{{ consumption.maximum|floatformat:0 }} %</td>
+                       </tr>
+                    {% empty %}
+                     <tr>
+                        <td colspan="3">Aucun relevé de stock  <a href="{% url stock-report-management%}" class = "prepend-2"> Ajouter un relevé</a></td>
+                     </tr>
+                    {% endfor %}
+                </tbody>
+                
+            </table>
+            
+        </div> <!-- fin de left-column -->
+
+        <table  id="last-reports" class ="span-8 last">
+            
+            <caption>Derniers mouvements</caption>
+            
+            <tbody> 
+            
+                {% for report in last_reports %}
+                    <tr>
+                        <td class="{{ report.type }}">
+                             {{ report.sign }} 
+                             {{ report.quantity }} t
+                        </td>
+                        <td>
+                            <a href="{% url stock-by-places report.product.id,report.product.name|slugify %}">
+                                {{ report.product.name }}
+                            </a> 
+                        </td>
+                        <td>
+                            <a href="{% url stock-by-products report.place.id,report.place.name|slugify %}">
+                                {{ report.place.name }}
+                            </a>
+                        </td>
+                        <td>{{ report.date }}</td>
+                    </tr>   
+                {% empty %}
+                    <tr>
+                        <td>Aucun relevé de stock  <a href="{% url stock-report-management%}" class = "prepend-2"> Ajouter un relevé</a></td>
+                    </tr>
+                {% endfor %}
+                
+            </tbody> 
+            
+        </table>
+   {% endblock %}
+</div>
+

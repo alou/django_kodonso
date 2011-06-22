@@ -1,0 +1,103 @@
+<div id="header">
+       
+    <div id="menu">
+        <ul>
+            <li class="first"><a href="/home/">Acceuil</a></li>
+            <li ><a href="/census/dashboard">Resumé</a></li>
+            <li ><a href="/census/all/">Toutes les absences</a></li>
+            <li ><a href="/census/report_management/">Gestion des Rapports</a></li>
+        
+        </ul>
+    </div>
+    
+    
+    
+    {% extends "base.html" %}
+
+    {% block title %}Nombre d'absents en moyenne à {{ school.name }},  &lt; Absentéisme &lt; Kodonso{% endblock %}
+
+    {% block page-id %}census-by-classes{% endblock %}
+
+    {% block content %}
+    
+        <div id="login"class="prepend-17">
+            Bienvenue {{ user.username }}
+            <a href="{% url logout%}">Deconnecter</a> 
+            <a href="{% url administration %}">Administrer</a>
+        </div>
+        
+        <h1>
+            Nombre d'absents en moyenne à {{ school.name }}<br />
+            
+            {% if duration %}
+                (<a href="{% url census-by-schools school.village.id, school.village.name|slugify, year, duration, duration_number %}">{{ school.village.name }}</a>)
+            {% else %}   
+                (<a href="{% url census-by-schools school.village.id, school.village.name|slugify, year %}">{{ school.village.name }}</a>)
+            {% endif %} 
+        </h1>
+
+        <div id="main-content" >
+
+            {% include "_duration_pagination.html" %}
+            
+            {% include "_navigation_form.html" %}
+
+            <table  class="span-18 last">
+            
+                <caption>{% include "_time_pagination.html" %}</caption>
+
+                <tr>
+                    <th>Classes</th>
+                    <th>Garçons</th>
+                    <th>Filles</th>
+                    <th>Enseignants</th>
+                </tr>
+                
+                {% for class_abs in classes_abs %}
+                    <tr>
+                       <td>{{ class_abs.class_name }}</td>
+                       <td>{{ class_abs.boys_absentees|floatformat:0 }} / {{ class_abs.boys_count }} </td>
+                       <td>{{ class_abs.girls_absentees|floatformat:0 }} / {{ class_abs.girls_count }}</td>
+                       <td>{{ class_abs.teacher_absentees|floatformat:0 }} / {{ class_abs.teachers_count }}</td>
+                    </tr>
+                        
+                    {% empty %}
+                         <tr>
+                            <td colspan="4">{{ in_empty_case }} <a href="{% url cenus-report-management %}" class = "prepend-2"> Ajouter un nouvel appel</a></td>
+                         </tr>
+                {% endfor%}
+                    
+                {% for school_class_name in classes_whithout_activities %}
+                    <tr>
+                        <td>{{ school_class_name }}</td>
+                        <td colspan="3">Aucun appel n'a été fait <a href="{% url cenus-report-management %}" class = "prepend-2"> Ajouter un nouvel appel</a></td>
+                    </tr>
+                {%endfor%}
+                    
+                {% if not in_empty_case  %} 
+                    <tfoot>
+                        <tr>
+                            <td >Total</td>
+                            <td> {{total_abs_boys|floatformat:0}}/{{total_count_boys}}</td>
+                            <td> {{total_abs_girls|floatformat:0}}/{{total_count_girls}}</td>
+                            <td> {{total_abs_teachers|floatformat:0}}/{{total_count_teachers}}</td>        
+                        </tr>
+                    </tfoot>
+                {%endif%}
+                    
+            </table>
+          
+            </div>
+                {% if duration %} 
+                    <a class="prepend-17" href="{% url by_classes_census_csv school.id, school.name|slugify year, duration, duration_number %}">
+                        Télécharger ces données au format CSV
+                    </a>
+                    {% else %}
+                    <a class="prepend-17" href="{% url by_classes_census_csv school.id, school.name|slugify year %}">
+                        Télécharger ces données au format CSV
+                    </a>
+                {% endif %}
+            </div>
+    {% endblock %}
+  
+</div>

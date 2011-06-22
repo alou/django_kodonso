@@ -1,0 +1,62 @@
+ <div class="onglets_html">
+        <div class="onglets">
+            <div class="onglet_n onglet"><a href="/">Acceuil</a></div>
+            <div class="onglet_n onglet"><a href="/stock/dashboard">Resumé</a></div>
+            <div class="onglet_n onglet"><a href="/stock/all/">Tous les stocks</a></div>
+            <div class="onglet_y onglet"><a href="/stock/report_management/">Gestion des rapports</a></div>
+        </div>
+        <div class="contenu">
+{% extends "base.html" %}
+
+{% block title %}Gestion des rapports{% endblock %}
+
+{% block page-id %}stock-report-management{% endblock %}
+
+{% block menu %}
+{% include "django_stock/_menu.html" %}
+{% endblock %}  
+
+{% block content %}
+
+{% include "_report_management_pagination.html" %}
+<a href="{{page.url_add_report}}">Ajouter un Rapport</a>
+<form >
+<table >
+
+    <tr>
+        <th>Villages</th>
+        <th>Denree</th>
+        <th>Entrée</th>
+        <th>Sortie</th>
+        <th>Restant</th>
+        <th>Date</th>
+    </tr>
+        
+    {% for report in page.object_list %}
+        <tr>
+            <td><a href="{{ report.url_place }}">{{ report.place }}</a></td>
+            <td><a href="{{ report.url_product }}">{{report.product}}  </a></td>
+            <td> {{report.incomming}} </td>
+            <td>{{ report.consumption }}</td>
+            <td>{{ report.remaining }}</td>
+            <td>{{ report.date|date:"d b Y" }}</td>
+            <td><a href="{{report.url_delete}}" onCLick="return confirm('êtes-vous sure de supprimer ce rapport?')">
+                Suprimer</a>
+            </td>
+            
+           
+        </tr> 
+    {% empty %}
+        <tr>
+        <td colspan="7">{{ in_empty_case }}</td>
+        </tr> 
+    {% endfor %} 
+ 
+</table>
+
+</form>
+<a href="{{page.url_add_report}}">Ajouter un Rapport</a>
+{% include "_report_management_pagination.html" %}
+        </div>
+    </div>
+{% endblock %}

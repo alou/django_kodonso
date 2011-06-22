@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} Stocks of {{ product.name }} by places &lt; Stock &lt; Kodonso{% endblock %}
+{% block page-id %}stock-by-places{% endblock %}
+{% block content %}
+
+<div id="header">
+    <div id="menu">
+        <ul>
+            <li class="first"><a href="/home/">{% trans "Home" %}</a></li>
+            <li ><a href="{% url stock-dashboard %}">{% trans "Abstract" %}</a></li>
+            <li><a href="{% url stock-all %}">{% trans "All Stocks" %}</a></li>
+            <li><a href="{% url stock-report-management %}">{% trans "Management Reports" %}</a></li>        
+        </ul>
+    </div>
+
+
+        <div id="login" class=" prepend-17">
+                {% trans "Welcome" %} {{ user.username }}
+                <a href="{% url logout_%}">{% trans "Disconnect" %}</a> 
+                <a href="{% url administration %}">{% trans "manage" %}</a>
+        </div>
+
+        <h1>{% trans "Stocks of" %} {{ product.name }}  {% trans "by places" %}</h1>
+
+        {% include "_duration_pagination.html" %} 
+
+        {% include "_navigation_form.html" %}
+
+        <table  class="span-18 last">
+
+            <caption>
+               {% include "_time_pagination.html" %}
+            </caption>
+        
+            <tr>
+                <th>{% trans "Places" %}</th>
+                <th>{% trans "Incomming" %}</th>
+                <th>{% trans "Consumption" %}</th>
+                <th>{% trans "Remaining stocks" %}</th>
+            </tr>
+            
+            {% for report in village_reports %}
+                <tr>
+                    <td>
+                        {% if duration %}
+                            <a href="{% url stock-by-products report.id_, report.place|slugify, year, duration, duration_number %}">
+                                {{ report.place }}
+                            </a>
+                        {% else %}
+                            <a href="{% url stock-by-products report.id_, report.place|slugify, year %}">
+                                {{ report.place }}
+                            </a>
+                        {% endif %}
+                    </td>
+                    
+                    <td>{{ report.incomming }} t</td>
+                    <td>{{ report.consumption }} t</td>
+                    <td>{{ report.remaining }} t</td>
+                </tr>  
+                 
+                {% empty %}
+                     <tr>
+                        <td colspan="4">{{ in_empty_case }} <a href = '{% url stock-report-management %}'>Ajouter un relevé</a> </td>
+                     </tr>
+            {%endfor%}
+        
+            {% for village in place_whithout_activities %}
+                <tr>
+                    <td>{{ village }}</td>
+                    <td colspan="3">{% trans "No record of stock" %} </a></td>
+                </tr>
+            {%endfor%}        
+
+            {% if not in_empty_case  %} 
+                <tfoot> 
+                    <tr>
+                        <td >{% trans "Total" %}</td>
+                        <td> {{ total_incomming|floatformat:0 }} t</td>
+                        <td> {{ total_consumption|floatformat:0 }} t</td>
+                        <td> {{ total_remaining|floatformat:0 }} t</td>        
+                    </tr>
+                </tfoot>
+            {%endif%}
+        </table>  
+
+        {% if duration %} 
+            <a class="prepend-16"href="{% url by_places_csv product.id, product.name|slugify year, duration, duration_number %}">{% trans "Download data in the size CSV" %}</a>
+            {% else %}
+            <a class="prepend-16" href="{% url by_places_csv product.id, product.name|slugify year %}">{% trans "Download data in the size CSV" %}</a>
+        {% endif %}
+
+{% endblock %}
+

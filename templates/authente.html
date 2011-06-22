@@ -1,0 +1,58 @@
+
+<div id= "home_page"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
+
+    <head>
+        <title>Login</title>
+        
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        {% block prepend-stylesheet %}{% endblock %}
+        <!--[if IE]>
+            <link type="text/css" rel="stylesheet" href="/static/css/styles-ie.css" />
+            <link rel="stylesheet" href="/static/css/blueprint/screen.css" type="text/css" />
+        <![endif]-->
+            <link rel="stylesheet" href="/static/css/blueprint/screen.css" type="text/css" />
+            <link href="/static/css/style.css" rel="stylesheet" type="text/css" media="screen" />
+{% load i18n %}
+    </head>
+    
+    <body>
+    
+        <div id="home" class="container "> 
+
+<div id="wrapper">
+        <div id="logo">
+            <h1 class="prepend-5"> <span>{% trans "School management groups" %}</span></h1>
+            <span><img id = 'image' class ="{{valide}}" src="/static/css/images/AddressBook.png" width="120" height="120" title="{% for error in field.errors %}{{ error }}{% endfor %}" /></a> </span>
+        </div>
+        <div id="header">
+			<a href="/admin" style="color: #fff"> Administration</a>
+            <div class="span-12  prepend-6">
+                <div id="central-column" class="span-10 box">
+                    <strong>
+                        {{state}}
+                    </strong>
+                    
+                    <form action="{% url login %}" method="post" autocomplete = "off" >
+                        <div id="las">
+                            {{ form.as_ul }}
+                        </div>
+                        <span class ="span-4"><input type="submit" value="{% trans 'Log in' %}"  ></span>
+                    </form>        
+            </div>
+        </div>
+    </div>    
+
+        </div>
+        
+        <script type="text/javascript" src="/static/js/behavior.js"></script>
+        
+    </body>
+    
+</html>
+
+     
+ 
+
+

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block title %}Formulaire de saisie{% endblock %}
+
+{% block page-id %}formulaire{% endblock %}
+
+{% block menu %}
+{% include "django_census/_menu.html" %}
+{% endblock %}  
+
+{% block content %}
+
+
+<table >
+
+        <tr>
+            <th>Villages</th>
+            <th>Ecoles</th>
+            <th>Classes</th>
+            <th>Garçons</th>
+            <th>Filles</th>
+            <th>Enseignants</th>
+            <th>Date</th>
+        </tr>
+        
+   {% for report in reports %}
+        {% now "jS o\f F" %}
+
+        <tr>
+            <td><a href="{% url census-by-schools report.school_class.school.village.id,report.school_class.school.village.name|slugify %}">{{ report.school_class.school.village }}</a></td>
+            <td><a href="{% url census-by-classes report.school_class.school.village.id,report.school_class.school.village.name|slugify %}">{{report.school_class.school}}  </a></td>
+            <td> {{report.school_class.grade}} ({{report.school_class.begin_year}}-{{report.school_class.end_year}}) </td>
+            <td>{{report.boys_absentees}}/{{ report.school_class.boys_count }}</td>
+            <td>{{report.girls_absentees}}/{{ report.school_class.girls_count }}</td>
+            <td >{{ report.school_class.teachers_count }}</td>
+            <td>{{ report.date|date:"d b Y" }}</td>
+        </tr>
+        
+    {% endfor %} 
+ 
+    </table>
+
+
+
+
+
+
+{% endblock %}

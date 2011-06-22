@@ -1,0 +1,34 @@
+
+{% load i18n %}
+
+
+<ul>
+
+    <li>{% trans "By" %} : </li>
+
+    <li>
+        {% ifequal duration "week" %}
+            {% trans "Week" %}
+        {% else %}
+             <a href="{{ week_date_url }}">{% trans "Week" %}</a>
+        {% endifequal %}
+    </li>
+
+    <li>
+        {% ifequal duration "month" %}
+            {% trans "Month" %}
+        {% else %}
+            <a href="{{ month_date_url }}"> {% trans "Month" %}</a>
+        {% endifequal %}
+    </li>
+
+    <li>
+        {% if duration  %}
+            <a href="{{ year_date_url }}"> {% trans "Year" %} </a>
+        {% else %}
+            {% trans "Year" %}
+        {% endif%}
+    </li>
+    
+</ul>
+

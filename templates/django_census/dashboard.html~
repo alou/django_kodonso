@@ -1,0 +1,147 @@
+<div id="header">
+		<div id="menu">
+			<ul>
+				<li class="first"><a href="/home/">Acceuil</a></li>
+				<li class="current_page_item"><a href="/census/dashboard">Resumé</a></li>
+				<li ><a href="/census/all/">Toutes les absences</a></li>
+				<li ><a href="/census/report_management/">Gestion des Rapports</a></li>
+			</ul>
+		</div>
+            {% extends "base.html" %}
+
+{% block title %}Résumé de l'absenteisme &lt; Absentéisme &lt; Kodonso{% endblock %}
+{% block page-id %}census-dashboard{% endblock %}
+{% block menu %}
+{% include "django_census/_menu.html" %}            
+{% endblock %}
+            
+{% block content %}
+ <div id="login"class="prepend-17">
+ Bienvenu(e) {{ user.username }}  <a href="{% url logout%}">Deconnecter</a> <a href="{% url administration %}">Administrer</a>
+</div>
+
+
+<div id="middle-column" class="span-22 prepend-2">
+
+    <h1 class="span-22" >Résumé de l'absentéisme</h1>
+
+    <h2 class="span-20" >Écoles avec le plus d'élèves absents</h2>
+
+    <div id="today-student-absentees" class="span-10">
+    
+        <table >
+            
+            <caption>Hier</caption> 
+            
+            {% for rate in yesterdays_students_abs_rate %}
+                <tr>
+                    <td>
+                        <a href="{% url census-by-classes rate.school_id,rate.school_name|slugify %}">
+                            {{ rate.school_name }}
+                        </a>
+                    </td>
+                    <td>{{ rate.students_abs_rate|floatformat:0 }} %</td>
+                </tr>
+            {%endfor%}
+            
+            {% if not yesterdays_students_abs_rate%}
+                <tr>
+                    <td colspan="2">Aucun appel n'a été  fait <a href="{% url census-add_report%}" class = "prepend-2"> Ajouter un nouvel appel</a></td>
+                </tr>
+            {% endif %}
+            
+        </table>    
+         
+        <!-- <p><a href="#">Afficher tout</a></p> -->
+    </div>
+
+    <div id="last-week-student-absentees" class="span-10 last">
+        <table >
+            
+            <caption>Semaine dernière</caption> 
+            
+            {% for rate in lasts_week_students_abs_rate %}
+                <tr>
+                    <td>
+                        <a href="{% url census-by-classes rate.school_id,rate.school_name|slugify %}">
+                            {{ rate.school_name }}
+                        </a>
+                    </td>
+                    <td>{{  rate.students_abs_rate|floatformat:0 }} %</td>
+                </tr>
+            {%endfor%}
+            
+            {% if not lasts_week_students_abs_rate %}
+                <tr>
+                    <td colspan="2">Aucun appel n'a été  fait <a href="{% url census-add_report%}" class = "prepend-2"> Ajouter un nouvel appel</a></td>
+                </tr>
+            {% endif %}
+
+        </table>    
+       
+        <!-- <p><a href="#">Afficher tout</a></p> -->
+     
+    </div>
+
+    <h2 class="span-20">Écoles avec le plus d'enseignants absents</h2>
+
+    <div id="today-teacher-absentees" class="span-10">
+
+        <table>
+        
+            <caption>Hier</caption> 
+        
+            {% for rate in yesterdays_teachers_abs_rate %}
+                <tr>
+                    <td>
+                        <a href="{% url census-by-classes rate.school_id,rate.school_name|slugify %}">
+                            {{ rate.school_name }}
+                        </a>
+                    </td>
+                    <td>{{ rate.teachers_abs_rate|floatformat:0 }} %</td>
+                </tr>
+            {%endfor%}
+            
+            {% if not yesterdays_students_abs_rate %}
+                <tr>
+                    <td colspan="2">Aucun appel n'a été  fait <a href="{% url census-add_report%}" class = "prepend-2"> Ajouter un nouvel appel</a></td>
+                </tr>
+            {% endif %}
+            
+        </table>
+        
+    <!-- <p><a href="#">Afficher tout</a></p> -->
+    </div>
+
+    <div id="last-week-teacher-absentees" class="span-10 last">
+        
+        <table >
+        
+            <caption>Semaine dernière</caption> 
+
+            {% for rate in lasts_week_teachers_abs_rate %}
+                <tr>
+                    <td>
+                        <a href="{% url census-by-classes rate.school_id,rate.school_name|slugify %}">
+                            {{ rate.school_name }}
+                        </a>
+                    </td>
+                    <td>{{ rate.teachers_abs_rate|floatformat:0 }} %</td>
+                </tr>
+            {%endfor%}
+                
+            {% if not lasts_week_teachers_abs_rate%}
+                 <tr>
+                    <td colspan="2">Aucun appel n'a été  fait <a href="{% url census-add_report%}" class = "prepend-2"> Ajouter un nouvel appel</a></td>
+                 </tr>
+            {% endif %}
+
+        </table>
+        
+        <!-- <p><a href="#">Afficher tout</a></p> -->
+        
+    </div>
+
+</div>
+{% endblock %}
+

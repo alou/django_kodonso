@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}Stocks de {{ village.name }} par denrées &lt; Stock &lt; Kodonso{% endblock %}
+{% block page-id %}stock-by-products{% endblock %}
+{% block content %}
+<div id="header">
+    <div id="menu">
+        <ul>
+            <li class="first"><a href="{% url kodonso-home %}">{% trans "Home" %}</a></li>
+            <li ><a href="{% url stock-dashboard %}">{% trans "Abstract" %}</a></li>
+            <li><a href="{% url stock-all %}">{% trans "All Stocks" %}</a></li>
+            <li><a href="{% url stock-report-management %}">{% trans "Reports Management" %}</a></li>
+            <li><a href="{% url stock_raport_pdf %}">{% trans "Summary" %}</a></li>
+            <li><a href="{% url stock_maxi %}">{% trans "Maximum stock" %}</a></li>
+        </ul>
+    </div>
+    
+    <div id="login" class=" prepend-17">
+            {% trans "Welcome" %} {{ user.username }}
+            <a href="{% url logout_%}">{% trans "Disconnect" %}</a> 
+            <a href="{% url administration %}">{% trans "manage" %}</a>
+    </div>
+    
+        <h1>{% trans "Stocks of" %} {{ village.name }} {% trans "by product" %}</h1>
+    
+    <div id="main-content" class="span-24 last">    
+
+    <span id="duration-pagination">
+            {% include "_duration_pagination.html" %}
+     </span>
+
+            {% include "_navigation_form.html" %}
+
+    {% if reports_by_product %}
+    {% if duration  %}
+    {% ifequal duration "month" %}
+    <a class="prepend-14" href="{% url stock-evolution village.id village.name|slugify year duration duration_number %}">{% trans "See evolution week" %}</a>
+    {% endifequal %}
+    {% ifequal duration "week" %}
+    <a class="prepend-14" href="{% url stock-evolution village.id village.name|slugify year duration duration_number %}">{% trans "See daily evolution" %}</a>
+    {% endifequal %}
+    {% else %}
+        <a class="prepend-14" href="{% url stock-evolution village.id village.name|slugify year  %}">{% trans "See the evolution of months" %} </a>
+        
+    {% endif %}
+    {% endif %}
+        <table class="span-18 last" >
+             
+            <caption >
+                   {% include "_time_pagination.html" %}
+            </caption>
+            <tr>
+                <th>{% trans "Product" %}</th>
+                <th>{% trans "Incomming" %}</th>
+                <th>{% trans "Consumption" %}</th>
+                <th>{% trans "Remaining stocks" %}</th>
+            </tr>
+
+            {% for report in reports_by_product %}
+                <tr>                        
+                    <span>{% if duration %}
+                        <td>
+                            <a href="{% url stock-by-places report.id_, report.product|slugify, year, duration, duration_number %}">{{ report.product }}</a> </td>{% else %} <td><a href="{% url stock-by-places report.id_, report.product|slugify, year %}">{{ report.product }}</a>
+                        </td>{% endif %}
+                    </span>
+                    <td>{{ report.incomming }} kg</td>
+                    <td>{{ report.consumption }} kg</td>
+                    <td>{{ report.remaining }} kg</td>                      
+                </tr>
+                    {% empty %}
+                        <tr>
+                            <td colspan="4">{{ in_empty_case }} <a class = 'prepend-2' href="{% url stock-report-management%}"> {% trans "Add record"%}</a></td>
+                        </tr>            
+                    {%endfor%}  
+        
+            {% if not in_empty_case  %} 
+                <tfoot> 
+                    <tr>
+                        <td >{% trans "Total" %}</td>
+                        <td> {{ total_incomming|floatformat:0 }} kg</td>
+                        <td> {{ total_consumption|floatformat:0 }} kg</td>
+                        <td> {{ total_remaining|floatformat:0 }} kg</td>        
+                    </tr>
+                </tfoot>
+            {%endif%}
+            
+        </table>
+    </div>
+    {% if reports_by_product %}
+        {% if duration %} 
+            <a class="prepend-16" href="{% url by_products_csv place.id, place.name|slugify year, duration, duration_number %}">{% trans "Download those data at size CSV" %}</a>
+            {% else %}
+        
+            <a class="prepend-16" href="{% url by_products_csv place.id, place.name|slugify year %}">{% trans "Download those data at size CSV" %}</a>
+        {% endif %}
+           
+     {% endif %}
+
+{% endblock %}

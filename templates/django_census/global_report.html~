@@ -1,0 +1,104 @@
+<div id="header">
+		<div id="menu">
+			<ul>
+				<li class="first"><a href="/home/">Acceuil</a></li>
+				<li ><a href="/census/dashboard">Resumé</a></li>
+				<li class="current_page_item"><a href="/census/all/">Toutes les absences</a></li>
+				<li ><a href="/census/report_management/">Gestion des Rapports</a></li>	
+			</ul>
+        </div>
+
+        {% extends "base.html" %}
+
+        {% block title %}Absences en moyenne de tous les villages &lt; Absentéisme &lt; Kodonso{% endblock %}
+
+        {% block page-id %}census-global-report{% endblock %}
+
+        {% block menu %}
+        {% include "django_census/_menu.html" %}
+        {% endblock %}      
+
+        {% block content %}
+       <div id="login"class="prepend-17">
+Bienvenu(e) {{ user.username }} <a href="{% url logout%}">Deconnecter</a> <a href="{% url administration %}">Administrer</a>
+</div>
+        <h1>Absences en moyenne de tous les villages</h1>
+
+        <div id="main-content" >
+
+            {% include "_duration_pagination.html" %}
+
+
+            <table id="myTable"> 
+
+                <caption>{% include "_time_pagination.html" %}</caption>
+                <thead> 
+                    <tr>
+                        <th>Villages</th>
+                        <th>Garçons</th>
+                        <th>Filles</th>
+                        <th>Enseignants</th>
+                    </tr>
+                </thead>
+                
+                {% for village_abs in villages_abs %}
+                <tbody>  
+                  <tr>
+                        <td>
+                        {% if duration %}
+                            <a href="{% url census-by-schools village_abs.village_id,village_abs.village_name|slugify, year, duration, duration_number %}">
+                                {{ village_abs.village_name }}
+                            </a>
+                        {% else %}
+                            <a href="{% url census-by-schools village_abs.village_id,village_abs.village_name|slugify, year %}">
+                                {{ village_abs.village_name }}
+                            </a> 
+                        {% endif %}
+                        </td>
+                        <td>{{ village_abs.boys_absentees|floatformat:0 }} / {{ village_abs.boys_count }}</td>
+                        <td>{{ village_abs.girls_absentees|floatformat:0 }} / {{ village_abs.girls_count }}</td>
+                        <td>{{ village_abs.teacher_absentees|floatformat:0 }} / {{ village_abs.teachers_count }}</td>
+                    </tr>
+                {% empty %}
+                     <tr>
+                        <td colspan="4">{{ in_empty_case }}  <a href="{% url census-add_report%}" class = "prepend-2"> Ajouter un nouvel appel</a></td>
+                     </tr>
+                {% endfor %}
+                
+                {% for village in village_whithout_activities %}
+                <!-- TODO : finalement, ne serait-pas judicieux de mettre 
+                     un lien sur ceux qui n'ont pas d'appel ? 
+                     Demander au client dans le doute -->
+                    <tr>
+                        <td>{{ village }}</td>
+                        <td colspan="3">Aucun appel n'a été  fait <a href="{% url census-add_report%}" class = "prepend-2"> Ajouter un nouvel appel</a></td>
+                    </tr>
+                {%endfor%}
+
+             
+                {% if not in_empty_case  %} 
+                    <tfoot> 
+                        <tr>
+                            <td >Total</td>
+                            <td> {{total_abs_boys|floatformat:0}}/{{total_count_boys}}</td>
+                            <td> {{total_abs_girls|floatformat:0}}/{{total_count_girls}}</td>
+                            <td> {{total_abs_teachers|floatformat:0}}/{{total_count_teachers}}</td>        
+                        </tr> 
+                    </tfoot>
+                {%endif%}
+            
+            </tbody>
+            </table> 
+            
+        </div>
+
+            {% if duration %} 
+                <a class="prepend-17"  href="{% url export_all_absence year, duration, duration_number %}">Télécharger ces données au format CSV</a>
+                {% else %}
+                <a class="prepend-17" href="{% url export_all_absence year %}">Télécharger ces données au format CSV</a>
+                {% endif %}
+
+            {% endblock %} 
+        </div>
+    </div>
+</div>

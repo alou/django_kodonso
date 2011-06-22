@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %}Nombre d'absents en moyenne à {{ village.name }},  &lt; Absentéisme &lt; Kodonso{% endblock %}
+
+{% block page-id %}census-by-schools{% endblock %}
+
+{% block content %}
+
+<div id="header">
+    <div id="menu">
+        <ul>
+            <li class="first"><a href="{% url kodonso-home %}">{% trans "Home" %}</a></li>
+            <li ><a href="{% url census-dashboard %}">{% trans "Abstract" %}</a></li>
+            <li ><a href="{% url census-all %}">{% trans "All absences" %}</a></li>
+            <li ><a href="{% url census-report-management %}">{% trans "Reports Management" %}</a></li>
+            <li ><a href="{% url census_raport_pdf %}">{% trans "Summary" %}</a></li>
+        
+        </ul>
+    </div>
+           
+    <div id="login" class=" prepend-17">
+        {% trans "Welcome" %} {{ user.username }}
+        <a href="{% url logout_%}">{% trans "Disconnect" %}</a> 
+        <a href="{% url administration %}">{% trans "manage" %}</a>
+    </div>
+    <h1>{% trans "Average number of abcences to" %} {{ village.name }}</h1>
+    <div id="main-content">
+    <span id="duration-pagination">
+        {% include "_duration_pagination.html" %}
+    </span>
+        {% include "_navigation_form.html" %}
+        {% if interdir_pas_donne %}
+   
+        {% endif %}
+        {% if schools_abs  %}
+            {% if duration  %}
+            {% ifequal duration "month" %}
+                <a class="prepend-14" href="{% url census-evolution village.id village.name|slugify year , duration, duration_number %}">{% trans "See evolution week " %}</a>
+            {% endifequal %}
+            {% ifequal duration "week" %}
+                <a class="prepend-14" href="{% url census-evolution village.id village.name|slugify year , duration, duration_number %}">{% trans "See daily evolution " %} </a>
+            {% endifequal %}
+            {% else %}
+                <a class="prepend-14" href="{% url census-evolution village.id village.name|slugify year  %}">{% trans " See the evolution of months" %}</a>
+            {% endif %}
+        {% endif %}        
+      
+        <table class="span-18 last">
+            <caption>
+                {% include "_time_pagination.html" %}             
+            </caption>
+            <span id="gras_table">
+                <tr>
+                   <td colspan="1">{% trans "School" %}</td>
+                   <td colspan="2">{% trans " Boys " %}</td>
+                   <td colspan="2">{% trans "Girls" %}</td>
+                   <td colspan="2">{% trans "Teachers " %}</td>
+                </tr>
+                       
+                <tr>
+                    <td> </td>
+                   <td>{% trans "Absence Rates" %}</td>
+                   <td>{% trans " Number of missing" %}</td>  
+                   <td>{% trans "Absence Rates" %}</td>
+                   <td>{% trans " Number of missing" %}</td> 
+                   <td>{% trans "Absence Rates" %}</td>
+                   <td>{% trans " Number of missing" %}</td> 
+                </tr>
+            <span>
+            {% for school_abs in schools_abs %}
+                <tr>
+                    <td rowspan="2">
+                        {% if duration %}
+                        <a href="{% url census-by-classes school_abs.school_id, school_abs.school_name|slugify, year, duration, duration_number %}">
+                        {{ school_abs.school_name }}
+                        </a>
+                        {% else %}     
+                        <a href="{% url census-by-classes school_abs.school_id, school_abs.school_name|slugify, year %}">
+                        {{ school_abs.school_name }}
+                        </a>
+                        {% endif%}
+                    </td>
+                    <td rowspan="2">{{ school_abs.moy_abs_boys }} %</td>
+                    <td >{{ school_abs.total_abs_boys }}</td>
+                    <td rowspan="2">{{ school_abs.moy_abs_girls }} %</td>
+                    <td >{{ school_abs.total_abs_girls }}</td>
+                    <td rowspan="2">{{ school_abs.moy_abs_teachers }}%</td>
+                    <td >{{ school_abs.total_abs_teachers }}</td>
+                </tr>
+                
+                <tr>
+                   <td>{{school_abs.nb_jr}} {% trans "days" %}</td>
+                   <td>{{school_abs.nb_jr}} {% trans "days" %}</td>
+                   <td>{{school_abs.nb_jr}} {% trans "days" %}</td>             
+                </tr> 
+                      
+                {% empty %}
+                <tr>
+                    <td colspan="7">{{ in_empty_case }} <a href="{% url census-report-management %}" class = "prepend-2">{% trans "Add a new call"%}</a></td>
+                </tr>
+            {% endfor%}
+                           
+        </table>
+            
+        <div>
+            {% if schools_abs %}
+                {% if duration %} 
+                    <a class="prepend-16" href="{% url export_census_by_schools village.id village.name|slugify year, duration, duration_number %}">
+                        {% trans "Download those data at size CSV" %}
+                    </a>
+                {% else %}
+                    <a class="prepend-16" href="{% url export_census_by_schools village.id village.name|slugify year %}">
+                       {% trans "Download those data at size CSV" %}
+                    </a>
+                {% endif %}
+            {% endif %}
+        </div>   
+        
+    {% endblock %}
+
+</div>

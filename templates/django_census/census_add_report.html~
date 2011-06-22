@@ -1,0 +1,51 @@
+<div id="header">
+		<div id="menu">
+			<ul>
+				<li class="first"><a href="/home/">Acceuil</a></li>
+				<li ><a href="/census/dashboard">Resumé</a></li>
+				<li ><a href="/census/all/">Toutes les absences</a></li>
+				<li ><a href="/census/report_management/">Gestion des Rapports</a></li>
+			</ul>
+		</div>  
+		<!-- end #menu -->
+{% extends "base.html" %}
+{% block title %}Ajout de Rapport{% endblock %}
+{% block page-id %}add-report{% endblock %}
+{% block menu %}{% include "django_stock/_menu.html" %} {% endblock %}
+{% block content %}
+
+        <div id="login" class=" prepend-17">
+        Bienvenu(e) {{ user.username }} <a href="{% url logout_%}">Deconnecter</a> <a href="{% url administration %}">Administrer</a>
+        </div>
+ 
+
+<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+<h1>Formulaire de Saisie</h1>
+<div id ='addd' >
+
+<p class="prepend-10"><strong>{{error}}</strong></p>
+
+    <form method="post" action="">
+    <div id = 'add' class='{{valide}}'>
+        {{form.as_ul}}
+
+<script type="text/javascript">
+  jQuery('#id_date').datepicker();
+</script>
+</div>
+
+        <p>
+            <input type='submit' value = 'Enregistrer' />
+        </p>
+
+    </form>
+
+<h2><a href="{% url census-report-management %}">Retour</a></h2>
+</div>
+
+
+{% endblock %}
+
+

@@ -1,0 +1,130 @@
+
+{% extends "base.html" %}
+{% load i18n %}
+{% block title %} {% trans "Changes in inventories averaged" %} {{ village.name }},  &lt; Stock &lt; Kodonso {% endblock %}
+{% block prepend-stylesheet %}{% endblock %}
+{% block content %}<style type="text/css">
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    
+    table {
+        border-collapse: collapse;
+    }
+    
+    td, th {
+        border: 1px solid #222;
+        padding: 5px;
+    }
+    
+    .legend td, .legend th {
+        border: 0;
+        padding: 2px;
+    }
+</style>
+
+<script src="/static/js/demo/jquery.js" language="javascript" type="text/javascript"></script>
+<script src="/static/js/demo/jquery.flot.pack.js" language="javascript" type="text/javascript"></script>
+<!--[if IE]><script language="javascript" type="text/javascript" src="excanvas.pack.js"></script><![endif]-->
+
+<script language="javascript" type="text/javascript">
+$(function () {
+    var data = [{ 
+data: {{listes}} },];
+
+    var options = {
+        legend: {
+            show: true,
+            margin: 10,
+            backgroundOpacity: 0.5
+        },
+        points: {
+            show: true,
+            radius: 5
+        },
+        lines: {
+            show: true
+        }
+    };
+    
+    var plotarea = $("#plotarea");
+    plotarea.css("height", "250px");
+    plotarea.css("width", "950px");
+    $.plot( plotarea , data, options );
+});
+</script>
+      
+<div id="{% block page-id %}{% endblock %}" class="container "> 
+<div id="header">
+    <div id="menu">
+        <ul>
+            <li class="first"><a href="{% url kodonso-home %}">{% trans "Home" %}</a></li>
+            <li ><a href="{% url stock-dashboard %}">{% trans "Abstract" %}</a></li>
+            <li><a href="{% url stock-all %}">{% trans "All Stocks" %}</a></li>
+            <li><a href="{% url stock-report-management %}">{% trans "Reports Management" %}</a></li>
+            <li><a href="{% url stock_raport_pdf %}">{% trans "Summary" %}</a></li>
+            <li><a href="{% url stock_maxi %}">{% trans "Maximum stock" %}</a></li>
+        </ul>
+    </div>
+    
+         <div id="login" class=" prepend-17">
+                {% trans "Welcome" %} {{ user_username }}
+                <a href="{% url logout_%}">{% trans "Disconnect" %}</a> 
+                <a href="{% url administration %}">{% trans "manage" %}</a>
+        </div>
+    
+    <div class="span-20">
+        <h1> {% trans "Evolution in Stock has" %} {{ ecole }} {% trans "in" %} {{ year }} </h1> 
+       
+        <div id="graphe" class="container ">
+        {% if duration  %}
+         {% ifequal duration "week" %}
+                <table >
+                    <th>{% trans "Days" %}</th>
+                    <th>{% trans "average" %}</th>
+                    {% for e in moyenne_temps %}
+                    <tr>
+                        <td> {{e.jours}} </td>
+                        <td>{{e.Moyenne|floatformat:2}} % </td>
+                    </tr>
+                    {% endfor %}
+                </table> 
+      
+         {% endifequal %}
+        {% ifequal duration "month" %}
+                <table >
+                    <th>{% trans "Week" %}</th>
+                    <th>{% trans "average" %}</th>
+            {% for e in moyenne_temps %}
+                <tr>
+                     <td> {{e.weeks}} </td>
+                     <td>{{e.Moyenne|floatformat:2}} % </td>
+                </tr>
+             {% endfor %}
+              </table> 
+         {% endifequal %}
+         {% else %}
+                <table >
+                        <th>{% trans "Month" %}</th>
+                        <th>{% trans "average" %}</th>
+         {% for e in moyenne_temps %}
+                <tr>
+                    <td> {{e.mois}} </td>
+                    <td>{{e.Moyenne|floatformat:2}} % </td>
+                </tr>
+           {% endfor %}
+                </table>  
+           
+
+         
+          
+        {% endif %}
+        
+<div id="plotarea">         
+          
+</div>  
+    </div> 
+    </div>       
+           
+    {% endblock %}
+
